@@ -20,14 +20,14 @@ public class Drivetrain extends Subsystem {
 	private CANTalon rearLeftMotor;
 	private CANTalon frontRightMotor;
 	private CANTalon rearRightMotor;
-	private RobotDrive drivetrain;
+	private RobotDrive robotDrive;
 	
 	public Drivetrain() {
 		frontLeftMotor = new CANTalon(DRIVE_FRONT_LEFT_ID);
 		rearLeftMotor = new CANTalon(DRIVE_REAR_LEFT_ID);
 		frontRightMotor = new CANTalon(DRIVE_FRONT_RIGHT_ID);
 		rearRightMotor = new CANTalon(DRIVE_REAR_RIGHT_ID);
-		drivetrain = new RobotDrive(
+		robotDrive = new RobotDrive(
 				frontLeftMotor,
 				rearLeftMotor,
 				frontRightMotor,
@@ -41,7 +41,7 @@ public class Drivetrain extends Subsystem {
     }
     
     public void tankDrive(double leftSpeed, double rightSpeed) {
-    	drivetrain.tankDrive(leftSpeed, rightSpeed);
+    	robotDrive.tankDrive(leftSpeed, rightSpeed);
     }
 }
 
