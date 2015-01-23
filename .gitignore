@@ -18,12 +18,6 @@ tmp/
 # CDT-specific
 .cproject
 
-# JDT-specific (Eclipse Java Development Tools)
-.classpath
-
-# PDT-specific
-.buildpath
-
 # sbteclipse plugin
 .target
 
