@@ -1,7 +1,10 @@
 package edu.stuy;
 
-import edu.stuy.util.Gamepad;
 import static edu.stuy.RobotMap.*;
+import edu.stuy.commands.AcquirerCommand;
+import edu.stuy.commands.AcquirerReleaseCommand;
+import edu.stuy.util.Gamepad;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -35,9 +38,14 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
 	public Gamepad driverPad;
+	public Gamepad operatorPad;
 	
 	public OI() {
 		driverPad = new Gamepad(DRIVER_PAD_PORT);
+		operatorPad = new Gamepad(OPERATOR_PAD_PORT);
+		new JoystickButton(operatorPad, ACQUIRER_COMMAND_BUTTON).whileHeld(new AcquirerCommand());
+		new JoystickButton(operatorPad, ACQUIRER_RELEASE_BUTTON).whileHeld(new AcquirerReleaseCommand());
+		
 	}
 }
 

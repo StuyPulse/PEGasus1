@@ -2,8 +2,10 @@
 package edu.stuy;
 
 import edu.stuy.commands.ExampleCommand;
+import edu.stuy.subsystems.Acquirer;
 import edu.stuy.subsystems.Drivetrain;
 import edu.stuy.subsystems.ExampleSubsystem;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -20,6 +22,7 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final Drivetrain drivetrain = new Drivetrain();
+	public static final Acquirer acquirer = new Acquirer();
 	public static OI oi;
 
     Command autonomousCommand;

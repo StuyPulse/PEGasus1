@@ -4,7 +4,7 @@ import static edu.stuy.RobotMap.DRIVE_FRONT_LEFT_ID;
 import static edu.stuy.RobotMap.DRIVE_FRONT_RIGHT_ID;
 import static edu.stuy.RobotMap.DRIVE_REAR_LEFT_ID;
 import static edu.stuy.RobotMap.DRIVE_REAR_RIGHT_ID;
-import edu.stuy.commands.DrivetrainTankDrive;
+import edu.stuy.commands.DrivetrainTankDriveCommand;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -37,7 +37,7 @@ public class Drivetrain extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new DrivetrainTankDrive());
+    	setDefaultCommand(new DrivetrainTankDriveCommand());
     }
     
     public void tankDrive(double leftSpeed, double rightSpeed) {
