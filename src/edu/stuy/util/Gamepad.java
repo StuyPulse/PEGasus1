@@ -20,7 +20,7 @@ public class Gamepad extends Joystick {
      * @return value of left analog x-axis
      */
     public double getLeftX() {
-        return getRawAxis(1);
+        return getRawAxis(0);
     }
     
     /**
@@ -28,7 +28,7 @@ public class Gamepad extends Joystick {
      * @return value of left analog y-axis
      */
     public double getLeftY() {
-        return getRawAxis(2);
+        return getRawAxis(1);
     }
     
     /**
@@ -36,7 +36,7 @@ public class Gamepad extends Joystick {
      * @return value of right analog x-axis
      */
     public double getRightX() {
-        return getRawAxis(3);
+        return getRawAxis(2);
     }
     
     /**
@@ -44,7 +44,7 @@ public class Gamepad extends Joystick {
      * @return value of right analog y-axis
      */
     public double getRightY() {
-        return getRawAxis(4);
+        return getRawAxis(3);
     }
     
     /**
@@ -52,7 +52,7 @@ public class Gamepad extends Joystick {
      * @return value of the left/right d-pad buttons
      */
     public double getDPadX() {
-        return getRawAxis(5);
+        return getRawAxis(4);
     }
     
     /**
@@ -60,7 +60,7 @@ public class Gamepad extends Joystick {
      * @return value of the up/down d-pad buttons
      */
     public double getDPadY() {
-        return getRawAxis(6);
+        return getRawAxis(5);
     }
     
     /**
