@@ -16,11 +16,11 @@ public class AcquirerStopCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.acquirer.stop();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.acquirer.stop();
     }
 
     // Make this return true when this Command no longer needs to run execute()
