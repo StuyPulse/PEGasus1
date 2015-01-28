@@ -17,13 +17,13 @@ public interface RobotMap {
     // public static int rangefinderModule = 1;
 	
 	// CAN device IDs
-	int DRIVE_FRONT_LEFT_ID = 5;
-	int DRIVE_REAR_LEFT_ID = 6;
+	int DRIVE_FRONT_LEFT_ID = 1;
+	int DRIVE_REAR_LEFT_ID = 2;
 	int DRIVE_FRONT_RIGHT_ID = 3;
 	int DRIVE_REAR_RIGHT_ID = 4;
-	//TODO set IDs back to 5,6
-	int ACQUIRER_LEFT_ROLLER_ID = 1;
-	int ACQUIRER_RIGHT_ROLLER_ID = 2;
+	
+	int ACQUIRER_LEFT_ROLLER_ID = 5;
+	int ACQUIRER_RIGHT_ROLLER_ID = 6;
 	
 	// Solenoid Ports:
 	int SOLENOID_ARMS_SHORT_IN = 0;
