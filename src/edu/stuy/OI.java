@@ -3,6 +3,9 @@ package edu.stuy;
 import static edu.stuy.RobotMap.*;
 import edu.stuy.commands.AcquirerAcquireCommand;
 import edu.stuy.commands.AcquirerReleaseCommand;
+import edu.stuy.commands.ArmsNarrowCommand;
+import edu.stuy.commands.ArmsReleaseCommand;
+import edu.stuy.commands.ArmsWideCommand;
 import edu.stuy.util.Gamepad;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -43,9 +46,15 @@ public class OI {
 	public OI() {
 		driverPad = new Gamepad(DRIVER_PAD_PORT);
 		operatorPad = new Gamepad(OPERATOR_PAD_PORT);
-		new JoystickButton(operatorPad, ACQUIRER_ACQUIRE_BUTTON).whileHeld(new AcquirerAcquireCommand());
-		new JoystickButton(operatorPad, ACQUIRER_RELEASE_BUTTON).whileHeld(new AcquirerReleaseCommand());
 		
+		new JoystickButton(operatorPad, ACQUIRER_RELEASE_LEFT_TRIGGER).whileHeld(new AcquirerReleaseCommand());
+		new JoystickButton(operatorPad, ACQUIRER_RELEASE_RIGHT_TRIGGER).whileHeld(new AcquirerReleaseCommand());
+		new JoystickButton(operatorPad, ACQUIRER_ACQUIRE_LEFT_TRIGGER).whileHeld(new AcquirerAcquireCommand());
+		new JoystickButton(operatorPad, ACQUIRER_ACQUIRE_RIGHT_TRIGGER).whileHeld(new AcquirerAcquireCommand());
+		
+		new JoystickButton(operatorPad, ARMS_NARROW_BUTTON).whenPressed(new ArmsNarrowCommand());
+		new JoystickButton(operatorPad, ARMS_WIDE_BUTTON).whenPressed(new ArmsWideCommand());
+		new JoystickButton(operatorPad, ARMS_RELEASE_BUTTON).whenPressed(new ArmsReleaseCommand());
 	}
 }
 

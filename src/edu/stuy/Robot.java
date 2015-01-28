@@ -1,8 +1,10 @@
 
 package edu.stuy;
 
+import edu.stuy.commands.ArmsNarrowCommand;
 import edu.stuy.commands.ExampleCommand;
 import edu.stuy.subsystems.Acquirer;
+import edu.stuy.subsystems.Arms;
 import edu.stuy.subsystems.Drivetrain;
 import edu.stuy.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.CameraServer;
@@ -23,6 +25,7 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final Drivetrain drivetrain = new Drivetrain();
 	public static final Acquirer acquirer = new Acquirer();
+	public static final Arms arms = new Arms();
 	public static OI oi;
 
     Command autonomousCommand;
@@ -59,6 +62,9 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        
+        // Initialize subsystem states:
+        new ArmsNarrowCommand().start();
     }
 
     /**
