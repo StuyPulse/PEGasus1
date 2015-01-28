@@ -29,6 +29,6 @@ public interface RobotMap {
 	int DRIVER_PAD_PORT = 0;
 	int OPERATOR_PAD_PORT = 1;
 	
-	int ACQUIRER_COMMAND_BUTTON = 1;
+	int ACQUIRER_ACQUIRE_BUTTON = 1;
 	int ACQUIRER_RELEASE_BUTTON = 2;
 }

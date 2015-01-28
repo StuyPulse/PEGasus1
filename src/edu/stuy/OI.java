@@ -1,7 +1,7 @@
 package edu.stuy;
 
 import static edu.stuy.RobotMap.*;
-import edu.stuy.commands.AcquirerCommand;
+import edu.stuy.commands.AcquirerAcquireCommand;
 import edu.stuy.commands.AcquirerReleaseCommand;
 import edu.stuy.util.Gamepad;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -43,7 +43,7 @@ public class OI {
 	public OI() {
 		driverPad = new Gamepad(DRIVER_PAD_PORT);
 		operatorPad = new Gamepad(OPERATOR_PAD_PORT);
-		new JoystickButton(operatorPad, ACQUIRER_COMMAND_BUTTON).whileHeld(new AcquirerCommand());
+		new JoystickButton(operatorPad, ACQUIRER_ACQUIRE_BUTTON).whileHeld(new AcquirerAcquireCommand());
 		new JoystickButton(operatorPad, ACQUIRER_RELEASE_BUTTON).whileHeld(new AcquirerReleaseCommand());
 		
 	}
