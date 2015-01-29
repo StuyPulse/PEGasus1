@@ -36,4 +36,8 @@ public interface RobotMap {
     // Joystick ports
     int DRIVER_PAD_PORT = 0;
     int OPERATOR_PAD_PORT = 1;
+    
+    // Drivetrain channels:
+    int DRIVETRAIN_ENCODER_CHANNEL_A = 10;
+    int DRIVETRAIN_ENCODER_CHANNEL_B = 11;
 }
