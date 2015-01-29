@@ -25,6 +25,8 @@ public interface RobotMap {
 	int ACQUIRER_LEFT_ROLLER_ID = 5;
 	int ACQUIRER_RIGHT_ROLLER_ID = 6;
 	
+	int LIFT_MOTOR_ID = 7;
+	
 	// Solenoid Ports:
 	int SOLENOID_ARMS_SHORT_IN = 0;
 	int SOLENOID_ARMS_SHORT_OUT = 1;
