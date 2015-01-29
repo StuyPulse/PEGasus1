@@ -1,7 +1,6 @@
 package edu.stuy.commands;
 
 import edu.stuy.Robot;
-import edu.stuy.util.Gamepad;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
