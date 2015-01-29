@@ -1,9 +1,10 @@
 package edu.stuy.subsystems;
 
+import static edu.stuy.RobotMap.*;
 import edu.stuy.commands.LiftControlCommand;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import static edu.stuy.RobotMap.*;
 
 /**
  *
@@ -14,8 +15,13 @@ public class Lift extends Subsystem {
     // here. Call these from Commands.
     private CANTalon liftMotor;
 
+    private DigitalInput upperLimitSwitch;
+    private DigitalInput lowerLimitSwitch;
+
     public Lift() {
         liftMotor = new CANTalon(LIFT_MOTOR_ID);
+        lowerLimitSwitch = new DigitalInput(LIFT_LOWER_LIMIT_SWITCH_CHANNEL);
+        upperLimitSwitch = new DigitalInput(LIFT_UPPER_LIMIT_SWITCH_CHANNEL);
     }
 
     public void initDefaultCommand() {
@@ -24,11 +30,19 @@ public class Lift extends Subsystem {
     }
 
     public void goUp() {
-        liftMotor.set(1.0);
+        if (!upperLimitSwitch.get()) {
+            liftMotor.set(1.0);
+        } else {
+            stop();
+        }
     }
 
     public void goDown() {
-        liftMotor.set(-1.0);
+        if (!lowerLimitSwitch.get()) {
+            liftMotor.set(-1.0);
+        } else {
+            stop();
+        }
     }
 
     public void stop() {
