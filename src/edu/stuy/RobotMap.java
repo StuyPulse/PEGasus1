@@ -36,14 +36,4 @@ public interface RobotMap {
 	// Joystick ports
 	int DRIVER_PAD_PORT = 0;
 	int OPERATOR_PAD_PORT = 1;
-	
-	// Joystick buttons:
-	int ACQUIRER_RELEASE_LEFT_TRIGGER = 5;
-	int ACQUIRER_RELEASE_RIGHT_TRIGGER = 6;
-	int ACQUIRER_ACQUIRE_LEFT_TRIGGER = 7;
-	int ACQUIRER_ACQUIRE_RIGHT_TRIGGER = 8;
-	
-	int ARMS_NARROW_BUTTON = 1;
-	int ARMS_WIDE_BUTTON = 2;
-	int ARMS_RELEASE_BUTTON = 3;
 }

@@ -1,6 +1,7 @@
 package edu.stuy.util;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * Class for both the Logitech Dual Action 2 Gamepad and the Logitech Gamepad
@@ -99,95 +100,143 @@ public class Gamepad extends Joystick {
      * The left bumper.
      * @return if the left bumper is pressed
      */
-    public boolean getLeftBumper() {
+    public boolean getRawLeftBumper() {
         return getRawButton(5);
+    }
+    
+    public JoystickButton getLeftBumper() {
+    	return new JoystickButton(this, 5);
     }
     
     /**
      * The right bumper.
      * @return if the right bumper is pressed
      */
-    public boolean getRightBumper() {
+    public boolean getRawRightBumper() {
         return getRawButton(6);
+    }
+    
+    public JoystickButton getRightBumper() {
+    	return new JoystickButton(this, 6);
     }
     
     /**
      * The left trigger.
      * @return if the left trigger is pressed
      */
-    public boolean getLeftTrigger() {
+    public boolean getRawLeftTrigger() {
         return getRawButton(7);
+    }
+    
+    public JoystickButton getLeftTrigger() {
+    	return new JoystickButton(this, 7);
     }
     
     /**
      * The right trigger.
      * @return if the right trigger is pressed
      */
-    public boolean getRightTrigger() {
+    public boolean getRawRightTrigger() {
         return getRawButton(8);
+    }
+    
+    public JoystickButton getRightTrigger() {
+    	return new JoystickButton(this, 8);
     }
 
     /**
      * The left button of the button group. On some gamepads this is X.
      * @return if the left button is pressed
      */
-    public boolean getLeftButton() {
+    public boolean getRawLeftButton() {
         return getRawButton(1);
+    }
+    
+    public JoystickButton getLeftButton() {
+    	return new JoystickButton(this, 1);
     }
 
     /**
      * The left button of the button group. On some gamepads this is A.
      * @return if the bottom button is pressed
      */
-    public boolean getBottomButton() {
+    public boolean getRawBottomButton() {
         return getRawButton(2);
+    }
+    
+    public JoystickButton getBottomButton() {
+    	return new JoystickButton(this, 2);
     }
 
     /**
      * The left button of the button group. On some gamepads this is B.
      * @return if the right button is pressed
      */
-    public boolean getRightButton() {
+    public boolean getRawRightButton() {
         return getRawButton(3);
+    }
+    
+    public JoystickButton getRightButton() {
+    	return new JoystickButton(this, 3);
     }
 
     /**
-     * The left button of the button group. On some gamepads this is Y.
+     * The top button of the button group. On some gamepads this is Y.
      * @return if the top button is pressed
      */
-    public boolean getTopButton() {
+    public boolean getRawTopButton() {
         return getRawButton(4);
+    }
+    
+    public JoystickButton getTopButton() {
+    	return new JoystickButton(this, 4);
     }
 
     /**
      * The central left button. On some gamepads this is the select button.
      * @return if the back button is pressed
      */
-    public boolean getBackButton() {
+    public boolean getRawBackButton() {
         return getRawButton(9);
+    }
+    
+    public JoystickButton getBackButton() {
+    	return new JoystickButton(this, 9);
     }
 
     /**
      * The central right button. On some gamepads this is the start button.
      * @return if the start button is pressed
      */
-    public boolean getStartButton() {
+    public boolean getRawStartButton() {
         return getRawButton(10);
+    }
+    
+    public JoystickButton getStartButton() {
+    	return new JoystickButton(this, 10);
     }
 
     /**
      * The click-function of the left analog stick.
      * @return if the left analog stick is being clicked down
      */
-    public boolean getLeftAnalogButton() {
+    public boolean getRawLeftAnalogButton() {
         return getRawButton(11);
+    }
+    
+    public JoystickButton getLeftAnalogButton() {
+    	return new JoystickButton(this, 11);
     }
 
     /**
      * The click-function of the right analog stick.
      * @return if the right analog stick is being clicked down
      */
-    public boolean getRightAnalogButton() {
+    public boolean getRawRightAnalogButton() {
         return getRawButton(12);
+    }
+    
+    public JoystickButton getRightAnalogButton() {
+    	return new JoystickButton(this, 12);
     }
 }

@@ -47,14 +47,14 @@ public class OI {
 		driverPad = new Gamepad(DRIVER_PAD_PORT);
 		operatorPad = new Gamepad(OPERATOR_PAD_PORT);
 		
-		new JoystickButton(operatorPad, ACQUIRER_RELEASE_LEFT_TRIGGER).whileHeld(new AcquirerReleaseCommand());
-		new JoystickButton(operatorPad, ACQUIRER_RELEASE_RIGHT_TRIGGER).whileHeld(new AcquirerReleaseCommand());
-		new JoystickButton(operatorPad, ACQUIRER_ACQUIRE_LEFT_TRIGGER).whileHeld(new AcquirerAcquireCommand());
-		new JoystickButton(operatorPad, ACQUIRER_ACQUIRE_RIGHT_TRIGGER).whileHeld(new AcquirerAcquireCommand());
+		operatorPad.getLeftBumper().whileHeld(new AcquirerReleaseCommand());
+		operatorPad.getRightBumper().whileHeld(new AcquirerReleaseCommand());
+		operatorPad.getLeftTrigger().whileHeld(new AcquirerAcquireCommand());
+		operatorPad.getRightTrigger().whileHeld(new AcquirerAcquireCommand());
 		
-		new JoystickButton(operatorPad, ARMS_NARROW_BUTTON).whenPressed(new ArmsNarrowCommand());
-		new JoystickButton(operatorPad, ARMS_WIDE_BUTTON).whenPressed(new ArmsWideCommand());
-		new JoystickButton(operatorPad, ARMS_RELEASE_BUTTON).whenPressed(new ArmsReleaseCommand());
+		operatorPad.getLeftButton().whenPressed(new ArmsNarrowCommand());
+		operatorPad.getBottomButton().whenPressed(new ArmsWideCommand());
+		operatorPad.getRightButton().whenPressed(new ArmsReleaseCommand());
 	}
 }
 
