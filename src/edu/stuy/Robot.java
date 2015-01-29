@@ -2,11 +2,9 @@
 package edu.stuy;
 
 import edu.stuy.commands.ArmsNarrowCommand;
-import edu.stuy.commands.ExampleCommand;
 import edu.stuy.subsystems.Acquirer;
 import edu.stuy.subsystems.Arms;
 import edu.stuy.subsystems.Drivetrain;
-import edu.stuy.subsystems.ExampleSubsystem;
 import edu.stuy.subsystems.Lift;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -22,7 +20,6 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final Drivetrain drivetrain = new Drivetrain();
 	public static final Acquirer acquirer = new Acquirer();
 	public static final Arms arms = new Arms();
@@ -38,7 +35,6 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
         // instantiate the command used for the autonomous period
-        autonomousCommand = new ExampleCommand();
     }
 	
 	public void disabledPeriodic() {
