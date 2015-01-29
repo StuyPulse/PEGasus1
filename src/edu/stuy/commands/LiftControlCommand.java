@@ -20,9 +20,9 @@ public class LiftControlCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.oi.operatorPad.getDPadUp()) {
+    	if (Robot.oi.operatorPad.getRawDPadUp()) {
     		Robot.lift.goUp();
-    	} else if (Robot.oi.operatorPad.getDPadDown()) {
+    	} else if (Robot.oi.operatorPad.getRawDPadDown()) {
     		Robot.lift.goDown();
     	} else {
     		Robot.lift.stop();

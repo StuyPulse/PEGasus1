@@ -1,6 +1,7 @@
 package edu.stuy.util;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
@@ -12,6 +13,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * @author kevin
  */
 public class Gamepad extends Joystick {
+	
     public Gamepad(int port) {
         super(port);
     }
@@ -68,32 +70,48 @@ public class Gamepad extends Joystick {
      * The upper d-pad button.
      * @return if upper d-pad button is pressed
      */
-    public boolean getDPadUp() {
+    public boolean getRawDPadUp() {
         return getDPadY() < -.5;
+    }
+    
+    public DPadButton getDPadUp() {
+    	return new DPadButton(this, DPadButton.Direction.UP);
     }
     
     /**
      * The lower d-pad button.
      * @return if the lower d-pad button is pressed
      */
-    public boolean getDPadDown() {
+    public boolean getRawDPadDown() {
         return getDPadY() > .5;
+    }
+    
+    public DPadButton getDPadDown() {
+    	return new DPadButton(this, DPadButton.Direction.DOWN);
     }
     
     /**
      * The left d-pad button.
      * @return if the left d-pad button is pressed
      */
-    public boolean getDPadLeft() {
+    public boolean getRawDPadLeft() {
         return getDPadX() < -.5;
+    }
+    
+    public DPadButton getDPadLeft() {
+    	return new DPadButton(this, DPadButton.Direction.LEFT);
     }
     
     /**
      * The right d-pad button.
      * @return if the right d-pad button is pressed
      */
-    public boolean getDPadRight() {
+    public boolean getRawDPadRight() {
         return getDPadX() > .5;
+    }
+    
+    public DPadButton getDPadRight() {
+    	return new DPadButton(this, DPadButton.Direction.RIGHT);
     }
     
     /**
@@ -238,5 +256,34 @@ public class Gamepad extends Joystick {
     
     public JoystickButton getRightAnalogButton() {
     	return new JoystickButton(this, 12);
+    }
+    
+    public static class DPadButton extends Button {
+    	public static enum Direction {
+    		UP, DOWN, LEFT, RIGHT
+    	}
+    	
+    	private Gamepad gamepad;
+    	private Direction direction;
+    	
+    	public DPadButton(Gamepad gamepad, Direction direction) {
+    		this.gamepad = gamepad;
+    		this.direction = direction;
+    	}
+
+		public boolean get() {
+			switch (direction) {
+			case UP:
+				return gamepad.getRawDPadUp();
+			case DOWN:
+				return gamepad.getRawDPadDown();
+			case LEFT:
+				return gamepad.getRawDPadLeft();
+			case RIGHT:
+				return gamepad.getRawDPadRight();
+			default: // Never reached
+				return false;
+			}
+		}
     }
 }
