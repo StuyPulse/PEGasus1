@@ -38,10 +38,10 @@ public interface RobotMap {
     int OPERATOR_PAD_PORT = 1;
     
     // Drivetrain channels:
-    int DRIVETRAIN_ENCODER_CHANNEL_A = 10;
-    int DRIVETRAIN_ENCODER_CHANNEL_B = 11;
+    int DRIVETRAIN_ENCODER_CHANNEL_A = 0;
+    int DRIVETRAIN_ENCODER_CHANNEL_B = 1;
     
     // Lift limit switch channesl:
-    int LIFT_LOWER_LIMIT_SWITCH_CHANNEL = 12;
-    int LIFT_UPPER_LIMIT_SWITCH_CHANNEL = 13;
+    int LIFT_LOWER_LIMIT_SWITCH_CHANNEL = 2;
+    int LIFT_UPPER_LIMIT_SWITCH_CHANNEL = 3;
 }
