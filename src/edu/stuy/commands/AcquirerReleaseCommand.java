@@ -11,12 +11,12 @@ public class AcquirerReleaseCommand extends Command {
     public AcquirerReleaseCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.acquirer);
+        requires(Robot.acquirer);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.acquirer.release();
+        Robot.acquirer.release();
     }
 
     // Called repeatedly when this Command is scheduled to run

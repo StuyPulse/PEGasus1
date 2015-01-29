@@ -11,12 +11,12 @@ public class ArmsNarrowCommand extends Command {
     public ArmsNarrowCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.arms);
+        requires(Robot.arms);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.arms.setNarrow();
+        Robot.arms.setNarrow();
     }
 
     // Called repeatedly when this Command is scheduled to run

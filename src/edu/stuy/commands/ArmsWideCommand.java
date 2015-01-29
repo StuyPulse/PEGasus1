@@ -11,12 +11,12 @@ public class ArmsWideCommand extends Command {
     public ArmsWideCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.arms);
+        requires(Robot.arms);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.arms.setWide();
+        Robot.arms.setWide();
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -11,12 +11,12 @@ public class ArmsReleaseCommand extends Command {
     public ArmsReleaseCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.arms);
+        requires(Robot.arms);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.arms.release();
+        Robot.arms.release();
     }
 
     // Called repeatedly when this Command is scheduled to run

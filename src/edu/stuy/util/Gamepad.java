@@ -13,11 +13,11 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * @author kevin
  */
 public class Gamepad extends Joystick {
-	
+
     public Gamepad(int port) {
         super(port);
     }
-    
+
     /**
      * The left analog stick x-axis.
      * @return value of left analog x-axis
@@ -25,7 +25,7 @@ public class Gamepad extends Joystick {
     public double getLeftX() {
         return getRawAxis(0);
     }
-    
+
     /**
      * The left analog stick y-axis.
      * @return value of left analog y-axis
@@ -33,7 +33,7 @@ public class Gamepad extends Joystick {
     public double getLeftY() {
         return getRawAxis(1);
     }
-    
+
     /**
      * The right analog stick x-axis.
      * @return value of right analog x-axis
@@ -41,7 +41,7 @@ public class Gamepad extends Joystick {
     public double getRightX() {
         return getRawAxis(2);
     }
-    
+
     /**
      * The right analog stick y-axis.
      * @return value of right analog y-axis
@@ -49,7 +49,7 @@ public class Gamepad extends Joystick {
     public double getRightY() {
         return getRawAxis(3);
     }
-    
+
     /**
      * The directional pad of the gamepad.
      * @return value of the left/right d-pad buttons
@@ -57,7 +57,7 @@ public class Gamepad extends Joystick {
     public double getDPadX() {
         return getRawAxis(4);
     }
-    
+
     /**
      * The direction pad of the gamepad.
      * @return value of the up/down d-pad buttons
@@ -65,7 +65,7 @@ public class Gamepad extends Joystick {
     public double getDPadY() {
         return getRawAxis(5);
     }
-    
+
     /**
      * The upper d-pad button.
      * @return if upper d-pad button is pressed
@@ -73,11 +73,11 @@ public class Gamepad extends Joystick {
     public boolean getRawDPadUp() {
         return getDPadY() < -.5;
     }
-    
+
     public DPadButton getDPadUp() {
-    	return new DPadButton(this, DPadButton.Direction.UP);
+        return new DPadButton(this, DPadButton.Direction.UP);
     }
-    
+
     /**
      * The lower d-pad button.
      * @return if the lower d-pad button is pressed
@@ -85,11 +85,11 @@ public class Gamepad extends Joystick {
     public boolean getRawDPadDown() {
         return getDPadY() > .5;
     }
-    
+
     public DPadButton getDPadDown() {
-    	return new DPadButton(this, DPadButton.Direction.DOWN);
+        return new DPadButton(this, DPadButton.Direction.DOWN);
     }
-    
+
     /**
      * The left d-pad button.
      * @return if the left d-pad button is pressed
@@ -97,11 +97,11 @@ public class Gamepad extends Joystick {
     public boolean getRawDPadLeft() {
         return getDPadX() < -.5;
     }
-    
+
     public DPadButton getDPadLeft() {
-    	return new DPadButton(this, DPadButton.Direction.LEFT);
+        return new DPadButton(this, DPadButton.Direction.LEFT);
     }
-    
+
     /**
      * The right d-pad button.
      * @return if the right d-pad button is pressed
@@ -109,11 +109,11 @@ public class Gamepad extends Joystick {
     public boolean getRawDPadRight() {
         return getDPadX() > .5;
     }
-    
+
     public DPadButton getDPadRight() {
-    	return new DPadButton(this, DPadButton.Direction.RIGHT);
+        return new DPadButton(this, DPadButton.Direction.RIGHT);
     }
-    
+
     /**
      * The left bumper.
      * @return if the left bumper is pressed
@@ -121,11 +121,11 @@ public class Gamepad extends Joystick {
     public boolean getRawLeftBumper() {
         return getRawButton(5);
     }
-    
+
     public JoystickButton getLeftBumper() {
-    	return new JoystickButton(this, 5);
+        return new JoystickButton(this, 5);
     }
-    
+
     /**
      * The right bumper.
      * @return if the right bumper is pressed
@@ -133,11 +133,11 @@ public class Gamepad extends Joystick {
     public boolean getRawRightBumper() {
         return getRawButton(6);
     }
-    
+
     public JoystickButton getRightBumper() {
-    	return new JoystickButton(this, 6);
+        return new JoystickButton(this, 6);
     }
-    
+
     /**
      * The left trigger.
      * @return if the left trigger is pressed
@@ -145,11 +145,11 @@ public class Gamepad extends Joystick {
     public boolean getRawLeftTrigger() {
         return getRawButton(7);
     }
-    
+
     public JoystickButton getLeftTrigger() {
-    	return new JoystickButton(this, 7);
+        return new JoystickButton(this, 7);
     }
-    
+
     /**
      * The right trigger.
      * @return if the right trigger is pressed
@@ -157,9 +157,9 @@ public class Gamepad extends Joystick {
     public boolean getRawRightTrigger() {
         return getRawButton(8);
     }
-    
+
     public JoystickButton getRightTrigger() {
-    	return new JoystickButton(this, 8);
+        return new JoystickButton(this, 8);
     }
 
     /**
@@ -169,9 +169,9 @@ public class Gamepad extends Joystick {
     public boolean getRawLeftButton() {
         return getRawButton(1);
     }
-    
+
     public JoystickButton getLeftButton() {
-    	return new JoystickButton(this, 1);
+        return new JoystickButton(this, 1);
     }
 
     /**
@@ -181,9 +181,9 @@ public class Gamepad extends Joystick {
     public boolean getRawBottomButton() {
         return getRawButton(2);
     }
-    
+
     public JoystickButton getBottomButton() {
-    	return new JoystickButton(this, 2);
+        return new JoystickButton(this, 2);
     }
 
     /**
@@ -193,9 +193,9 @@ public class Gamepad extends Joystick {
     public boolean getRawRightButton() {
         return getRawButton(3);
     }
-    
+
     public JoystickButton getRightButton() {
-    	return new JoystickButton(this, 3);
+        return new JoystickButton(this, 3);
     }
 
     /**
@@ -205,9 +205,9 @@ public class Gamepad extends Joystick {
     public boolean getRawTopButton() {
         return getRawButton(4);
     }
-    
+
     public JoystickButton getTopButton() {
-    	return new JoystickButton(this, 4);
+        return new JoystickButton(this, 4);
     }
 
     /**
@@ -217,9 +217,9 @@ public class Gamepad extends Joystick {
     public boolean getRawBackButton() {
         return getRawButton(9);
     }
-    
+
     public JoystickButton getBackButton() {
-    	return new JoystickButton(this, 9);
+        return new JoystickButton(this, 9);
     }
 
     /**
@@ -229,9 +229,9 @@ public class Gamepad extends Joystick {
     public boolean getRawStartButton() {
         return getRawButton(10);
     }
-    
+
     public JoystickButton getStartButton() {
-    	return new JoystickButton(this, 10);
+        return new JoystickButton(this, 10);
     }
 
     /**
@@ -241,9 +241,9 @@ public class Gamepad extends Joystick {
     public boolean getRawLeftAnalogButton() {
         return getRawButton(11);
     }
-    
+
     public JoystickButton getLeftAnalogButton() {
-    	return new JoystickButton(this, 11);
+        return new JoystickButton(this, 11);
     }
 
     /**
@@ -253,37 +253,37 @@ public class Gamepad extends Joystick {
     public boolean getRawRightAnalogButton() {
         return getRawButton(12);
     }
-    
-    public JoystickButton getRightAnalogButton() {
-    	return new JoystickButton(this, 12);
-    }
-    
-    public static class DPadButton extends Button {
-    	public static enum Direction {
-    		UP, DOWN, LEFT, RIGHT
-    	}
-    	
-    	private Gamepad gamepad;
-    	private Direction direction;
-    	
-    	public DPadButton(Gamepad gamepad, Direction direction) {
-    		this.gamepad = gamepad;
-    		this.direction = direction;
-    	}
 
-		public boolean get() {
-			switch (direction) {
-			case UP:
-				return gamepad.getRawDPadUp();
-			case DOWN:
-				return gamepad.getRawDPadDown();
-			case LEFT:
-				return gamepad.getRawDPadLeft();
-			case RIGHT:
-				return gamepad.getRawDPadRight();
-			default: // Never reached
-				return false;
-			}
-		}
+    public JoystickButton getRightAnalogButton() {
+        return new JoystickButton(this, 12);
+    }
+
+    public static class DPadButton extends Button {
+        public static enum Direction {
+            UP, DOWN, LEFT, RIGHT
+        }
+
+        private Gamepad gamepad;
+        private Direction direction;
+
+        public DPadButton(Gamepad gamepad, Direction direction) {
+            this.gamepad = gamepad;
+            this.direction = direction;
+        }
+
+        public boolean get() {
+            switch (direction) {
+            case UP:
+                return gamepad.getRawDPadUp();
+            case DOWN:
+                return gamepad.getRawDPadDown();
+            case LEFT:
+                return gamepad.getRawDPadLeft();
+            case RIGHT:
+                return gamepad.getRawDPadRight();
+            default: // Never reached
+                return false;
+            }
+        }
     }
 }
