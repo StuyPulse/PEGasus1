@@ -40,8 +40,8 @@ public class Arms extends Subsystem {
     }
 
     public void setWide() {
-        setShortPiston(false);
-        setLongPiston(true);
+        setShortPiston(true);
+        setLongPiston(false);
     }
 
     public void release() {
