@@ -8,8 +8,11 @@ import edu.stuy.subsystems.Drivetrain;
 import edu.stuy.subsystems.Lift;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -27,6 +30,7 @@ public class Robot extends IterativeRobot {
     public static OI oi;
 
     Command autonomousCommand;
+    SendableChooser autonChooser;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -34,7 +38,11 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
         oi = new OI();
-        // instantiate the command used for the autonomous period
+        
+        autonChooser = new SendableChooser();
+        autonChooser.addDefault("Do nothing", new CommandGroup());
+        SmartDashboard.putData("Auton setting", autonChooser);
+        
     }
 
     public void disabledPeriodic() {
@@ -42,8 +50,8 @@ public class Robot extends IterativeRobot {
     }
 
     public void autonomousInit() {
-        // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
+        autonomousCommand = (Command) autonChooser.getSelected();
+        autonomousCommand.start();
     }
 
     /**
