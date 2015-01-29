@@ -8,7 +8,7 @@ import edu.stuy.subsystems.Drivetrain;
 import edu.stuy.subsystems.Lift;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.PrintCommand;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -40,7 +40,7 @@ public class Robot extends IterativeRobot {
         oi = new OI();
         
         autonChooser = new SendableChooser();
-        autonChooser.addDefault("Do nothing", new CommandGroup());
+        autonChooser.addDefault("Do nothing", new PrintCommand("Do Nothing"));
         SmartDashboard.putData("Auton setting", autonChooser);
         
     }

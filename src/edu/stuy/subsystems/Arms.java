@@ -45,8 +45,8 @@ public class Arms extends Subsystem {
     }
 
     public void release() {
-        setShortPiston(false);
-        setLongPiston(false);
+        setShortPiston(true);
+        setLongPiston(true);
     }
 
     public void initDefaultCommand() {
