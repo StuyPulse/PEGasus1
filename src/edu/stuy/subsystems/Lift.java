@@ -30,7 +30,7 @@ public class Lift extends Subsystem {
     }
 
     public void goUp() {
-        if (!upperLimitSwitch.get()) {
+        if (upperLimitSwitch.get()) {
             liftMotor.set(1.0);
         } else {
             stop();
@@ -38,7 +38,7 @@ public class Lift extends Subsystem {
     }
 
     public void goDown() {
-        if (!lowerLimitSwitch.get()) {
+        if (lowerLimitSwitch.get()) {
             liftMotor.set(-1.0);
         } else {
             stop();
