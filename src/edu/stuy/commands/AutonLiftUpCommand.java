@@ -6,35 +6,32 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class AutonDriveForwardInches extends Command {
+public class AutonLiftUpCommand extends Command {
 
-    private double inches;
-
-    public AutonDriveForwardInches(double dist) {
+    public AutonLiftUpCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        inches = dist;
-        requires(Robot.drivetrain);
+        requires(Robot.lift);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.drivetrain.resetEncoders();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.drivetrain.tankDrive(1.0, 1.0);
+        Robot.lift.goUp();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.drivetrain.getDistance() >= inches;
+        return Robot.lift.getUpperLimitSwitchHit();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.drivetrain.stopDriveStraight();
+        // No need to stop lift, as Robot.lift.goUp() automatically
+        //  stops it once the limit switch is hit.
     }
 
     // Called when another command which requires one or more of the same

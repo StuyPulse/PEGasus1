@@ -2,34 +2,35 @@ package edu.stuy.commands;
 
 import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.Command;
+import static edu.stuy.RobotMap.*;
 
 /**
  *
  */
-public class AutonDriveForwardInches extends Command {
+public class DrivetrainRotateCommand extends Command {
 
-    private double inches;
-
-    public AutonDriveForwardInches(double dist) {
+    private double degrees;
+    
+    public DrivetrainRotateCommand(double deg) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        inches = dist;
         requires(Robot.drivetrain);
+        degrees = deg;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.drivetrain.resetEncoders();
+        Robot.drivetrain.resetGyro();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.drivetrain.tankDrive(1.0, 1.0);
+        Robot.drivetrain.tankDrive(1.0, -1.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.drivetrain.getDistance() >= inches;
+        return Robot.drivetrain.getGyroAngle() >= degrees - DRIVETRAIN_ROTATE_THRESHOLD;
     }
 
     // Called once after isFinished returns true

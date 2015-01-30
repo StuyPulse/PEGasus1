@@ -48,5 +48,13 @@ public class Lift extends Subsystem {
     public void stop() {
         liftMotor.set(0.0);
     }
+    
+    public boolean getUpperLimitSwitchHit() {
+        return upperLimitSwitch.get();
+    }
+    
+    public boolean getLowerLimitSwitchHit() {
+        return lowerLimitSwitch.get();
+    }
 }
 

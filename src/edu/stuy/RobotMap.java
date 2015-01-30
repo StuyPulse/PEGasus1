@@ -45,4 +45,7 @@ public interface RobotMap {
     // Lift limit switch channels:
     int LIFT_LOWER_LIMIT_SWITCH_CHANNEL = 3;
     int LIFT_UPPER_LIMIT_SWITCH_CHANNEL = 4;
+    
+    // Auton:
+    int DRIVETRAIN_ROTATE_THRESHOLD = 1;
 }
