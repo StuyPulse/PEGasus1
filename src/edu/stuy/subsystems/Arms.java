@@ -12,10 +12,10 @@ public class Arms extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-    Solenoid shortPistonOut;
-    Solenoid shortPistonIn;
-    Solenoid longPistonOut;
-    Solenoid longPistonIn;
+    private Solenoid shortPistonOut;
+    private Solenoid shortPistonIn;
+    private Solenoid longPistonOut;
+    private Solenoid longPistonIn;
 
     public Arms() {
         shortPistonOut = new Solenoid(SOLENOID_ARMS_SHORT_OUT);

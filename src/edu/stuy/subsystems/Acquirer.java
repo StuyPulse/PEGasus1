@@ -12,8 +12,8 @@ public class Acquirer extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    CANTalon leftRoller;
-    CANTalon rightRoller;
+    private CANTalon leftRoller;
+    private CANTalon rightRoller;
 
     public Acquirer() {
         leftRoller = new CANTalon(ACQUIRER_LEFT_ROLLER_ID);
