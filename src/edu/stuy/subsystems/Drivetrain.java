@@ -4,6 +4,7 @@ import static edu.stuy.RobotMap.*;
 import edu.stuy.commands.DrivetrainTankDriveCommand;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -19,6 +20,7 @@ public class Drivetrain extends Subsystem {
     private CANTalon frontRightMotor;
     private CANTalon rearRightMotor;
     private RobotDrive robotDrive;
+    private Gyro gyro;
     
     private Encoder encoder;
 
@@ -34,6 +36,7 @@ public class Drivetrain extends Subsystem {
                 rearRightMotor);
         
         encoder = new Encoder(DRIVETRAIN_ENCODER_CHANNEL_A, DRIVETRAIN_ENCODER_CHANNEL_B);
+        gyro = new Gyro(DRIVETRAIN_GYRO_CHANNEL);
     }
 
     public void initDefaultCommand() {
@@ -46,8 +49,18 @@ public class Drivetrain extends Subsystem {
         robotDrive.tankDrive(leftSpeed, rightSpeed);
     }
     
+    public void reset() {
+        resetEncoders();
+        resetGyro();
+        stopDriveStraight();
+    }
+    
     public void resetEncoders() {
         encoder.reset();
+    }
+    
+    public void resetGyro() {
+        gyro.reset();
     }
     
     public void stopDriveStraight() {
@@ -56,6 +69,26 @@ public class Drivetrain extends Subsystem {
     
     public double getDistance() {
         return encoder.getDistance();
+    }
+    
+    public double getGyroAngle() {
+        return gyro.getAngle();
+    }
+
+    public Gyro getGyro() {
+        return gyro;
+    }
+
+    public void setGyro(Gyro gyro) {
+        this.gyro = gyro;
+    }
+    
+    public Encoder getEncoder() {
+        return encoder;
+    }
+    
+    public void setEncoder(Encoder _encoder) {
+        this.encoder = _encoder;
     }
 }
 
