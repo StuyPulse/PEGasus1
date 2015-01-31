@@ -1,7 +1,9 @@
 package edu.stuy.subsystems;
 
-import static edu.stuy.RobotMap.*;
-import edu.stuy.commands.LiftControlCommand;
+import static edu.stuy.RobotMap.LIFT_LOWER_LIMIT_SWITCH_CHANNEL;
+import static edu.stuy.RobotMap.LIFT_MOTOR_ID;
+import static edu.stuy.RobotMap.LIFT_UPPER_LIMIT_SWITCH_CHANNEL;
+import edu.stuy.commands.LiftStopCommand;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -26,7 +28,7 @@ public class Lift extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new LiftControlCommand());
+        setDefaultCommand(new LiftStopCommand());
     }
 
     public void goUp() {
