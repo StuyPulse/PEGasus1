@@ -1,6 +1,7 @@
 package edu.stuy.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import static edu.stuy.RobotMap.*;
 
 /**
  *
@@ -15,10 +16,10 @@ public class AutonOneSet extends CommandGroup {
         addSequential(new ArmsNarrowCommand());
         addSequential(new AcquirerAcquireCommand());
         addSequential(new AutonLiftUpCommand());
-        addSequential(new AutonDriveForwardInches(25.0));
+        addSequential(new AutonDriveForwardInches(AUTON_ONE_SET_DRIVE_INCHES_FIRST));
         addSequential(new AcquirerAcquireCommand());
-        addSequential(new DrivetrainRotateCommand(90));
-        addSequential(new AutonDriveForwardInches(112));
+        addSequential(new DrivetrainRotateCommand(AUTON_ONE_SET_ROTATE_DEGREES));
+        addSequential(new AutonDriveForwardInches(AUTON_ONE_SET_DRIVE INCHES_SECOND));
         
 
         // To run multiple commands at the same time,
