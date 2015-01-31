@@ -7,6 +7,8 @@ import edu.stuy.commands.AcquirerReleaseCommand;
 import edu.stuy.commands.ArmsNarrowCommand;
 import edu.stuy.commands.ArmsReleaseCommand;
 import edu.stuy.commands.ArmsWideCommand;
+import edu.stuy.commands.LiftDownCommand;
+import edu.stuy.commands.LiftUpCommand;
 import edu.stuy.util.Gamepad;
 
 /**
@@ -55,6 +57,9 @@ public class OI {
         operatorPad.getLeftButton().whenPressed(new ArmsNarrowCommand());
         operatorPad.getBottomButton().whenPressed(new ArmsWideCommand());
         operatorPad.getRightButton().whenPressed(new ArmsReleaseCommand());
+        
+        operatorPad.getDPadUp().whileHeld(new LiftUpCommand());
+        operatorPad.getDPadDown().whileHeld(new LiftDownCommand());
     }
 }
 
