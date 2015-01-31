@@ -70,18 +70,14 @@ Complaints:
 
 Imports:
 
-'''
-
+```java
 import edu.wpi.first.wpilibj.Gyro;
-
-'''
+```
 
 Constructor:
 
-'''
-
+```java
 int analogChannelNumber = 1;
 Gyro g = new Gyro(analogChannelNumber);
-
-'''
+```
 
