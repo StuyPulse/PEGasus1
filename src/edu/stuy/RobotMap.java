@@ -41,12 +41,14 @@ public interface RobotMap {
     // Drivetrain channels:
     int DRIVETRAIN_ENCODER_CHANNEL_A = 0;
     int DRIVETRAIN_ENCODER_CHANNEL_B = 1;
-    int DRIVETRAIN_GYRO_CHANNEL = 2;
-
+    
     // Lift limit switch channels:
-    int LIFT_LOWER_LIMIT_SWITCH_CHANNEL = 3;
-    int LIFT_UPPER_LIMIT_SWITCH_CHANNEL = 4;
-
+    int LIFT_LOWER_LIMIT_SWITCH_CHANNEL = 2;
+    int LIFT_UPPER_LIMIT_SWITCH_CHANNEL = 3;
+    
+    // Analog Channels:
+    int DRIVETRAIN_GYRO_CHANNEL = 0;
+    
     // Auton:
     int DRIVETRAIN_ROTATE_THRESHOLD = 1;
     double AUTON_ONE_SET_DRIVE_INCHES_FIRST = 25.0;
