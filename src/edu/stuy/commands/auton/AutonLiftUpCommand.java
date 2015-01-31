@@ -1,4 +1,4 @@
-package edu.stuy.commands;
+package edu.stuy.commands.auton;
 
 import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.Command;

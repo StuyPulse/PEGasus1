@@ -1,4 +1,4 @@
-package edu.stuy.commands;
+package edu.stuy.commands.auton;
 
 import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class AutonDriveForwardInches extends Command {
+public class AutonDriveForwardInchesCommand extends Command {
 
     private double inches;
     
@@ -17,7 +17,7 @@ public class AutonDriveForwardInches extends Command {
      * @param dist
      */
 
-    public AutonDriveForwardInches(double dist) {
+    public AutonDriveForwardInchesCommand(double dist) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         inches = dist;

@@ -1,14 +1,17 @@
-package edu.stuy.commands;
+package edu.stuy.commands.auton;
 
+import edu.stuy.commands.AcquirerAcquireCommand;
+import edu.stuy.commands.ArmsNarrowCommand;
+import edu.stuy.commands.DrivetrainRotateCommand;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import static edu.stuy.RobotMap.*;
 
 /**
  *
  */
-public class AutonOneSet extends CommandGroup {
+public class AutonOneSetCommand extends CommandGroup {
     
-    public  AutonOneSet() {
+    public  AutonOneSetCommand() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -16,10 +19,10 @@ public class AutonOneSet extends CommandGroup {
         addSequential(new ArmsNarrowCommand());
         addSequential(new AcquirerAcquireCommand());
         addSequential(new AutonLiftUpCommand());
-        addSequential(new AutonDriveForwardInches(AUTON_ONE_SET_DRIVE_INCHES_FIRST));
+        addSequential(new AutonDriveForwardInchesCommand(AUTON_ONE_SET_DRIVE_INCHES_FIRST));
         addSequential(new AcquirerAcquireCommand());
         addSequential(new DrivetrainRotateCommand(AUTON_ONE_SET_ROTATE_DEGREES));
-        addSequential(new AutonDriveForwardInches(AUTON_ONE_SET_DRIVE_INCHES_SECOND));
+        addSequential(new AutonDriveForwardInchesCommand(AUTON_ONE_SET_DRIVE_INCHES_SECOND));
         
 
         // To run multiple commands at the same time,
