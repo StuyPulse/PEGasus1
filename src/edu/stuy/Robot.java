@@ -13,6 +13,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import static edu.stuy.RobotMap.*;
+import edu.stuy.commands.AutonDriveForwardInches;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -40,8 +42,13 @@ public class Robot extends IterativeRobot {
         oi = new OI();
         
         autonChooser = new SendableChooser();
-        autonChooser.addDefault("Do nothing", new CommandGroup());
+        autonChooser.addDefault("1. Do nothing", new CommandGroup());
+        autonChooser.addDefault("2. Drive forward from Driver Side", new AutonDriveForwardInches(AUTON_DRIVE_FORWARD_DRIVER_SIDE));
+        autonChooser.addDefault("3. Drive forward from Field Side", new AutonDriveForwardInches(AUTON_DRIVE_FORWARD_FIELD_SIDE));
+        // -1 means that AutonDriveForwardInches uses INCHES_LABEL
+        autonChooser.addDefault("4. Drive forward Custom Amount", new AutonDriveForwardInches(-1));
         SmartDashboard.putData("Auton setting", autonChooser);
+        SmartDashboard.putNumber(INCHES_LABEL, -1);
         
     }
 

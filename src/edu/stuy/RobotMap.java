@@ -1,4 +1,5 @@
 package edu.stuy;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -36,19 +37,33 @@ public interface RobotMap {
     // Joystick ports
     int DRIVER_PAD_PORT = 0;
     int OPERATOR_PAD_PORT = 1;
-    
+
     // Drivetrain channels:
     int DRIVETRAIN_ENCODER_CHANNEL_A = 0;
     int DRIVETRAIN_ENCODER_CHANNEL_B = 1;
     int DRIVETRAIN_GYRO_CHANNEL = 2;
-    
+
     // Lift limit switch channels:
     int LIFT_LOWER_LIMIT_SWITCH_CHANNEL = 3;
     int LIFT_UPPER_LIMIT_SWITCH_CHANNEL = 4;
-    
+
     // Auton:
     int DRIVETRAIN_ROTATE_THRESHOLD = 1;
     double AUTON_ONE_SET_DRIVE_INCHES_FIRST = 25.0;
     double AUTON_ONE_SET_ROTATE_DEGREES = 90.0;
     double AUTON_ONE_SET_DRIVE_INCHES_SECOND = 112.0;
+
+    // Tote Dimensions
+    double TOTE_WIDTH = 16.9;
+    double TOTE_LENGTH = 26.9;
+
+    // Robot Dimensions
+    double ROBOT_LENGTH = 28.0;
+
+    // Auton Mobility DriveForward
+    double AUTON_DRIVE_FORWARD_FIELD_SIDE = 112.0;
+    double AUTON_DRIVE_FORWARD_DRIVER_SIDE = AUTON_DRIVE_FORWARD_FIELD_SIDE
+            + TOTE_WIDTH + ROBOT_LENGTH;
+    String INCHES_LABEL = "If you are using Setting 4, then input number of inches";
+
 }

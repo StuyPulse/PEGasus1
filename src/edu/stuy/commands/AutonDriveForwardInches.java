@@ -2,7 +2,8 @@ package edu.stuy.commands;
 
 import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.Command;
-
+import static edu.stuy.RobotMap.*;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
@@ -10,6 +11,12 @@ public class AutonDriveForwardInches extends Command {
 
     private double inches;
     
+    
+    /** 
+     * If distance < 0, get it from SmartDashboard
+     * @param dist
+     */
+
     public AutonDriveForwardInches(double dist) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -19,6 +26,9 @@ public class AutonDriveForwardInches extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        if (inches < 0) {
+            inches = SmartDashboard.getNumber(INCHES_LABEL);
+        }
         Robot.drivetrain.resetEncoders();
     }
 
