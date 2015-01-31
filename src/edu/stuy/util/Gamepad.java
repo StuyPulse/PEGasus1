@@ -51,27 +51,11 @@ public class Gamepad extends Joystick {
     }
 
     /**
-     * The directional pad of the gamepad.
-     * @return value of the left/right d-pad buttons
-     */
-    public double getDPadX() {
-        return getRawAxis(4);
-    }
-
-    /**
-     * The direction pad of the gamepad.
-     * @return value of the up/down d-pad buttons
-     */
-    public double getDPadY() {
-        return getRawAxis(5);
-    }
-
-    /**
      * The upper d-pad button.
      * @return if upper d-pad button is pressed
      */
     public boolean getRawDPadUp() {
-        return getDPadY() < -.5;
+        return getPOV() == 0;
     }
 
     public DPadButton getDPadUp() {
@@ -83,7 +67,7 @@ public class Gamepad extends Joystick {
      * @return if the lower d-pad button is pressed
      */
     public boolean getRawDPadDown() {
-        return getDPadY() > .5;
+        return getPOV() == 180;
     }
 
     public DPadButton getDPadDown() {
@@ -95,7 +79,7 @@ public class Gamepad extends Joystick {
      * @return if the left d-pad button is pressed
      */
     public boolean getRawDPadLeft() {
-        return getDPadX() < -.5;
+        return getPOV() == 270;
     }
 
     public DPadButton getDPadLeft() {
@@ -107,7 +91,7 @@ public class Gamepad extends Joystick {
      * @return if the right d-pad button is pressed
      */
     public boolean getRawDPadRight() {
-        return getDPadX() > .5;
+        return getPOV() == 90;
     }
 
     public DPadButton getDPadRight() {
