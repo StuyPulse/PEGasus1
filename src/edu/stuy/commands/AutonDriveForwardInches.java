@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.command.Command;
 public class AutonDriveForwardInches extends Command {
 
     private double inches;
-    private double time;
     
     public AutonDriveForwardInches(double dist) {
         // Use requires() here to declare subsystem dependencies
@@ -43,7 +42,4 @@ public class AutonDriveForwardInches extends Command {
     protected void interrupted() {
     }
     
-    protected void getSpeed(double time) {
-        
-    }
 }
