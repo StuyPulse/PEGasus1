@@ -55,13 +55,17 @@ Complaints:
 Imports:
 
 '''
+
 	import edu.wpi.first.wpilibj.Gyro;
+
 '''
 
 Constructor:
 
 '''
+
 int analogChannelNumber = 1;
 Gyro g = new Gyro(analogChannelNumber);
+
 '''
 
