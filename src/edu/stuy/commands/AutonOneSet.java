@@ -19,7 +19,7 @@ public class AutonOneSet extends CommandGroup {
         addSequential(new AutonDriveForwardInches(AUTON_ONE_SET_DRIVE_INCHES_FIRST));
         addSequential(new AcquirerAcquireCommand());
         addSequential(new DrivetrainRotateCommand(AUTON_ONE_SET_ROTATE_DEGREES));
-        addSequential(new AutonDriveForwardInches(AUTON_ONE_SET_DRIVE INCHES_SECOND));
+        addSequential(new AutonDriveForwardInches(AUTON_ONE_SET_DRIVE_INCHES_SECOND));
         
 
         // To run multiple commands at the same time,
