@@ -35,31 +35,32 @@ public interface RobotMap {
     int SOLENOID_ARMS_LONG_OUT = 3;
     int LIFT_SOLENOID_BRAKE_ON = 4;
     int LIFT_SOLENOID_BRAKE_OFF = 5;
-    // Joystick ports
+
+    // Joystick Ports
     int DRIVER_PAD_PORT = 0;
     int OPERATOR_PAD_PORT = 1;
 
-    // Drivetrain channels:
-    int DRIVETRAIN_ENCODER_CHANNEL_A = 0;
-    int DRIVETRAIN_ENCODER_CHANNEL_B = 1;
-    
-    // Lift limit switch channels:
-    int LIFT_LOWER_LIMIT_SWITCH_CHANNEL = 2;
-    
-    // Analog Channels:
+    // Digital IO Ports:
+    int DRIVETRAIN_ENCODER_LEFT_CHANNEL_A = 0;
+    int DRIVETRAIN_ENCODER_LEFT_CHANNEL_B = 1;
+    int DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A = 2;
+    int DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B = 3;
+    int LIFT_LOWER_LIMIT_SWITCH_CHANNEL = 4;
+
+    // Analog Channels
     int DRIVETRAIN_GYRO_CHANNEL = 0;
     
-    // Auton:
+    // Auton Constants
     int DRIVETRAIN_ROTATE_THRESHOLD = 1;
     double AUTON_ONE_SET_DRIVE_INCHES_FIRST = 25.0;
     double AUTON_ONE_SET_ROTATE_DEGREES = 90.0;
     double AUTON_ONE_SET_DRIVE_INCHES_SECOND = 112.0;
 
-    // Tote Dimensions
+    // Tote Dimensions (inches)
     double TOTE_WIDTH = 16.9;
     double TOTE_LENGTH = 26.9;
 
-    // Robot Dimensions
+    // Robot Dimensions approx. (inches)
     double ROBOT_LENGTH = 28.0;
 
     // Auton Mobility DriveForward
