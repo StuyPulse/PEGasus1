@@ -69,11 +69,11 @@ public class Lift extends Subsystem {
     }
     
     public boolean getLiftAtMidpoint() {
-        return LIFT_ENCODER_MIDPOINT == liftEncoderDown.get();
+        return Math.abs(LIFT_ENCODER_MIDPOINT - liftEncoderDown.get()) <= .001;
     }
     
     public boolean getLiftAtMaxHeight() {
-        return LIFT_ENCODER_MAX_HEIGHT == liftEncoderDown.get();
+        return Math.abs(LIFT_ENCODER_MAX_HEIGHT - liftEncoderDown.get()) <= .001;
     }
 }
 
