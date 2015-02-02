@@ -5,8 +5,8 @@ import edu.stuy.commands.LiftStopCommand;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Subsystem;
-
 /**
  *
  */
@@ -19,15 +19,15 @@ public class Lift extends Subsystem {
     private Solenoid brakeOn;
     private Solenoid brakeOff;
 
-    private DigitalInput upperLimitSwitch;
     private DigitalInput lowerLimitSwitch;
+    
+    private Encoder liftEncoderDown;
 
     public Lift() {
         liftMotor = new CANTalon(LIFT_MOTOR_ID);
         brakeOn = new Solenoid(LIFT_SOLENOID_BRAKE_ON);
         brakeOff = new Solenoid(LIFT_SOLENOID_BRAKE_OFF);
         lowerLimitSwitch = new DigitalInput(LIFT_LOWER_LIMIT_SWITCH_CHANNEL);
-        upperLimitSwitch = new DigitalInput(LIFT_UPPER_LIMIT_SWITCH_CHANNEL);
     }
 
     public void initDefaultCommand() {
@@ -41,7 +41,7 @@ public class Lift extends Subsystem {
     }
 
     public void goUp() {
-        if (upperLimitSwitch.get()) {
+        if (!getLiftAtMaxHeight()) {
             setBrake(false);
             liftMotor.set(1.0);
         } else {
@@ -55,6 +55,7 @@ public class Lift extends Subsystem {
             liftMotor.set(-1.0);
         } else {
             stop();
+            liftEncoderDown.reset();
         }
     }
 
@@ -63,12 +64,27 @@ public class Lift extends Subsystem {
         setBrake(true);
     }
     
-    public boolean getUpperLimitSwitchHit() {
-        return upperLimitSwitch.get();
-    }
-    
     public boolean getLowerLimitSwitchHit() {
         return lowerLimitSwitch.get();
     }
+    
+    public boolean getLiftAtMidpoint() {
+        if (LIFT_ENCODER_MIDPOINT == liftEncoderDown.get()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    public boolean getLiftAtMaxHeight() {
+        if (LIFT_ENCODER_MAX_HEIGHT == liftEncoderDown.get()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
 }
 
