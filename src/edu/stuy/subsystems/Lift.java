@@ -41,15 +41,16 @@ public class Lift extends Subsystem {
     }
 
     public void goUp() {
-        if (!getLiftAtMaxHeight()) {
+        if (getLiftAtMaxHeight()) {
+            stop();
+        } else {
             setBrake(false);
             liftMotor.set(1.0);
-        } else {
-            stop();
         }
     }
 
     public void goDown() {
+        // If limit switch is pressed, then returns false
         if (lowerLimitSwitch.get()) {
             setBrake(false);
             liftMotor.set(-1.0);
@@ -68,8 +69,8 @@ public class Lift extends Subsystem {
         return lowerLimitSwitch.get();
     }
     
-    public boolean getLiftAtMidpoint() {
-        return Math.abs(LIFT_ENCODER_MIDPOINT - liftEncoderDown.get()) <= .001;
+    public boolean getLiftAtRecycleBinHeight() {
+        return Math.abs(LIFT_ENCODER_RECYCLE_BIN_HEIGHT - liftEncoderDown.get()) <= .001;
     }
     
     public boolean getLiftAtMaxHeight() {

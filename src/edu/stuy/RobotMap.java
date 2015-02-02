@@ -70,6 +70,6 @@ public interface RobotMap {
     String INCHES_LABEL = "If you are using Setting 4, then input number of inches";
 
     //Lift Encoder Distance
-    double LIFT_ENCODER_MIDPOINT = 100.0;
+    double LIFT_ENCODER_RECYCLE_BIN_HEIGHT = 100.0;
     double LIFT_ENCODER_MAX_HEIGHT = 200.0;
 }
