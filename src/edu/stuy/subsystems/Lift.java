@@ -28,6 +28,7 @@ public class Lift extends Subsystem {
         brakeOn = new Solenoid(LIFT_SOLENOID_BRAKE_ON);
         brakeOff = new Solenoid(LIFT_SOLENOID_BRAKE_OFF);
         lowerLimitSwitch = new DigitalInput(LIFT_LOWER_LIMIT_SWITCH_CHANNEL);
+        liftEncoderDown = new Encoder(LIFT_LOWER_ENCODER_CHANNEL_A, LIFT_LOWER_ENCODER_CHANNEL_B);
     }
 
     public void initDefaultCommand() {
@@ -74,7 +75,7 @@ public class Lift extends Subsystem {
     }
     
     public boolean getLiftAtMaxHeight() {
-        return Math.abs(LIFT_ENCODER_MAX_HEIGHT - liftEncoderDown.get()) <= .001;
+        return liftEncoderDown.get() >= LIFT_ENCODER_MAX_HEIGHT;
     }
 }
 
