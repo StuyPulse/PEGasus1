@@ -22,7 +22,8 @@ public class Drivetrain extends Subsystem {
     private RobotDrive robotDrive;
     private Gyro gyro;
     
-    private Encoder encoder;
+    private Encoder leftEncoder;
+    private Encoder rightEncoder;
 
     public Drivetrain() {
         frontLeftMotor = new CANTalon(DRIVE_FRONT_LEFT_ID);
@@ -35,7 +36,9 @@ public class Drivetrain extends Subsystem {
                 frontRightMotor,
                 rearRightMotor);
         
-        encoder = new Encoder(DRIVETRAIN_ENCODER_CHANNEL_A, DRIVETRAIN_ENCODER_CHANNEL_B);
+        leftEncoder = new Encoder(DRIVETRAIN_ENCODER_LEFT_CHANNEL_A, DRIVETRAIN_ENCODER_LEFT_CHANNEL_B);
+        rightEncoder = new Encoder(DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A, DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B);
+ 
         gyro = new Gyro(DRIVETRAIN_GYRO_CHANNEL);
     }
 
@@ -56,7 +59,8 @@ public class Drivetrain extends Subsystem {
     }
     
     public void resetEncoders() {
-        encoder.reset();
+        leftEncoder.reset();
+        rightEncoder.reset();
     }
     
     public void resetGyro() {
@@ -68,7 +72,7 @@ public class Drivetrain extends Subsystem {
     }
     
     public double getDistance() {
-        return encoder.getDistance();
+        return (leftEncoder.getDistance() + rightEncoder.getDistance()) / 2;
     }
     
     public double getGyroAngle() {
@@ -79,16 +83,5 @@ public class Drivetrain extends Subsystem {
         return gyro;
     }
 
-    public void setGyro(Gyro gyro) {
-        this.gyro = gyro;
-    }
-    
-    public Encoder getEncoder() {
-        return encoder;
-    }
-    
-    public void setEncoder(Encoder _encoder) {
-        this.encoder = _encoder;
-    }
 }
 
