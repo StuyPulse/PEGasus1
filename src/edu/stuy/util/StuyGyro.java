@@ -21,6 +21,12 @@ public class StuyGyro extends Gyro {
         startGyroUpdateThread();
     }
     
+    public StuyGyro(int channel) {
+        super(channel);
+        gyroMeasurements = new Vector<Double>();
+        startGyroUpdateThread();
+    }
+
     public void startGyroUpdateThread() {
         stopGyroUpdateThread();
         updateMeasurements = new Timer();

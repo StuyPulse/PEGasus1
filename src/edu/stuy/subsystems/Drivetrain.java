@@ -2,6 +2,7 @@ package edu.stuy.subsystems;
 
 import static edu.stuy.RobotMap.*;
 import edu.stuy.commands.DrivetrainTankDriveCommand;
+import edu.stuy.util.StuyGyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Gyro;
@@ -20,7 +21,7 @@ public class Drivetrain extends Subsystem {
     private CANTalon frontRightMotor;
     private CANTalon rearRightMotor;
     private RobotDrive robotDrive;
-    private Gyro gyro;
+    private StuyGyro gyro;
     
     private Encoder leftEncoder;
     private Encoder rightEncoder;
@@ -39,7 +40,7 @@ public class Drivetrain extends Subsystem {
         leftEncoder = new Encoder(DRIVETRAIN_ENCODER_LEFT_CHANNEL_A, DRIVETRAIN_ENCODER_LEFT_CHANNEL_B);
         rightEncoder = new Encoder(DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A, DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B);
  
-        gyro = new Gyro(DRIVETRAIN_GYRO_CHANNEL);
+        gyro = new StuyGyro(DRIVETRAIN_GYRO_CHANNEL);
     }
 
     public void initDefaultCommand() {
@@ -76,7 +77,7 @@ public class Drivetrain extends Subsystem {
     }
     
     public double getGyroAngle() {
-        return gyro.getAngle();
+        return gyro.getAveragedGyroAngle();
     }
 
     public Gyro getGyro() {
