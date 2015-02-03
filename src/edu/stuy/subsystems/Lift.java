@@ -42,7 +42,7 @@ public class Lift extends Subsystem {
     }
 
     public void goUp() {
-        if (getLiftAtMaxHeight()) {
+        if (isAboveMaxHeight()) {
             stop();
         } else {
             setBrake(false);
@@ -70,11 +70,11 @@ public class Lift extends Subsystem {
         return lowerLimitSwitch.get();
     }
     
-    public boolean getLiftAtRecycleBinHeight() {
-        return Math.abs(LIFT_ENCODER_RECYCLE_BIN_HEIGHT - liftEncoderDown.get()) <= .001;
+    public boolean isAboveRecycleBinHeight() {
+        return liftEncoderDown.get() >=  LIFT_ENCODER_RECYCLE_BIN_HEIGHT;
     }
     
-    public boolean getLiftAtMaxHeight() {
+    public boolean isAboveMaxHeight() {
         return liftEncoderDown.get() >= LIFT_ENCODER_MAX_HEIGHT;
     }
 }
