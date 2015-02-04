@@ -45,7 +45,7 @@ public class Robot extends IterativeRobot {
         autonChooser.addDefault("1. Do nothing", new CommandGroup());
         autonChooser.addObject("2. Drive forward from Driver Side", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE));
         autonChooser.addObject("3. Drive forward from Field Side", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_FIELD_SIDE));
-        // -1 means that AutonDriveForwardInches uses INCHES_LABEL
+        // -1 means that AutonDriveForwardInches uses INCHES_LABEL. Defers reading of Smartdashboard value until auton starts
         autonChooser.addObject("4. Drive forward Custom Amount", new AutonDriveForwardInchesCommand(-1));
         autonChooser.addObject("5. Lift up Totes", new AutonLiftUpCommand());
         SmartDashboard.putData("Auton setting", autonChooser);
