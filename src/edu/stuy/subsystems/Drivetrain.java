@@ -53,6 +53,10 @@ public class Drivetrain extends Subsystem {
         robotDrive.tankDrive(leftSpeed, rightSpeed);
     }
     
+    public void arcadeDrive(double moveValue, double rotateValue) {
+        robotDrive.arcadeDrive(moveValue, rotateValue);
+    }
+
     public void reset() {
         resetEncoders();
         resetGyro();

@@ -53,7 +53,7 @@ public interface RobotMap {
     int DRIVETRAIN_GYRO_CHANNEL = 0;
     
     // Auton Constants
-    int DRIVETRAIN_ROTATE_THRESHOLD = 1;
+    double DRIVETRAIN_ROTATE_THRESHOLD_DEGREES = 5.0;
     double AUTON_ONE_SET_DRIVE_INCHES_FIRST = 25.0;
     double AUTON_ONE_SET_ROTATE_DEGREES = 90.0;
     double AUTON_ONE_SET_DRIVE_INCHES_SECOND = 112.0;
@@ -74,4 +74,10 @@ public interface RobotMap {
     //Lift Encoder Distance
     double LIFT_ENCODER_RECYCLE_BIN_HEIGHT = 100.0;
     double LIFT_ENCODER_MAX_HEIGHT = 200.0;
+
+    // PID Constants
+    // TODO: NEED TO TUNE
+    double DRIVE_ROTATE_P = .01;
+    double DRIVE_ROTATE_I = 0;
+    double DRIVE_RORATE_D = 0;
 }
