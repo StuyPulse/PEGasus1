@@ -21,7 +21,7 @@ public class Drivetrain extends Subsystem {
     private CANTalon frontRightMotor;
     private CANTalon rearRightMotor;
     private RobotDrive robotDrive;
-    private StuyGyro gyro;
+    private Gyro gyro;
     
     private Encoder leftEncoder;
     private Encoder rightEncoder;
@@ -40,7 +40,7 @@ public class Drivetrain extends Subsystem {
         leftEncoder = new Encoder(DRIVETRAIN_ENCODER_LEFT_CHANNEL_A, DRIVETRAIN_ENCODER_LEFT_CHANNEL_B);
         rightEncoder = new Encoder(DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A, DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B);
  
-        gyro = new StuyGyro(DRIVETRAIN_GYRO_CHANNEL);
+        gyro = new Gyro(DRIVETRAIN_GYRO_CHANNEL);
     }
 
     public void initDefaultCommand() {
@@ -77,11 +77,7 @@ public class Drivetrain extends Subsystem {
     }
     
     public double getGyroAngle() {
-        return gyro.getAveragedGyroAngle();
-    }
-
-    public Gyro getGyro() {
-        return gyro;
+        return gyro.getAngle();
     }
 
 }
