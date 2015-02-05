@@ -52,12 +52,11 @@ public class Lift extends Subsystem {
 
     public void goDown() {
         // If limit switch is pressed, then returns false
-        if (lowerLimitSwitch.get()) {
+        if (!isAtBottom()) {
             setBrake(false);
             liftMotor.set(-1.0);
         } else {
             stop();
-            liftEncoderDown.reset();
         }
     }
 
@@ -81,7 +80,6 @@ public class Lift extends Subsystem {
     public void runEncoderLogic() {
         if (isAtBottom()) {
             liftEncoderDown.reset();
-            stop();
         }
     }
 
