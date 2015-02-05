@@ -45,9 +45,9 @@ public interface RobotMap {
     int DRIVETRAIN_ENCODER_LEFT_CHANNEL_B = 1;
     int DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A = 2;
     int DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B = 3;
-    int LIFT_LOWER_LIMIT_SWITCH_CHANNEL = 4;
-    int LIFT_LOWER_ENCODER_CHANNEL_A = 5;
-    int LIFT_LOWER_ENCODER_CHANNEL_B = 6;
+    int LIFT_LIMIT_SWITCH_CHANNEL = 4;
+    int LIFT_ENCODER_CHANNEL_A = 5;
+    int LIFT_ENCODER_CHANNEL_B = 6;
 
     // Analog Channels
     int DRIVETRAIN_GYRO_CHANNEL = 0;
@@ -56,7 +56,7 @@ public interface RobotMap {
     double DRIVETRAIN_ROTATE_THRESHOLD_DEGREES = 5.0;
     double AUTON_ONE_SET_DRIVE_INCHES_FIRST = 25.0;
     double AUTON_ONE_SET_ROTATE_DEGREES = 90.0;
-    double AUTON_ONE_SET_DRIVE_INCHES_SECOND = 112.0;
+    double AUTON_ONE_SET_DRIVE_INCHES_SECOND = 112.0; //If this is changed, also change AUTON_DRIVE_FORWARD_FIELD_SIDE
     double AUTON_ACQUIRE_TIME = 1;
 
     // Tote Dimensions (inches)
@@ -67,9 +67,10 @@ public interface RobotMap {
     double ROBOT_LENGTH = 28.0;
 
     // Auton Mobility DriveForward
-    double AUTON_DRIVE_FORWARD_FIELD_SIDE = 112.0;
+    double AUTON_DRIVE_FORWARD_FIELD_SIDE = 112.0; //If this is changed, also change AUTON_ONE_SET_DRIVE_INCHES_SECOND
     double AUTON_DRIVE_FORWARD_DRIVER_SIDE = AUTON_DRIVE_FORWARD_FIELD_SIDE
             + TOTE_WIDTH + ROBOT_LENGTH;
+    //Displayed on Smart Dashboard
     String INCHES_LABEL = "If you are using Setting 4, then input number of inches";
 
     // Encoder Distances
@@ -82,5 +83,5 @@ public interface RobotMap {
     // TODO: NEED TO TUNE
     double DRIVE_ROTATE_P = .01;
     double DRIVE_ROTATE_I = 0;
-    double DRIVE_RORATE_D = 0;
+    double DRIVE_ROTATE_D = 0;
 }

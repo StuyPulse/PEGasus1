@@ -8,9 +8,6 @@ import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-/**
- *
- */
 public class Drivetrain extends Subsystem {
 
     // Put methods for controlling this subsystem
@@ -20,10 +17,9 @@ public class Drivetrain extends Subsystem {
     private CANTalon frontRightMotor;
     private CANTalon rearRightMotor;
     private RobotDrive robotDrive;
-    private Gyro gyro;
-    
     private Encoder leftEncoder;
     private Encoder rightEncoder;
+    private Gyro gyro;
 
     public Drivetrain() {
         frontLeftMotor = new CANTalon(DRIVE_FRONT_LEFT_ID);
@@ -53,7 +49,8 @@ public class Drivetrain extends Subsystem {
     public void tankDrive(double leftSpeed, double rightSpeed) {
         robotDrive.tankDrive(leftSpeed, rightSpeed);
     }
-    
+
+    //For PID only:
     public void arcadeDrive(double moveValue, double rotateValue) {
         robotDrive.arcadeDrive(moveValue, rotateValue);
     }
@@ -63,27 +60,26 @@ public class Drivetrain extends Subsystem {
         resetGyro();
         stop();
     }
-    
+
     public void resetEncoders() {
         leftEncoder.reset();
         rightEncoder.reset();
     }
-    
+
     public void resetGyro() {
         gyro.reset();
     }
-    
+
     public void stop() {
         robotDrive.tankDrive(0, 0);
     }
-    
+
     public double getDistance() {
         return (leftEncoder.getDistance() + rightEncoder.getDistance()) / 2;
     }
-    
+
     public double getGyroAngle() {
         return gyro.getAngle();
     }
 
 }
-
