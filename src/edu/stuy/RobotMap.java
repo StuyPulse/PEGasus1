@@ -57,6 +57,7 @@ public interface RobotMap {
     double AUTON_ONE_SET_DRIVE_INCHES_FIRST = 25.0;
     double AUTON_ONE_SET_ROTATE_DEGREES = 90.0;
     double AUTON_ONE_SET_DRIVE_INCHES_SECOND = 112.0;
+    double AUTON_ACQUIRE_TIME = 1;
 
     // Tote Dimensions (inches)
     double TOTE_WIDTH = 16.9;
