@@ -71,9 +71,11 @@ public interface RobotMap {
             + TOTE_WIDTH + ROBOT_LENGTH;
     String INCHES_LABEL = "If you are using Setting 4, then input number of inches";
 
-    //Lift Encoder Distance
-    double LIFT_ENCODER_RECYCLE_BIN_HEIGHT = 100.0;
-    double LIFT_ENCODER_MAX_HEIGHT = 200.0;
+    // Encoder Distances
+    double LIFT_ENCODER_RECYCLE_BIN_HEIGHT = 60.0;
+    double LIFT_ENCODER_MAX_HEIGHT = 50.0;
+    double LIFT_ENCODER_DISTANCE_PER_PULSE = 3 * Math.PI / 250;
+    double DRIVETRAIN_ENCODER_DISTANCE_PER_PULSE = 6 * Math.PI / 250;
 
     // PID Constants
     // TODO: NEED TO TUNE

@@ -29,6 +29,7 @@ public class Lift extends Subsystem {
         brakeOff = new Solenoid(LIFT_SOLENOID_BRAKE_OFF);
         lowerLimitSwitch = new DigitalInput(LIFT_LOWER_LIMIT_SWITCH_CHANNEL);
         liftEncoder = new Encoder(LIFT_LOWER_ENCODER_CHANNEL_A, LIFT_LOWER_ENCODER_CHANNEL_B);
+        liftEncoder.setDistancePerPulse(LIFT_ENCODER_DISTANCE_PER_PULSE);
     }
 
     public void initDefaultCommand() {
