@@ -39,12 +39,13 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-        oi = new OI();
-        
         drivetrain = new Drivetrain();
         acquirer = new Acquirer();
         arms = new Arms();
         lift = new Lift();
+
+        oi = new OI();
+
         autonChooser = new SendableChooser();
         autonChooser.addDefault("1. Do nothing", new CommandGroup());
         autonChooser.addObject("2. Drive forward from Driver Side", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE));
