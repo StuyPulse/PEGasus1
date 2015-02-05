@@ -25,10 +25,10 @@ import edu.stuy.commands.auton.*;
  */
 public class Robot extends IterativeRobot {
 
-    public static final Drivetrain drivetrain = new Drivetrain();
-    public static final Acquirer acquirer = new Acquirer();
-    public static final Arms arms = new Arms();
-    public static final Lift lift = new Lift();
+    public static Drivetrain drivetrain;
+    public static Acquirer acquirer;
+    public static Arms arms;
+    public static Lift lift;
     public static OI oi;
 
     Command autonomousCommand;
@@ -41,6 +41,10 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
         oi = new OI();
         
+        drivetrain = new Drivetrain();
+        acquirer = new Acquirer();
+        arms = new Arms();
+        lift = new Lift();
         autonChooser = new SendableChooser();
         autonChooser.addDefault("1. Do nothing", new CommandGroup());
         autonChooser.addObject("2. Drive forward from Driver Side", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE));
