@@ -21,14 +21,14 @@ public class Lift extends Subsystem {
 
     private DigitalInput lowerLimitSwitch;
     
-    private Encoder liftEncoderDown;
+    private Encoder liftEncoder;
 
     public Lift() {
         liftMotor = new CANTalon(LIFT_MOTOR_ID);
         brakeOn = new Solenoid(LIFT_SOLENOID_BRAKE_ON);
         brakeOff = new Solenoid(LIFT_SOLENOID_BRAKE_OFF);
         lowerLimitSwitch = new DigitalInput(LIFT_LOWER_LIMIT_SWITCH_CHANNEL);
-        liftEncoderDown = new Encoder(LIFT_LOWER_ENCODER_CHANNEL_A, LIFT_LOWER_ENCODER_CHANNEL_B);
+        liftEncoder = new Encoder(LIFT_LOWER_ENCODER_CHANNEL_A, LIFT_LOWER_ENCODER_CHANNEL_B);
     }
 
     public void initDefaultCommand() {
@@ -69,16 +69,16 @@ public class Lift extends Subsystem {
     }
     
     public boolean isAboveRecycleBinHeight() {
-        return liftEncoderDown.get() >=  LIFT_ENCODER_RECYCLE_BIN_HEIGHT;
+        return liftEncoder.get() >=  LIFT_ENCODER_RECYCLE_BIN_HEIGHT;
     }
     
     public boolean isAtTop() {
-        return liftEncoderDown.get() >= LIFT_ENCODER_MAX_HEIGHT;
+        return liftEncoder.get() >= LIFT_ENCODER_MAX_HEIGHT;
     }
 
     public void runEncoderLogic() {
         if (isAtBottom()) {
-            liftEncoderDown.reset();
+            liftEncoder.reset();
         }
     }
 
