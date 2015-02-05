@@ -46,6 +46,12 @@ public class Robot extends IterativeRobot {
 
         oi = new OI();
 
+        SmartDashboard.putData(drivetrain);
+        SmartDashboard.putData(acquirer);
+        SmartDashboard.putData(arms);
+        SmartDashboard.putData(lift);
+        SmartDashboard.putData(Scheduler.getInstance());
+
         setupAutonChooser();
     }
 
