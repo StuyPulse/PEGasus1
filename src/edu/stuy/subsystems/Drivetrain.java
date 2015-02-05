@@ -2,7 +2,6 @@ package edu.stuy.subsystems;
 
 import static edu.stuy.RobotMap.*;
 import edu.stuy.commands.DrivetrainTankDriveCommand;
-import edu.stuy.util.StuyGyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Gyro;
@@ -60,7 +59,7 @@ public class Drivetrain extends Subsystem {
     public void reset() {
         resetEncoders();
         resetGyro();
-        stopDriveStraight();
+        stop();
     }
     
     public void resetEncoders() {
@@ -72,7 +71,7 @@ public class Drivetrain extends Subsystem {
         gyro.reset();
     }
     
-    public void stopDriveStraight() {
+    public void stop() {
         robotDrive.tankDrive(0, 0);
     }
     

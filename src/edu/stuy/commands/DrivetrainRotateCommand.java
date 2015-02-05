@@ -39,7 +39,7 @@ public class DrivetrainRotateCommand extends PIDCommand {
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.drivetrain.stopDriveStraight();
+        Robot.drivetrain.stop();
     }
 
     // Called when another command which requires one or more of the same
