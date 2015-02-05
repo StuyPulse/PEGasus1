@@ -1,6 +1,7 @@
 
 package edu.stuy;
 
+import static edu.stuy.RobotMap.*;
 import edu.stuy.commands.ArmsNarrowCommand;
 import edu.stuy.subsystems.Acquirer;
 import edu.stuy.subsystems.Arms;
@@ -13,7 +14,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import static edu.stuy.RobotMap.*;
 import edu.stuy.commands.auton.*;
 
 /**
@@ -46,16 +46,20 @@ public class Robot extends IterativeRobot {
 
         oi = new OI();
 
+        setupAutonChooser();
+    }
+
+    private void setupAutonChooser() {
         autonChooser = new SendableChooser();
         autonChooser.addDefault("1. Do nothing", new CommandGroup());
         autonChooser.addObject("2. Drive forward from Driver Side", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE));
+        // Driving forward from Field Side means we are doing a mobility auton routine without pushing totes
         autonChooser.addObject("3. Drive forward from Field Side", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_FIELD_SIDE));
         // -1 means that AutonDriveForwardInches uses INCHES_LABEL. Defers reading of Smartdashboard value until auton starts
         autonChooser.addObject("4. Drive forward Custom Amount", new AutonDriveForwardInchesCommand(-1));
         autonChooser.addObject("5. Lift up Totes", new AutonLiftUpCommand());
         SmartDashboard.putData("Auton setting", autonChooser);
         SmartDashboard.putNumber(INCHES_LABEL, -1);
-        
     }
 
     public void disabledPeriodic() {
