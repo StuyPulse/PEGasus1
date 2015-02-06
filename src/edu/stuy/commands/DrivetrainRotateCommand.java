@@ -29,12 +29,11 @@ public class DrivetrainRotateCommand extends PIDCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.drivetrain.tankDrive(1.0, -1.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Math.abs((Robot.drivetrain.getGyroAngle() % 360) - degrees) <= DRIVETRAIN_ROTATE_THRESHOLD_DEGREES;
+        return Math.abs(returnPIDInput() - degrees) <= DRIVETRAIN_ROTATE_THRESHOLD_DEGREES;
     }
 
     // Called once after isFinished returns true
@@ -49,11 +48,18 @@ public class DrivetrainRotateCommand extends PIDCommand {
 
     @Override
     protected double returnPIDInput() {
-        return Robot.drivetrain.getGyroAngle() % 360;
+        double temp = Robot.drivetrain.getGyroAngle() % 360;
+ 
+        // Ensure that our gyro value is in the range [0, 360).
+        if (temp < 0) {
+            temp += 360;
+        }
+        return temp;
     }
 
     @Override
     protected void usePIDOutput(double output) {
+        // Use arcade drive for easier rotation
         Robot.drivetrain.arcadeDrive(0, output);
     }
 }
