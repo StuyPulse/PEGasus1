@@ -6,9 +6,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class LiftStopCommand extends Command {
+public class LiftControlCommand extends Command {
 
-    public LiftStopCommand() {
+    public LiftControlCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(Robot.lift);
@@ -16,16 +16,22 @@ public class LiftStopCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.lift.stop();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        if (Robot.oi.operatorPad.getLeftY() >= .5) {
+            Robot.lift.goUp();
+        } else if (Robot.oi.operatorPad.getLeftY() <= -.5) {
+            Robot.lift.goDown();
+        } else {
+            Robot.lift.stop();
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true

@@ -1,11 +1,11 @@
 package edu.stuy.subsystems;
 
 import static edu.stuy.RobotMap.*;
-import edu.stuy.commands.LiftStopCommand;
+import edu.stuy.commands.LiftControlCommand;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Lift extends Subsystem {
@@ -29,7 +29,7 @@ public class Lift extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new LiftStopCommand());
+        setDefaultCommand(new LiftControlCommand());
     }
 
     private void setBrake(boolean on) {
