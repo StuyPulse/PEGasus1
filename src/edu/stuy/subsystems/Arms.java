@@ -4,9 +4,6 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import static edu.stuy.RobotMap.*;
 
-/**
- *
- */
 public class Arms extends Subsystem {
 
     // Put methods for controlling this subsystem
@@ -34,16 +31,25 @@ public class Arms extends Subsystem {
         longPistonIn.set(!out);
     }
 
+    /**
+     * Retracts both pistons for the narrower side of the tote
+     */
     public void setNarrow() {
         setShortPiston(false);
         setLongPiston(false);
     }
 
+    /**
+     * Retracts only the longer piston for the wider side of the tote
+     */
     public void setWide() {
         setShortPiston(true);
         setLongPiston(false);
     }
 
+    /**
+     * Extends both pistons to release the tote
+     */
     public void release() {
         setShortPiston(true);
         setLongPiston(true);
