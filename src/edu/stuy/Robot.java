@@ -64,6 +64,7 @@ public class Robot extends IterativeRobot {
         // -1 means that AutonDriveForwardInches uses INCHES_LABEL. Defers reading of Smartdashboard value until auton starts
         autonChooser.addObject("4. Drive forward Custom Amount", new AutonDriveForwardInchesCommand(-1));
         autonChooser.addObject("5. Lift up Totes", new AutonLiftUpCommand());
+        autonChooser.addObject("6. Acquires set and drives forward", new AutonOneSetCommand());
         SmartDashboard.putData("Auton setting", autonChooser);
         SmartDashboard.putNumber(INCHES_LABEL, -1);
     }
