@@ -1,10 +1,11 @@
 package edu.stuy.commands.auton;
 
-import edu.stuy.commands.AcquirerAcquireCommand;
+import static edu.stuy.RobotMap.AUTON_ONE_SET_DRIVE_INCHES_FIRST;
+import static edu.stuy.RobotMap.AUTON_ONE_SET_DRIVE_INCHES_SECOND;
+import static edu.stuy.RobotMap.AUTON_ONE_SET_ROTATE_DEGREES;
 import edu.stuy.commands.ArmsNarrowCommand;
 import edu.stuy.commands.DrivetrainRotateCommand;
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import static edu.stuy.RobotMap.*;
 
 /**
  *
@@ -17,10 +18,10 @@ public class AutonOneSetCommand extends CommandGroup {
         //      addSequential(new Command2());
         // these will run in order.
         addSequential(new ArmsNarrowCommand());
-        addSequential(new AcquirerAcquireCommand());
+        addSequential(new AutonAcquirerCommand());
         addSequential(new AutonLiftUpCommand());
         addSequential(new AutonDriveForwardInchesCommand(AUTON_ONE_SET_DRIVE_INCHES_FIRST));
-        addSequential(new AcquirerAcquireCommand());
+        addSequential(new AutonAcquirerCommand());
         addSequential(new DrivetrainRotateCommand(AUTON_ONE_SET_ROTATE_DEGREES));
         addSequential(new AutonDriveForwardInchesCommand(AUTON_ONE_SET_DRIVE_INCHES_SECOND));
         
