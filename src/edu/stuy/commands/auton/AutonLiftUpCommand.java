@@ -30,8 +30,7 @@ public class AutonLiftUpCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        // No need to stop lift, as Robot.lift.goUp() automatically
-        //  stops it once the limit switch is hit.
+        Robot.lift.stop();
     }
 
     // Called when another command which requires one or more of the same
