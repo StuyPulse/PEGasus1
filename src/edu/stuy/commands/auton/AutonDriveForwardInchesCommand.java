@@ -62,7 +62,7 @@ public class AutonDriveForwardInchesCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.drivetrain.getDistance() >= inches;
+        return Robot.drivetrain.getDistance() >= inches || Timer.getFPGATimestamp() - startTime >= AUTON_DRIVETRAIN_TIMEOUT;
     }
 
     // Called once after isFinished returns true
