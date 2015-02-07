@@ -33,8 +33,7 @@ public interface RobotMap {
     int SOLENOID_ARMS_LONG_IN = 1;
     int SOLENOID_ARMS_SHORT_OUT = 2;
     int SOLENOID_ARMS_SHORT_IN = 3;
-    int LIFT_SOLENOID_BRAKE_OFF = 4;
-    int LIFT_SOLENOID_BRAKE_ON = 5;
+    int LIFT_SOLENOID_BRAKE = 4;
 
     // Joystick Ports
     int DRIVER_PAD_PORT = 0;
