@@ -1,8 +1,9 @@
 package edu.stuy.subsystems;
 
+import static edu.stuy.RobotMap.*;
+import edu.stuy.util.ArmsPosition;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import static edu.stuy.RobotMap.*;
 
 public class Arms extends Subsystem {
 
@@ -13,12 +14,14 @@ public class Arms extends Subsystem {
     private Solenoid shortPistonIn;
     private Solenoid longPistonOut;
     private Solenoid longPistonIn;
+    private ArmsPosition armsPosition;
 
     public Arms() {
         shortPistonOut = new Solenoid(SOLENOID_ARMS_SHORT_OUT);
         shortPistonIn = new Solenoid(SOLENOID_ARMS_SHORT_IN);
         longPistonOut = new Solenoid(SOLENOID_ARMS_LONG_OUT);
         longPistonIn = new Solenoid(SOLENOID_ARMS_LONG_IN);
+        armsPosition = ArmsPosition.NARROW;
     }
 
     private void setShortPiston(boolean out) {
@@ -37,6 +40,7 @@ public class Arms extends Subsystem {
     public void setNarrow() {
         setShortPiston(false);
         setLongPiston(false);
+        armsPosition = ArmsPosition.NARROW;
     }
 
     /**
@@ -45,6 +49,7 @@ public class Arms extends Subsystem {
     public void setWide() {
         setShortPiston(true);
         setLongPiston(false);
+        armsPosition = ArmsPosition.WIDE;
     }
 
     /**
@@ -53,6 +58,11 @@ public class Arms extends Subsystem {
     public void release() {
         setShortPiston(true);
         setLongPiston(true);
+        armsPosition = ArmsPosition.RELEASE;
+    }
+    
+    public ArmsPosition getCurrentPosition() {
+        return armsPosition;
     }
 
     public void initDefaultCommand() {

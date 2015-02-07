@@ -4,9 +4,8 @@ import static edu.stuy.RobotMap.DRIVER_PAD_PORT;
 import static edu.stuy.RobotMap.OPERATOR_PAD_PORT;
 import edu.stuy.commands.AcquirerAcquireCommand;
 import edu.stuy.commands.AcquirerReleaseCommand;
-import edu.stuy.commands.ArmsNarrowCommand;
-import edu.stuy.commands.ArmsReleaseCommand;
-import edu.stuy.commands.ArmsWideCommand;
+import edu.stuy.commands.ArmsGetNarrowerCommand;
+import edu.stuy.commands.ArmsGetWiderCommand;
 import edu.stuy.util.Gamepad;
 
 /**
@@ -53,8 +52,13 @@ public class OI {
         operatorPad.getLeftTrigger().whileHeld(new AcquirerAcquireCommand());
         operatorPad.getRightTrigger().whileHeld(new AcquirerAcquireCommand());
 
-        operatorPad.getLeftButton().whenPressed(new ArmsNarrowCommand());
-        operatorPad.getBottomButton().whenPressed(new ArmsWideCommand());
-        operatorPad.getRightButton().whenPressed(new ArmsReleaseCommand());
+        operatorPad.getLeftButton().whenPressed(new ArmsGetNarrowerCommand());
+        operatorPad.getBottomButton().whenPressed(new ArmsGetNarrowerCommand());
+        operatorPad.getRightButton().whenPressed(new ArmsGetNarrowerCommand());
+        operatorPad.getTopButton().whenPressed(new ArmsGetNarrowerCommand());
+        
+        operatorPad.getDPadLeft().whenPressed(new ArmsGetWiderCommand());
+        operatorPad.getDPadDown().whenPressed(new ArmsGetWiderCommand());
+        operatorPad.getDPadRight().whenPressed(new ArmsGetWiderCommand());
     }
 }

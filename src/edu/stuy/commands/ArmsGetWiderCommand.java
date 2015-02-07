@@ -1,17 +1,18 @@
 package edu.stuy.commands;
 
 import edu.stuy.Robot;
+import edu.stuy.util.ArmsPosition;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class LiftControlCommand extends Command {
+public class ArmsGetWiderCommand extends Command {
 
-    public LiftControlCommand() {
+    public ArmsGetWiderCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.lift);
+        requires(Robot.arms);
     }
 
     // Called just before this Command runs the first time
@@ -20,18 +21,12 @@ public class LiftControlCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if (Robot.oi.operatorPad.getRightY() <= -.5) {
-            Robot.lift.goUp();
-        } else if (Robot.oi.operatorPad.getRightY() >= .5) {
-            Robot.lift.goDown();
-        } else {
-            Robot.lift.stop();
-        }
+        ArmsPosition.prevPosition(Robot.arms.getCurrentPosition()).goToPosition();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
