@@ -64,9 +64,12 @@ public class Robot extends IterativeRobot {
         // -1 means that AutonDriveForwardInches uses INCHES_LABEL. Defers reading of Smartdashboard value until auton starts
         autonChooser.addObject("4. Drive forward Custom Amount", new AutonDriveForwardInchesCommand(-1));
         autonChooser.addObject("5. Lift up Totes", new AutonLiftUpCommand());
-        autonChooser.addObject("6. Acquires set and drives forward", new AutonOneSetCommand());
+        autonChooser.addObject("6. Acquires set and drives forward (Currently doing PID tuning)", new AutonOneSetCommand());
         SmartDashboard.putData("Auton setting", autonChooser);
         SmartDashboard.putNumber(INCHES_LABEL, -1);
+        SmartDashboard.putNumber(PID_TUNING_P, DRIVE_ROTATE_P);
+        SmartDashboard.putNumber(PID_TUNING_I, DRIVE_ROTATE_I);
+        SmartDashboard.putNumber(PID_TUNING_D, DRIVE_ROTATE_D);
     }
 
     public void disabledPeriodic() {
@@ -75,6 +78,11 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         autonomousCommand = (Command) autonChooser.getSelected();
+        // Temporary for PID tuning
+        if (autonomousCommand instanceof AutonOneSetCommand) {
+            autonomousCommand = new AutonOneSetCommand(SmartDashboard.getNumber(PID_TUNING_P), SmartDashboard.getNumber(PID_TUNING_I), 
+                    SmartDashboard.getNumber(PID_TUNING_D));
+        }
         autonomousCommand.start();
     }
 

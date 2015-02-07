@@ -74,6 +74,9 @@ public interface RobotMap {
             + TOTE_WIDTH + ROBOT_LENGTH;
     //Displayed on Smart Dashboard
     String INCHES_LABEL = "If you are using Setting 4, then input number of inches";
+    String PID_TUNING_P = "PID: p";
+    String PID_TUNING_I = "PID: i";
+    String PID_TUNING_D = "PID: d";
 
     // Encoder Distances
     double LIFT_ENCODER_RECYCLE_BIN_HEIGHT = 60.0;

@@ -12,7 +12,11 @@ public class DrivetrainRotateCommand extends PIDCommand {
     private double degrees;
 
     public DrivetrainRotateCommand(double deg) {
-        super(DRIVE_ROTATE_P, DRIVE_ROTATE_I, DRIVE_ROTATE_D);
+        this(deg, DRIVE_ROTATE_P, DRIVE_ROTATE_I, DRIVE_ROTATE_D);
+    }
+    
+    public DrivetrainRotateCommand(double deg, double p, double i, double d) {
+        super(p, i, d);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(Robot.drivetrain);
