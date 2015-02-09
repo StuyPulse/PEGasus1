@@ -74,5 +74,9 @@ public class Lift extends Subsystem {
             liftEncoder.reset();
         }
     }
+    
+    public double getLiftEncoder() {
+        return liftEncoder.get();
+    }
 
 }

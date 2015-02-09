@@ -77,7 +77,15 @@ public class Drivetrain extends Subsystem {
     public double getDistance() {
         return (leftEncoder.getDistance() + rightEncoder.getDistance()) / 2;
     }
+    
+    public double getLeftEncoder() {
+        return leftEncoder.get();
+    }
 
+    public double getRightEncoder() {
+        return rightEncoder.get();
+    }
+    
     public double getGyroAngle() {
         return gyro.getAngle();
     }
