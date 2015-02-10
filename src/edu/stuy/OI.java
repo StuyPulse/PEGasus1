@@ -2,8 +2,10 @@ package edu.stuy;
 
 import static edu.stuy.RobotMap.DRIVER_PAD_PORT;
 import static edu.stuy.RobotMap.OPERATOR_PAD_PORT;
-import edu.stuy.commands.AcquirerAcquireCommand;
-import edu.stuy.commands.AcquirerReleaseCommand;
+import edu.stuy.commands.AcquirerLeftAcquireCommand;
+import edu.stuy.commands.AcquirerLeftReleaseCommand;
+import edu.stuy.commands.AcquirerRightAcquireCommand;
+import edu.stuy.commands.AcquirerRightReleaseCommand;
 import edu.stuy.commands.ArmsGetNarrowerCommand;
 import edu.stuy.commands.ArmsGetWiderCommand;
 import edu.stuy.util.Gamepad;
@@ -47,10 +49,10 @@ public class OI {
         operatorPad = new Gamepad(OPERATOR_PAD_PORT);
         // Lift is controlled by LiftControlCommand
 
-        operatorPad.getLeftBumper().whileHeld(new AcquirerReleaseCommand());
-        operatorPad.getRightBumper().whileHeld(new AcquirerReleaseCommand());
-        operatorPad.getLeftTrigger().whileHeld(new AcquirerAcquireCommand());
-        operatorPad.getRightTrigger().whileHeld(new AcquirerAcquireCommand());
+        operatorPad.getLeftBumper().whileHeld(new AcquirerLeftReleaseCommand());
+        operatorPad.getRightBumper().whileHeld(new AcquirerRightReleaseCommand());
+        operatorPad.getLeftTrigger().whileHeld(new AcquirerLeftAcquireCommand());
+        operatorPad.getRightTrigger().whileHeld(new AcquirerRightAcquireCommand());
 
         operatorPad.getLeftButton().whenPressed(new ArmsGetNarrowerCommand());
         operatorPad.getBottomButton().whenPressed(new ArmsGetNarrowerCommand());

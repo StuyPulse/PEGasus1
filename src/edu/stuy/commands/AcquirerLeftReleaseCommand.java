@@ -6,9 +6,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class AcquirerReleaseCommand extends Command {
+public class AcquirerLeftReleaseCommand extends Command {
 
-    public AcquirerReleaseCommand() {
+    public AcquirerLeftReleaseCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(Robot.acquirer);
@@ -16,7 +16,7 @@ public class AcquirerReleaseCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.acquirer.release();
+        Robot.acquirer.leftRelease();
     }
 
     // Called repeatedly when this Command is scheduled to run

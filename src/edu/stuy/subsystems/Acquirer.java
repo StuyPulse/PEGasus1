@@ -26,9 +26,12 @@ public class Acquirer extends Subsystem {
         setDefaultCommand(new AcquirerStopCommand());
     }
 
-    public void acquire() {
-        leftRoller.set(-1.0);
+    public void rightAcquire() {
         rightRoller.set(1.0);
+    }
+
+    public void leftAcquire() {
+        leftRoller.set(-1.0);
     }
 
     public void stop() {
@@ -36,9 +39,12 @@ public class Acquirer extends Subsystem {
         rightRoller.set(0.0);
     }
 
-    public void release() {
-        leftRoller.set(1.0);
+    public void rightRelease() {
         rightRoller.set(-1.0);
+    }
+
+    public void leftRelease() {
+        leftRoller.set(1.0);
     }
 }
 
