@@ -27,7 +27,7 @@ public class Acquirer extends Subsystem {
     }
 
     public void acquire() {
-        leftRoller.set(1.0);
+        leftRoller.set(-1.0);
         rightRoller.set(1.0);
     }
 
@@ -37,7 +37,7 @@ public class Acquirer extends Subsystem {
     }
 
     public void release() {
-        leftRoller.set(-1.0);
+        leftRoller.set(1.0);
         rightRoller.set(-1.0);
     }
 }
