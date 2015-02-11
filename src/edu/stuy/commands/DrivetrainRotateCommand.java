@@ -64,6 +64,7 @@ public class DrivetrainRotateCommand extends PIDCommand {
     @Override
     protected void usePIDOutput(double output) {
         // Use arcade drive for easier rotation
-        Robot.drivetrain.arcadeDrive(0, output);
+        // Squared input is disabled so the robot turns correctly
+        Robot.drivetrain.arcadeDrive(0, output, false);
     }
 }

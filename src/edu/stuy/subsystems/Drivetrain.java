@@ -51,8 +51,8 @@ public class Drivetrain extends Subsystem {
     }
 
     //For PID only:
-    public void arcadeDrive(double moveValue, double rotateValue) {
-        robotDrive.arcadeDrive(moveValue, rotateValue);
+    public void arcadeDrive(double moveValue, double rotateValue, boolean squaredInput) {
+        robotDrive.arcadeDrive(moveValue, rotateValue, squaredInput);
     }
 
     public void reset() {
