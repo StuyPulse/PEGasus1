@@ -88,4 +88,6 @@ public interface RobotMap {
     double DRIVE_ROTATE_P = .01;
     double DRIVE_ROTATE_I = 0;
     double DRIVE_ROTATE_D = 0;
+
+    double DRIVETRAIN_SLOWNESS_FACTOR = Math.sqrt(0.5);
 }

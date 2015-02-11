@@ -1,5 +1,6 @@
-package edu.stuy.commands;
+ package edu.stuy.commands;
 
+import static edu.stuy.RobotMap.*;
 import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -20,7 +21,15 @@ public class DrivetrainTankDriveCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.drivetrain.tankDrive(-Robot.oi.driverPad.getLeftY(), -Robot.oi.driverPad.getRightY());
+        double left = Robot.oi.driverPad.getLeftY();
+        double right = Robot.oi.driverPad.getRightY();
+        if (Robot.oi.driverPad.getRawLeftTrigger() || Robot.oi.driverPad.getRawRightTrigger()) {
+            // Fast mode (when a trigger is pressed)
+            Robot.drivetrain.tankDrive(-left, -right);
+        } else {
+            // Slow mode (default)
+            Robot.drivetrain.tankDrive(-left * DRIVETRAIN_SLOWNESS_FACTOR, -right * DRIVETRAIN_SLOWNESS_FACTOR);
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
