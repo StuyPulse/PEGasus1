@@ -3,20 +3,17 @@ package edu.stuy.commands;
 import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
-public class AcquirerStopCommand extends Command {
+public class AcquirerLeftStopCommand extends Command {
 
-    public AcquirerStopCommand() {
+    public AcquirerLeftStopCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.acquirer);
+        requires(Robot.leftAcquirer);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.acquirer.stop();
+        Robot.leftAcquirer.stop();
     }
 
     // Called repeatedly when this Command is scheduled to run

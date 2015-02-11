@@ -3,20 +3,17 @@ package edu.stuy.commands;
 import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
 public class AcquirerRightAcquireCommand extends Command {
 
     public AcquirerRightAcquireCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.acquirer);
+        requires(Robot.rightAcquirer);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.acquirer.rightAcquire();
+        Robot.rightAcquirer.acquire();
     }
 
     // Called repeatedly when this Command is scheduled to run

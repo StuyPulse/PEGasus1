@@ -3,10 +3,7 @@ package edu.stuy;
 
 import static edu.stuy.RobotMap.*;
 import edu.stuy.commands.ArmsNarrowCommand;
-import edu.stuy.subsystems.Acquirer;
-import edu.stuy.subsystems.Arms;
-import edu.stuy.subsystems.Drivetrain;
-import edu.stuy.subsystems.Lift;
+import edu.stuy.subsystems.*;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -26,7 +23,8 @@ import edu.stuy.commands.auton.*;
 public class Robot extends IterativeRobot {
 
     public static Drivetrain drivetrain;
-    public static Acquirer acquirer;
+    public static LeftAcquirer leftAcquirer;
+    public static RightAcquirer rightAcquirer;
     public static Arms arms;
     public static Lift lift;
     public static OI oi;
@@ -40,14 +38,16 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
         drivetrain = new Drivetrain();
-        acquirer = new Acquirer();
+        leftAcquirer = new LeftAcquirer();
+        rightAcquirer = new RightAcquirer();
         arms = new Arms();
         lift = new Lift();
 
         oi = new OI();
 
         SmartDashboard.putData(drivetrain);
-        SmartDashboard.putData(acquirer);
+        SmartDashboard.putData(leftAcquirer);
+        SmartDashboard.putData(rightAcquirer);
         SmartDashboard.putData(arms);
         SmartDashboard.putData(lift);
         SmartDashboard.putData(Scheduler.getInstance());
