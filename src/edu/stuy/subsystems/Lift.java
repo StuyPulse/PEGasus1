@@ -14,13 +14,15 @@ public class Lift extends Subsystem {
     // here. Call these from Commands.
     private CANTalon liftMotor;
     private Solenoid brake;
-    private DigitalInput limitSwitch;
+    private DigitalInput lowerLimitSwitch;
+    private DigitalInput upperLimitSwitch;
     private Encoder liftEncoder;
 
     public Lift() {
         liftMotor = new CANTalon(LIFT_MOTOR_ID);
         brake = new Solenoid(LIFT_SOLENOID_BRAKE);
-        limitSwitch = new DigitalInput(LIFT_LIMIT_SWITCH_CHANNEL);
+        lowerLimitSwitch = new DigitalInput(LIFT_LOWER_LIMIT_SWITCH_CHANNEL);
+        upperLimitSwitch = new DigitalInput(LIFT_UPPER_LIMIT_SWITCH_CHANNEL);
         liftEncoder = new Encoder(LIFT_ENCODER_CHANNEL_A, LIFT_ENCODER_CHANNEL_B);
         liftEncoder.setDistancePerPulse(LIFT_ENCODER_DISTANCE_PER_PULSE);
     }
@@ -66,7 +68,7 @@ public class Lift extends Subsystem {
     }
 
     public boolean isAtBottom() {
-        return !limitSwitch.get();
+        return !lowerLimitSwitch.get();
     }
     
     public boolean isAboveRecycleBinHeight() {
@@ -74,7 +76,7 @@ public class Lift extends Subsystem {
     }
     
     public boolean isAtTop() {
-        return liftEncoder.get() >= LIFT_ENCODER_MAX_HEIGHT;
+        return !upperLimitSwitch.get();
     }
 
     public void runEncoderLogic() {
