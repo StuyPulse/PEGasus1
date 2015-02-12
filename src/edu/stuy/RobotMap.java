@@ -79,7 +79,7 @@ public interface RobotMap {
 
     // Encoder Distances
     double LIFT_ENCODER_RECYCLE_BIN_HEIGHT = 60.0;
-    double LIFT_ENCODER_MAX_HEIGHT = 50.0;
+    double LIFT_ENCODER_MAX_HEIGHT = 800.0; // FIXME: correct this value
     double LIFT_ENCODER_DISTANCE_PER_PULSE = 3 * Math.PI / 250;
     double DRIVETRAIN_ENCODER_DISTANCE_PER_PULSE = 6 * Math.PI / 250;
 
