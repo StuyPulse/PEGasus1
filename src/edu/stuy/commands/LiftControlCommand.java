@@ -20,13 +20,7 @@ public class LiftControlCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if (Robot.oi.operatorPad.getRightY() <= -.5) {
-            Robot.lift.goUp();
-        } else if (Robot.oi.operatorPad.getRightY() >= .5) {
-            Robot.lift.goDown();
-        } else {
-            Robot.lift.stop();
-        }
+        Robot.lift.manualControl(-Robot.oi.operatorPad.getRightY());
     }
 
     // Make this return true when this Command no longer needs to run execute()
