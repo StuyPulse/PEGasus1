@@ -32,9 +32,10 @@ public class Drivetrain extends Subsystem {
                 frontRightMotor,
                 rearRightMotor);
 
-        leftEncoder = new Encoder(DRIVETRAIN_ENCODER_LEFT_CHANNEL_A, DRIVETRAIN_ENCODER_LEFT_CHANNEL_B);
+        leftEncoder = new Encoder(DRIVETRAIN_ENCODER_LEFT_CHANNEL_A, DRIVETRAIN_ENCODER_LEFT_CHANNEL_B, false);
         leftEncoder.setDistancePerPulse(DRIVETRAIN_ENCODER_DISTANCE_PER_PULSE);
-        rightEncoder = new Encoder(DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A, DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B);
+        // Reverse right encoder
+        rightEncoder = new Encoder(DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A, DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B, true);
         rightEncoder.setDistancePerPulse(DRIVETRAIN_ENCODER_DISTANCE_PER_PULSE);
  
         gyro = new Gyro(DRIVETRAIN_GYRO_CHANNEL);
