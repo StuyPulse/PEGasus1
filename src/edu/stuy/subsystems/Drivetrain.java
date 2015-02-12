@@ -80,11 +80,11 @@ public class Drivetrain extends Subsystem {
     }
     
     public double getLeftEncoder() {
-        return leftEncoder.get();
+        return leftEncoder.get() * DRIVETRAIN_ENCODER_DISTANCE_PER_PULSE;
     }
 
     public double getRightEncoder() {
-        return rightEncoder.get();
+        return rightEncoder.get() * DRIVETRAIN_ENCODER_DISTANCE_PER_PULSE;
     }
     
     public double getGyroAngle() {

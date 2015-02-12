@@ -84,7 +84,7 @@ public class Lift extends Subsystem {
     }
     
     public double getLiftEncoder() {
-        return liftEncoder.get();
+        return liftEncoder.get() * LIFT_ENCODER_DISTANCE_PER_PULSE;
     }
 
 }
