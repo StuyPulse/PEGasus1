@@ -75,11 +75,11 @@ public class Lift extends Subsystem {
     }
     
     public boolean isAboveRecycleBinHeight() {
-        return liftEncoder.get() >= LIFT_ENCODER_RECYCLE_BIN_HEIGHT;
+        return getLiftEncoder() >= LIFT_ENCODER_RECYCLE_BIN_HEIGHT;
     }
     
     public boolean isAtTop() {
-        return liftEncoder.get() >= LIFT_ENCODER_MAX_HEIGHT;
+        return getLiftEncoder() >= LIFT_ENCODER_MAX_HEIGHT;
     }
 
     public void runEncoderLogic() {
