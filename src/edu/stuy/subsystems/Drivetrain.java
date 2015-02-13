@@ -56,6 +56,13 @@ public class Drivetrain extends Subsystem {
         robotDrive.arcadeDrive(moveValue, rotateValue, squaredInput);
     }
 
+    public void enableBrakeMode(boolean on) {
+        frontLeftMotor.enableBrakeMode(on);
+        rearLeftMotor.enableBrakeMode(on);
+        frontRightMotor.enableBrakeMode(on);
+        rearRightMotor.enableBrakeMode(on);
+    }
+
     public void reset() {
         resetEncoders();
         resetGyro();
