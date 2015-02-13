@@ -12,6 +12,7 @@ public class AutonDriveForwardInchesCommand extends Command {
 
     private double inches;
     private double startTime;
+    private boolean usingCustomDistance;
     
     /** 
      * If distance < 0, get it from SmartDashboard
@@ -21,6 +22,7 @@ public class AutonDriveForwardInchesCommand extends Command {
     public AutonDriveForwardInchesCommand(double dist) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        usingCustomDistance = dist < 0;
         inches = dist;
         requires(Robot.drivetrain);
     }
@@ -28,14 +30,14 @@ public class AutonDriveForwardInchesCommand extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         startTime = Timer.getFPGATimestamp();
-        if (inches < 0) {
-            inches = SmartDashboard.getNumber(INCHES_LABEL);
-        }
         Robot.drivetrain.resetEncoders();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        if (usingCustomDistance) {
+            inches = SmartDashboard.getNumber(INCHES_LABEL);
+        }
         double speed = getRampSpeed();
         Robot.drivetrain.tankDrive(speed, speed);
     }
