@@ -20,7 +20,18 @@ public class LiftControlCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.lift.manualControl(-Robot.oi.operatorPad.getRightY());
+        double input = squareInput(Robot.oi.operatorPad.getRightY());
+        Robot.lift.manualControl(-input);
+    }
+
+    // Square the value of the input while preserving its sign
+    private double squareInput(double input) {
+        boolean negative = input < 0;
+        input = input * input;
+        if (negative) {
+            input = -input;
+        }
+        return input;
     }
 
     // Make this return true when this Command no longer needs to run execute()
