@@ -24,11 +24,11 @@ public class DrivetrainTankDriveCommand extends Command {
         double left = Robot.oi.driverPad.getLeftY();
         double right = Robot.oi.driverPad.getRightY();
         if (Robot.oi.driverPad.getRawLeftTrigger() || Robot.oi.driverPad.getRawRightTrigger()) {
-            // Fast mode (when a trigger is pressed)
-            Robot.drivetrain.tankDrive(-left, -right);
-        } else {
-            // Slow mode (default)
+            // Slow mode (when a trigger is pressed)
             Robot.drivetrain.tankDrive(-left * DRIVETRAIN_SLOWNESS_FACTOR, -right * DRIVETRAIN_SLOWNESS_FACTOR);
+        } else {
+            // Fast mode (default)
+            Robot.drivetrain.tankDrive(-left, -right);
         }
     }
 
