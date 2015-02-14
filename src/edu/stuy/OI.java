@@ -1,7 +1,8 @@
 package edu.stuy;
 
-import static edu.stuy.RobotMap.DRIVER_PAD_PORT;
-import static edu.stuy.RobotMap.OPERATOR_PAD_PORT;
+//import static edu.stuy.RobotMap.DRIVER_PAD_PORT;
+import static edu.stuy.RobotMap.*;
+//import static edu.stuy.RobotMap.OPERATOR_PAD_PORT;
 import edu.stuy.commands.AcquirerLeftAcquireCommand;
 import edu.stuy.commands.AcquirerLeftReleaseCommand;
 import edu.stuy.commands.AcquirerRightAcquireCommand;
@@ -9,6 +10,7 @@ import edu.stuy.commands.AcquirerRightReleaseCommand;
 import edu.stuy.commands.ArmsGetNarrowerCommand;
 import edu.stuy.commands.ArmsGetWiderCommand;
 import edu.stuy.util.Gamepad;
+import edu.wpi.first.wpilibj.Joystick;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -41,11 +43,14 @@ public class OI {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
-    public Gamepad driverPad;
+    //public Gamepad driverPad;
+    public Joystick driverLeftStick, driverRightStick;
     public Gamepad operatorPad;
 
     public OI() {
-        driverPad = new Gamepad(DRIVER_PAD_PORT);
+        //driverPad = new Gamepad(DRIVER_PAD_PORT);
+        driverLeftStick = new Joystick(DRIVER_LEFT_STICK_PORT);
+        driverRightStick = new Joystick(DRIVER_RIGHT_STICK_PORT);
         operatorPad = new Gamepad(OPERATOR_PAD_PORT);
         // Lift is controlled by LiftControlCommand
 

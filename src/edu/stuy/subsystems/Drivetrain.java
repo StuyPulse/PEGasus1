@@ -5,6 +5,7 @@ import edu.stuy.commands.DrivetrainTankDriveCommand;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Gyro;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -49,6 +50,10 @@ public class Drivetrain extends Subsystem {
 
     public void tankDrive(double leftSpeed, double rightSpeed) {
         robotDrive.tankDrive(leftSpeed, rightSpeed);
+    }
+
+    public void tankDrive(Joystick left, Joystick right) {
+        robotDrive.tankDrive(-left.getY(), -right.getY());
     }
 
     //For PID only:

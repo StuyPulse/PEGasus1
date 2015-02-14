@@ -36,7 +36,9 @@ public interface RobotMap {
     int LIFT_SOLENOID_BRAKE = 5;
 
     // Joystick Ports
-    int DRIVER_PAD_PORT = 0;
+    //int DRIVER_PAD_PORT = 0;
+    int DRIVER_LEFT_STICK_PORT = 2;
+    int DRIVER_RIGHT_STICK_PORT = 3;
     int OPERATOR_PAD_PORT = 1;
 
     // Digital IO Ports:

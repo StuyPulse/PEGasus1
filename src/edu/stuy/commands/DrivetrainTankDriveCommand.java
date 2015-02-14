@@ -21,6 +21,7 @@ public class DrivetrainTankDriveCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        /*
         double left = Robot.oi.driverPad.getLeftY();
         double right = Robot.oi.driverPad.getRightY();
         if (Robot.oi.driverPad.getRawLeftTrigger() || Robot.oi.driverPad.getRawRightTrigger()) {
@@ -30,6 +31,8 @@ public class DrivetrainTankDriveCommand extends Command {
             // Fast mode (default)
             Robot.drivetrain.tankDrive(-left, -right);
         }
+        */
+        Robot.drivetrain.tankDrive(Robot.oi.driverLeftStick, Robot.oi.driverRightStick);
     }
 
     // Make this return true when this Command no longer needs to run execute()
