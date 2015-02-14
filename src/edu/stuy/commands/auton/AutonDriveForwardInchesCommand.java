@@ -1,8 +1,10 @@
 package edu.stuy.commands.auton;
 
+import static edu.stuy.RobotMap.*;
 import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
@@ -12,6 +14,7 @@ public class AutonDriveForwardInchesCommand extends Command {
     private double inches;
     private double startTime;
     private double timeout;
+    private boolean usingCustomTimeout;
     
     /** 
      * If distance < 0, get it from SmartDashboard
@@ -23,6 +26,7 @@ public class AutonDriveForwardInchesCommand extends Command {
         // eg. requires(chassis);
         inches = dist;
         timeout = seconds;
+        usingCustomTimeout = dist < 0;
         requires(Robot.drivetrain);
     }
 
@@ -33,6 +37,9 @@ public class AutonDriveForwardInchesCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        if (usingCustomTimeout) {
+            timeout = SmartDashboard.getNumber(TIMEOUT_LABEL);
+        }
         double speed = getRampSpeed();
         Robot.drivetrain.tankDrive(speed, speed);
     }

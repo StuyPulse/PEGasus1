@@ -61,8 +61,10 @@ public class Robot extends IterativeRobot {
         autonChooser.addObject("2. Drive forward from Driver Side", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE, AUTON_DRIVE_FROM_DRIVER_SIDE_TIMEOUT));
         // Driving forward from Field Side means we are doing a mobility auton routine without pushing totes
         autonChooser.addObject("3. Drive forward from Field Side", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_FIELD_SIDE, AUTON_DRIVE_FROM_FIELD_SIDE_TIMEOUT));
+        autonChooser.addObject("4. Custom timeout (testing only)", new AutonDriveForwardInchesCommand(-1, -1));
         autonChooser.addObject("5. Acquires set and drives forward (Currently doing PID tuning)", new AutonOneSetCommand());
         SmartDashboard.putData("Auton setting", autonChooser);
+        SmartDashboard.putNumber(TIMEOUT_LABEL, -1);
         SmartDashboard.putNumber(PID_TUNING_P, DRIVE_ROTATE_P);
         SmartDashboard.putNumber(PID_TUNING_I, DRIVE_ROTATE_I);
         SmartDashboard.putNumber(PID_TUNING_D, DRIVE_ROTATE_D);
