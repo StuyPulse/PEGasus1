@@ -1,43 +1,38 @@
 package edu.stuy.commands.auton;
 
-import static edu.stuy.RobotMap.*;
 import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
 public class AutonDriveForwardInchesCommand extends Command {
 
+    // inches is unused; we are keeping it to know how far we were intending to go
     private double inches;
     private double startTime;
-    private boolean usingCustomDistance;
+    private double timeout;
     
     /** 
      * If distance < 0, get it from SmartDashboard
      * @param dist
      */
 
-    public AutonDriveForwardInchesCommand(double dist) {
+    public AutonDriveForwardInchesCommand(double dist, double seconds) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        usingCustomDistance = dist < 0;
         inches = dist;
+        timeout = seconds;
         requires(Robot.drivetrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
         startTime = Timer.getFPGATimestamp();
-        //Robot.drivetrain.resetEncoders();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if (usingCustomDistance) {
-            inches = SmartDashboard.getNumber(INCHES_LABEL);
-        }
         double speed = getRampSpeed();
         Robot.drivetrain.tankDrive(speed, speed);
     }
@@ -64,7 +59,7 @@ public class AutonDriveForwardInchesCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Timer.getFPGATimestamp() - startTime >= inches * AUTON_DRIVETRAIN_TIMEOUT_MULTIPLIER;
+        return Timer.getFPGATimestamp() - startTime >= timeout;
     }
 
     // Called once after isFinished returns true

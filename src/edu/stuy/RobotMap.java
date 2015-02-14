@@ -53,9 +53,11 @@ public interface RobotMap {
     
     // Auton Constants
     double DRIVETRAIN_ROTATE_THRESHOLD_DEGREES = 5.0;
-    double AUTON_ONE_SET_DRIVE_INCHES_FIRST = 14.0;
-    double AUTON_ONE_SET_ROTATE_DEGREES = 90.0;
+    double AUTON_ONE_SET_DRIVE_INCHES_FIRST =10.0;
+    double AUTON_ONE_SET_DRIVE_INCHES_FIRST_TIMEOUT = 1;
     double AUTON_ONE_SET_DRIVE_INCHES_SECOND = 112.0; //If this is changed, also change AUTON_DRIVE_FORWARD_FIELD_SIDE
+    double AUTON_ONE_SET_DRIVE_INCHES_SECOND_TIMEOUT = .02 * AUTON_ONE_SET_DRIVE_INCHES_SECOND;
+    double AUTON_ONE_SET_ROTATE_DEGREES = 90.0;
     double AUTON_ACQUIRE_TIME = 1;
     double AUTON_DRIVETRAIN_TIMEOUT_MULTIPLIER = .02;
     double AUTON_LIFT_TIMEOUT = 5;
@@ -71,6 +73,9 @@ public interface RobotMap {
     double AUTON_DRIVE_FORWARD_FIELD_SIDE = 112.0; //If this is changed, also change AUTON_ONE_SET_DRIVE_INCHES_SECOND
     double AUTON_DRIVE_FORWARD_DRIVER_SIDE = AUTON_DRIVE_FORWARD_FIELD_SIDE
             + TOTE_WIDTH + ROBOT_LENGTH;
+    double AUTON_DRIVE_FROM_DRIVER_SIDE_TIMEOUT = AUTON_ONE_SET_DRIVE_INCHES_SECOND_TIMEOUT;
+    double AUTON_DRIVE_FROM_FIELD_SIDE_TIMEOUT = .02 * AUTON_DRIVE_FORWARD_FIELD_SIDE;
+    
     //Displayed on Smart Dashboard
     String INCHES_LABEL = "If you are using Setting 4, then input number of inches";
     String PID_TUNING_P = "PID: p";
