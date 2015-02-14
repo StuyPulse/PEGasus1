@@ -20,6 +20,7 @@ public class Drivetrain extends Subsystem {
     private Encoder leftEncoder;
     private Encoder rightEncoder;
     private Gyro gyro;
+    private boolean speedUp;
 
     public Drivetrain() {
         frontLeftMotor = new CANTalon(DRIVE_FRONT_LEFT_ID);
@@ -39,6 +40,7 @@ public class Drivetrain extends Subsystem {
         rightEncoder.setDistancePerPulse(DRIVETRAIN_ENCODER_DISTANCE_PER_PULSE);
  
         gyro = new Gyro(DRIVETRAIN_GYRO_CHANNEL);
+        speedUp = true;
     }
 
     public void initDefaultCommand() {
@@ -71,6 +73,10 @@ public class Drivetrain extends Subsystem {
         gyro.reset();
     }
 
+    public void setSpeedUp(boolean b) {
+        speedUp = b;
+    }
+
     public void stop() {
         robotDrive.tankDrive(0, 0);
     }
@@ -89,6 +95,10 @@ public class Drivetrain extends Subsystem {
     
     public double getGyroAngle() {
         return gyro.getAngle();
+    }
+
+    public boolean isSpeedUp() {
+        return speedUp;
     }
 
 }

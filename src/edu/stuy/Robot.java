@@ -103,6 +103,7 @@ public class Robot extends IterativeRobot {
         // Initialize subsystem states:
         new ArmsNarrowCommand().start();
         drivetrain.resetGyro();
+        drivetrain.setSpeedUp(true);
     }
 
     /**
