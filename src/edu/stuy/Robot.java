@@ -77,6 +77,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void autonomousInit() {
+        drivetrain.resetEncoders();
         drivetrain.enableBrakeMode(true);
         autonomousCommand = (Command) autonChooser.getSelected();
         // Temporary for PID tuning
