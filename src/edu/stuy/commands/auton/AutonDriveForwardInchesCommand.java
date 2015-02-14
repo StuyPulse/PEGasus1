@@ -30,6 +30,7 @@ public class AutonDriveForwardInchesCommand extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         startTime = Timer.getFPGATimestamp();
+        //Robot.drivetrain.resetEncoders();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -63,7 +64,7 @@ public class AutonDriveForwardInchesCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.drivetrain.getDistance() >= inches || Timer.getFPGATimestamp() - startTime >= AUTON_DRIVETRAIN_TIMEOUT;
+        return Timer.getFPGATimestamp() - startTime >= inches * AUTON_DRIVETRAIN_TIMEOUT_MULTIPLIER;
     }
 
     // Called once after isFinished returns true
