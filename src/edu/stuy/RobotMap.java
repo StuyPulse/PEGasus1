@@ -78,7 +78,7 @@ public interface RobotMap {
     
     //Displayed on Smart Dashboard
     String INCHES_LABEL = "If you are using Setting 4, then input number of inches";
-    String TIMEOUT_LABEL = "If you are using Setting 4,, then input number of seconds";
+    String TIMEOUT_LABEL = "If you are using Setting 4, then input number of seconds";
     String PID_TUNING_P = "PID: p";
     String PID_TUNING_I = "PID: i";
     String PID_TUNING_D = "PID: d";
