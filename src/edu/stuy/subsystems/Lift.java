@@ -98,4 +98,7 @@ public class Lift extends Subsystem {
         override = on;
     }
 
+    public boolean getOverride() {
+        return override;
+    }
 }

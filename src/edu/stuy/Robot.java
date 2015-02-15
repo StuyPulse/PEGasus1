@@ -128,6 +128,7 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Gyro Angle:", Robot.drivetrain.getGyroAngle());
         SmartDashboard.putNumber("Lift Encoder:", Robot.lift.getLiftEncoder());
         SmartDashboard.putBoolean("Lift Limit Switch", Robot.lift.isAtBottom());
+        SmartDashboard.putBoolean("Overriden?" , Robot.lift.getOverride());
     }
 
     /**
