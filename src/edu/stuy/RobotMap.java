@@ -55,7 +55,7 @@ public interface RobotMap {
     double DRIVETRAIN_ROTATE_THRESHOLD_DEGREES = 5.0;
     double AUTON_ONE_SET_DRIVE_INCHES_FIRST = 25.0;
     double AUTON_ONE_SET_ROTATE_DEGREES = 90.0;
-    double AUTON_ONE_SET_DRIVE_INCHES_SECOND = 112.0; //If this is changed, also change AUTON_DRIVE_FORWARD_FIELD_SIDE
+    double AUTON_ONE_SET_DRIVE_INCHES_SECOND = 112.0;
     double AUTON_ACQUIRE_TIME = 1;
     double AUTON_DRIVETRAIN_TIMEOUT = 5;
     double AUTON_LIFT_TIMEOUT = 5;
@@ -68,9 +68,8 @@ public interface RobotMap {
     double ROBOT_LENGTH = 28.0;
 
     // Auton Mobility DriveForward
-    double AUTON_DRIVE_FORWARD_FIELD_SIDE = 112.0; //If this is changed, also change AUTON_ONE_SET_DRIVE_INCHES_SECOND
-    double AUTON_DRIVE_FORWARD_DRIVER_SIDE = AUTON_DRIVE_FORWARD_FIELD_SIDE
-            + TOTE_WIDTH + ROBOT_LENGTH;
+    double AUTON_DRIVE_FORWARD_SCORING_PLATFORM = ROBOT_LENGTH + 36;
+    double AUTON_DRIVE_FORWARD_DRIVER_SIDE = AUTON_ONE_SET_DRIVE_INCHES_SECOND + TOTE_WIDTH + ROBOT_LENGTH;
     //Displayed on Smart Dashboard
     String INCHES_LABEL = "If you are using Setting 4, then input number of inches";
     String PID_TUNING_P = "PID: p";

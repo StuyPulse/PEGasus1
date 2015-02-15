@@ -60,7 +60,7 @@ public class Robot extends IterativeRobot {
         autonChooser.addDefault("1. Do nothing", new CommandGroup());
         autonChooser.addObject("2. Drive forward from Driver Side", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE));
         // Driving forward from Field Side means we are doing a mobility auton routine without pushing totes
-        autonChooser.addObject("3. Drive forward from Field Side", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_FIELD_SIDE));
+        autonChooser.addObject("3. Drive forward from Scoring Platform", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_SCORING_PLATFORM));
         // -1 means that AutonDriveForwardInches uses INCHES_LABEL. Defers reading of Smartdashboard value until auton starts
         autonChooser.addObject("4. Drive forward Custom Amount", new AutonDriveForwardInchesCommand(-1));
         autonChooser.addObject("5. Acquires set and drives forward (Currently doing PID tuning)", new AutonOneSetCommand());
