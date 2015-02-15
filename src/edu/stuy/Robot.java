@@ -3,7 +3,9 @@ package edu.stuy;
 
 import static edu.stuy.RobotMap.*;
 import edu.stuy.commands.ArmsNarrowCommand;
+import edu.stuy.commands.auton.*;
 import edu.stuy.subsystems.*;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -11,7 +13,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.stuy.commands.auton.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -31,6 +32,8 @@ public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
     SendableChooser autonChooser;
+
+    CameraServer cam;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -53,6 +56,9 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData(Scheduler.getInstance());
 
         setupAutonChooser();
+
+        cam = CameraServer.getInstance();
+        cam.startAutomaticCapture("cam0");
     }
 
     private void setupAutonChooser() {
