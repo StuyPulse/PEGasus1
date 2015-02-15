@@ -16,6 +16,7 @@ public class Lift extends Subsystem {
     private Solenoid brake;
     private DigitalInput limitSwitch;
     private Encoder liftEncoder;
+    private boolean override;
 
     public Lift() {
         liftMotor = new CANTalon(LIFT_MOTOR_ID);
@@ -23,6 +24,7 @@ public class Lift extends Subsystem {
         limitSwitch = new DigitalInput(LIFT_LIMIT_SWITCH_CHANNEL);
         liftEncoder = new Encoder(LIFT_ENCODER_CHANNEL_A, LIFT_ENCODER_CHANNEL_B);
         liftEncoder.setDistancePerPulse(LIFT_ENCODER_DISTANCE_PER_PULSE);
+        override = false;
     }
 
     public void initDefaultCommand() {
@@ -71,7 +73,7 @@ public class Lift extends Subsystem {
     }
 
     public boolean isAtBottom() {
-        return !limitSwitch.get();
+        return !limitSwitch.get() && !override;
     }
     
     public boolean isAboveRecycleBinHeight() {
@@ -90,6 +92,10 @@ public class Lift extends Subsystem {
     
     public double getLiftEncoder() {
         return liftEncoder.getDistance();
+    }
+
+    public void setOverride(boolean on) {
+        override = on;
     }
 
 }

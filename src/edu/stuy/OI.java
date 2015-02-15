@@ -8,6 +8,7 @@ import edu.stuy.commands.AcquirerRightAcquireCommand;
 import edu.stuy.commands.AcquirerRightReleaseCommand;
 import edu.stuy.commands.ArmsGetNarrowerCommand;
 import edu.stuy.commands.ArmsGetWiderCommand;
+import edu.stuy.commands.LiftOverrideCommand;
 import edu.stuy.util.Gamepad;
 
 /**
@@ -62,5 +63,8 @@ public class OI {
         operatorPad.getDPadLeft().whenPressed(new ArmsGetWiderCommand());
         operatorPad.getDPadDown().whenPressed(new ArmsGetWiderCommand());
         operatorPad.getDPadRight().whenPressed(new ArmsGetWiderCommand());
+
+        operatorPad.getStartButton().whenPressed(new LiftOverrideCommand());
+
     }
 }

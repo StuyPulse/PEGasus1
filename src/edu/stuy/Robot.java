@@ -106,6 +106,7 @@ public class Robot extends IterativeRobot {
         drivetrain.resetGyro();
         drivetrain.setBrakeMode(false);
         drivetrain.setSpeedUp(true);
+        lift.setOverride(false);
     }
 
     /**
