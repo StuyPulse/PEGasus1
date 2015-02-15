@@ -52,13 +52,15 @@ public class AutonDriveForwardInchesCommand extends Command {
     
     private double getRampSpeed() {
         double t = Timer.getFPGATimestamp() - startTime;
+        double speed;
         if (t < 0.5) {
-            return 2 * t * t;
+            speed = 2 * t * t;
         } else if (t < 1) {
-            return -2 * t * t + 4 * t - 1;
+            speed = -2 * t * t + 4 * t - 1;
         } else {
-            return 1;
+            speed = 1;
         }
+        return speed / 2;
     }
 
     // Make this return true when this Command no longer needs to run execute()
