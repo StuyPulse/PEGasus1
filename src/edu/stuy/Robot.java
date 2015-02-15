@@ -105,6 +105,7 @@ public class Robot extends IterativeRobot {
         new ArmsNarrowCommand().start();
         drivetrain.resetGyro();
         drivetrain.setBrakeMode(false);
+        lift.setOverride(false);
     }
 
     /**
