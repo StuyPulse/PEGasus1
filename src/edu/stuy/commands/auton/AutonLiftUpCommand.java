@@ -30,7 +30,7 @@ public class AutonLiftUpCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.lift.isAboveRecycleBinHeight() || Timer.getFPGATimestamp() - startTime >= AUTON_LIFT_TIMEOUT;
+        return Robot.lift.isAboveRecyclingBinHeight() || Timer.getFPGATimestamp() - startTime >= AUTON_LIFT_TIMEOUT;
     }
 
     // Called once after isFinished returns true

@@ -35,9 +35,9 @@ public class Drivetrain extends Subsystem {
                 rearRightMotor);
 
         leftEncoder = new Encoder(DRIVETRAIN_ENCODER_LEFT_CHANNEL_A, DRIVETRAIN_ENCODER_LEFT_CHANNEL_B, true, EncodingType.k2X);
-        leftEncoder.setDistancePerPulse(DRIVETRAIN_ENCODER_DISTANCE_PER_PULSE);
+        leftEncoder.setDistancePerPulse(DRIVETRAIN_ENCODER_INCHES_PER_PULSE);
         rightEncoder = new Encoder(DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A, DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B, false, EncodingType.k2X);
-        rightEncoder.setDistancePerPulse(DRIVETRAIN_ENCODER_DISTANCE_PER_PULSE);
+        rightEncoder.setDistancePerPulse(DRIVETRAIN_ENCODER_INCHES_PER_PULSE);
  
         gyro = new Gyro(DRIVETRAIN_GYRO_CHANNEL);
         speedUp = true;
@@ -63,12 +63,6 @@ public class Drivetrain extends Subsystem {
         rearLeftMotor.enableBrakeMode(on);
         frontRightMotor.enableBrakeMode(on);
         rearRightMotor.enableBrakeMode(on);
-    }
-
-    public void reset() {
-        resetEncoders();
-        resetGyro();
-        stop();
     }
 
     public void resetEncoders() {

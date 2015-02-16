@@ -16,15 +16,15 @@ public class Lift extends Subsystem {
     private Solenoid brake;
     private DigitalInput limitSwitch;
     private Encoder liftEncoder;
-    private boolean override;
+    private boolean overridden;
 
     public Lift() {
         liftMotor = new CANTalon(LIFT_MOTOR_ID);
         brake = new Solenoid(LIFT_SOLENOID_BRAKE);
         limitSwitch = new DigitalInput(LIFT_LIMIT_SWITCH_CHANNEL);
         liftEncoder = new Encoder(LIFT_ENCODER_CHANNEL_A, LIFT_ENCODER_CHANNEL_B);
-        liftEncoder.setDistancePerPulse(LIFT_ENCODER_DISTANCE_PER_PULSE);
-        override = false;
+        liftEncoder.setDistancePerPulse(LIFT_ENCODER_INCHES_PER_PULSE);
+        overridden = false;
     }
 
     public void initDefaultCommand() {
@@ -56,11 +56,9 @@ public class Lift extends Subsystem {
 
     public void manualControl(double speed) {
         if (Math.abs(speed) < 0.1) {
-            setBrake(true);
-            liftMotor.set(0.0);
+            stop();
         } else if ((speed < 0 && isAtBottom()) || (speed > 0 && isAtTop())) {
-            setBrake(true);
-            liftMotor.set(0.0);
+            stop();
         } else {
             setBrake(false);
             liftMotor.set(speed);
@@ -73,17 +71,18 @@ public class Lift extends Subsystem {
     }
 
     public boolean isAtBottom() {
-        return !limitSwitch.get() && !override;
+        return !limitSwitch.get() && !overridden;
     }
     
-    public boolean isAboveRecycleBinHeight() {
-        return getLiftEncoder() >= LIFT_ENCODER_RECYCLE_BIN_HEIGHT;
+    public boolean isAboveRecyclingBinHeight() {
+        return getLiftEncoder() >= LIFT_ENCODER_RECYCLING_BIN_HEIGHT;
     }
     
     public boolean isAtTop() {
-        return getLiftEncoder() >= LIFT_ENCODER_MAX_HEIGHT && !override;
+        return getLiftEncoder() >= LIFT_ENCODER_MAX_HEIGHT && !overridden;
     }
 
+    // TODO: give me a better name
     public void runEncoderLogic() {
         if (isAtBottom()) {
             liftEncoder.reset();
@@ -94,11 +93,11 @@ public class Lift extends Subsystem {
         return liftEncoder.getDistance();
     }
 
-    public void setOverride(boolean on) {
-        override = on;
+    public void setOverridden(boolean on) {
+        overridden = on;
     }
 
-    public boolean getOverride() {
-        return override;
+    public boolean getOverridden() {
+        return overridden;
     }
 }

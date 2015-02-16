@@ -12,8 +12,8 @@ public class StuyGyro extends Gyro {
     private LinkedList<Double> gyroMeasurements;
     private Timer updateMeasurements;
     
-    private final int GYRO_MEASUREMENT_SIZE = 5;
-    private final int GYRO_UPDATE_PERIOD = 10;
+    private final static int GYRO_MEASUREMENTS_SAMPLE_SIZE = 5;
+    private final static int GYRO_UPDATE_PERIOD_MILLISECONDS = 10;
     
     public StuyGyro(AnalogInput channel) {
         super(channel);
@@ -34,12 +34,12 @@ public class StuyGyro extends Gyro {
             public void run() {
                 synchronized (StuyGyro.this) {
                     gyroMeasurements.add(getInstantaneousGyroAngleInDegrees());
-                    if (gyroMeasurements.size() > GYRO_MEASUREMENT_SIZE) {
-                        gyroMeasurements.remove(0);
+                    if (gyroMeasurements.size() > GYRO_MEASUREMENTS_SAMPLE_SIZE) {
+                        gyroMeasurements.removeFirst();
                     }
                 }
             }
-        }, 0, GYRO_UPDATE_PERIOD);
+        }, 0, GYRO_UPDATE_PERIOD_MILLISECONDS);
     }
     
     public void stopGyroUpdateThread() {
@@ -57,36 +57,31 @@ public class StuyGyro extends Gyro {
     }
     
     public double getInstantaneousGyroAngleInRadians() {
-        return getAngle() * Math.PI / 180.0;
+        return Math.toRadians(getAngle());
     }
     
     public double getAveragedGyroAngle() {
         if (gyroMeasurements.isEmpty()) {
-            return 0;
+            return getInstantaneousGyroAngleInDegrees();
         }
-        double sum = 0;
         double min = gyroMeasurements.get(0);
         double max = min;
+        double sum = min;
         synchronized (this) {
-            for (int i = 0; i < gyroMeasurements.size(); i++) {
+            for (int i = 1; i < gyroMeasurements.size(); i++) {
                 double measure = gyroMeasurements.get(i);
                 sum += measure;
                 if (measure < min) {
                     min = measure;
-                }
-                else if (measure > max) {
+                } else if (measure > max) {
                     max = measure;
                 }
             }
             if (gyroMeasurements.size() >= 3) {
                 return (sum - min - max) / (gyroMeasurements.size() - 2);
-            }
-            else {
+            } else {
                 return sum / gyroMeasurements.size();
             }
         }
     }
-    
-    
-    
 }

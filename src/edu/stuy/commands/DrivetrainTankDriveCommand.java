@@ -39,6 +39,7 @@ public class DrivetrainTankDriveCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+        // This is Drivetrain's default command.
         return false;
     }
 

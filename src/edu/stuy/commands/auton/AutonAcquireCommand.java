@@ -1,35 +1,44 @@
-package edu.stuy.commands;
+package edu.stuy.commands.auton;
 
-import edu.stuy.Robot;
+import static edu.stuy.RobotMap.*;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.Timer;
+import edu.stuy.Robot;
 
 /**
  *
  */
-public class ArmsWideCommand extends Command {
+public class AutonAcquireCommand extends Command {
 
-    public ArmsWideCommand() {
+    private double startTime;
+
+    public AutonAcquireCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.arms);
+        requires(Robot.leftAcquirer);
+        requires(Robot.rightAcquirer);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.arms.setWide();
+        startTime = Timer.getFPGATimestamp();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        Robot.leftAcquirer.acquire();
+        Robot.rightAcquirer.acquire();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return Timer.getFPGATimestamp() - startTime >= AUTON_ACQUIRE_TIME;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        Robot.leftAcquirer.stop();
+        Robot.rightAcquirer.stop();
     }
 
     // Called when another command which requires one or more of the same

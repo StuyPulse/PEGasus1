@@ -24,12 +24,12 @@ public class Arms extends Subsystem {
         armsPosition = ArmsPosition.NARROW;
     }
 
-    private void setShortPiston(boolean out) {
+    private void setShortPistonOut(boolean out) {
         shortPistonOut.set(out);
         shortPistonIn.set(!out);
     }
 
-    private void setLongPiston(boolean out) {
+    private void setLongPistonOut(boolean out) {
         longPistonOut.set(out);
         longPistonIn.set(!out);
     }
@@ -38,17 +38,17 @@ public class Arms extends Subsystem {
      * Retracts both pistons for the narrower side of the tote
      */
     public void setNarrow() {
-        setShortPiston(false);
-        setLongPiston(false);
+        setShortPistonOut(false);
+        setLongPistonOut(false);
         armsPosition = ArmsPosition.NARROW;
     }
 
     /**
-     * Retracts only the longer piston for the wider side of the tote
+     * Extends only the shorter piston for the wider side of the tote
      */
     public void setWide() {
-        setShortPiston(true);
-        setLongPiston(false);
+        setShortPistonOut(true);
+        setLongPistonOut(false);
         armsPosition = ArmsPosition.WIDE;
     }
 
@@ -56,8 +56,8 @@ public class Arms extends Subsystem {
      * Extends both pistons to release the tote
      */
     public void release() {
-        setShortPiston(true);
-        setLongPiston(true);
+        setShortPistonOut(true);
+        setLongPistonOut(true);
         armsPosition = ArmsPosition.RELEASE;
     }
     

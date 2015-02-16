@@ -36,6 +36,7 @@ public class LiftControlCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+        // This is the Lift's default command.
         return false;
     }
 

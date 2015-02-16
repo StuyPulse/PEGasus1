@@ -58,12 +58,12 @@ public class Robot extends IterativeRobot {
     private void setupAutonChooser() {
         autonChooser = new SendableChooser();
         autonChooser.addDefault("1. Do nothing", new CommandGroup());
-        autonChooser.addObject("2. Drive forward from Driver Side", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE, AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT));
+        autonChooser.addObject("2. Drive forward from Driver Side", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE_INCHES, AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT));
         // Driving forward from Field Side means we are doing a mobility auton routine without pushing totes
-        autonChooser.addObject("3. Drive forward from Scoring Platform", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_SCORING_PLATFORM, AUTON_DRIVE_FORWARD_SCORING_PLATFORM_TIMEOUT));
+        autonChooser.addObject("3. Drive forward from Scoring Platform", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_SCORING_PLATFORM_INCHES, AUTON_DRIVE_FORWARD_SCORING_PLATFORM_TIMEOUT));
         // -1 means that AutonDriveForwardInches uses INCHES_LABEL. Defers reading of Smartdashboard value until auton starts
         autonChooser.addObject("4. Drive forward Custom Amount", new AutonDriveForwardInchesCommand(-1, AUTON_DRIVETRAIN_TIMEOUT));
-        autonChooser.addObject("5. Acquires set and drives forward (Currently doing PID tuning)", new AutonOneSetCommand());
+        autonChooser.addObject("5. Acquires set and drives forward (UNTESTED, currently doing PID tuning)", new AutonOneSetCommand());
         SmartDashboard.putData("Auton setting", autonChooser);
         SmartDashboard.putNumber(INCHES_LABEL, -1);
         SmartDashboard.putNumber(PID_TUNING_P, DRIVE_ROTATE_P);
@@ -103,10 +103,9 @@ public class Robot extends IterativeRobot {
 
         // Initialize subsystem states:
         new ArmsNarrowCommand().start();
-        drivetrain.resetGyro();
         drivetrain.setBrakeMode(false);
         drivetrain.setSpeedUp(true);
-        lift.setOverride(false);
+        lift.setOverridden(false);
     }
 
     /**
@@ -128,7 +127,7 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Gyro Angle:", Robot.drivetrain.getGyroAngle());
         SmartDashboard.putNumber("Lift Encoder:", Robot.lift.getLiftEncoder());
         SmartDashboard.putBoolean("Lift Limit Switch", Robot.lift.isAtBottom());
-        SmartDashboard.putBoolean("Overriden?" , Robot.lift.getOverride());
+        SmartDashboard.putBoolean("Lift Overridden?" , Robot.lift.getOverridden());
     }
 
     /**

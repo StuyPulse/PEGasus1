@@ -11,16 +11,16 @@ public class DrivetrainRotateCommand extends PIDCommand {
 
     private double degrees;
 
-    public DrivetrainRotateCommand(double deg) {
-        this(deg, DRIVE_ROTATE_P, DRIVE_ROTATE_I, DRIVE_ROTATE_D);
+    public DrivetrainRotateCommand(double degrees) {
+        this(degrees, DRIVE_ROTATE_P, DRIVE_ROTATE_I, DRIVE_ROTATE_D);
     }
     
-    public DrivetrainRotateCommand(double deg, double p, double i, double d) {
+    public DrivetrainRotateCommand(double _degrees, double p, double i, double d) {
         super(p, i, d);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(Robot.drivetrain);
-        degrees = deg;
+        degrees = _degrees;
         getPIDController().setContinuous();
         getPIDController().setInputRange(0, 360);
         getPIDController().setOutputRange(-1, 1);
@@ -31,9 +31,8 @@ public class DrivetrainRotateCommand extends PIDCommand {
         Robot.drivetrain.resetGyro();
     }
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    }
+    // Does not get called because we subclass PIDCommand
+    protected void execute() {}
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

@@ -17,7 +17,8 @@ public class ArmsGetWiderCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        ArmsPosition.prevPosition(Robot.arms.getCurrentPosition()).goToPosition();
+        ArmsPosition nextPosition = ArmsPosition.widerPosition(Robot.arms.getCurrentPosition());
+        nextPosition.goToPosition();
     }
 
     // Called repeatedly when this Command is scheduled to run

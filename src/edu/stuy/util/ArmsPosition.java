@@ -20,7 +20,8 @@ public enum ArmsPosition {
         public void goToPosition() {
             Robot.arms.setWide();
         }
-    }, NARROW { @Override
+    }, NARROW {
+        @Override
         public void goToPosition() {
             Robot.arms.setNarrow();
         }
@@ -28,7 +29,7 @@ public enum ArmsPosition {
     
     public abstract void goToPosition();
     
-    public static ArmsPosition nextPosition(ArmsPosition a) {
+    public static ArmsPosition narrowerPosition(ArmsPosition a) {
         switch (a) {
         case RELEASE:
             return WIDE;
@@ -41,7 +42,7 @@ public enum ArmsPosition {
         }
     }
     
-    public static ArmsPosition prevPosition(ArmsPosition a) {
+    public static ArmsPosition widerPosition(ArmsPosition a) {
         switch (a) {
         case RELEASE:
             return RELEASE;

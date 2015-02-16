@@ -48,7 +48,9 @@ public class OI {
     public OI() {
         driverPad = new Gamepad(DRIVER_PAD_PORT);
         operatorPad = new Gamepad(OPERATOR_PAD_PORT);
-        // Lift is controlled by LiftControlCommand
+
+        // Lift is controlled by LiftControlCommand, which is the Lift's default command
+        // Drivetrain is controlled by DrivetrainTankDriveCommand
 
         operatorPad.getLeftBumper().whileHeld(new AcquirerLeftReleaseCommand());
         operatorPad.getRightBumper().whileHeld(new AcquirerRightReleaseCommand());
@@ -65,6 +67,5 @@ public class OI {
         operatorPad.getDPadRight().whenPressed(new ArmsGetWiderCommand());
 
         operatorPad.getStartButton().whenPressed(new LiftOverrideCommand());
-
     }
 }

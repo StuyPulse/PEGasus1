@@ -20,10 +20,10 @@ public class AutonOneSetCommand extends CommandGroup {
         //      addSequential(new Command2());
         // these will run in order.
         addSequential(new ArmsNarrowCommand());
-        addSequential(new AutonAcquirerCommand());
+        addSequential(new AutonAcquireCommand());
         addSequential(new AutonLiftUpCommand());
         addSequential(new AutonDriveForwardInchesCommand(AUTON_ONE_SET_DRIVE_INCHES_FIRST, AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT));
-        addSequential(new AutonAcquirerCommand());
+        addSequential(new AutonAcquireCommand());
         addSequential(new DrivetrainRotateCommand(AUTON_ONE_SET_ROTATE_DEGREES, p, i, d));
         addSequential(new AutonDriveForwardInchesCommand(AUTON_ONE_SET_DRIVE_INCHES_SECOND, AUTON_DRIVE_FORWARD_SCORING_PLATFORM_TIMEOUT));
 

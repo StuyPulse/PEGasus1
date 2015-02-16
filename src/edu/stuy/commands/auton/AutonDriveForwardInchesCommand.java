@@ -16,10 +16,10 @@ public class AutonDriveForwardInchesCommand extends Command {
     private boolean usingCustomDistance;
     
     /** 
-     * If distance < 0, get it from SmartDashboard
-     * @param dist
+     * If distance < 0, get it from SmartDashboard.
+     * @param _distance If negative, read desired inches from SmartDashboard.
+     * @param _timeout Does not exceed this time.
      */
-
     public AutonDriveForwardInchesCommand(double _distance, double _timeout) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -62,7 +62,7 @@ public class AutonDriveForwardInchesCommand extends Command {
         } else {
             speed = 1;
         }
-        return speed / 2; // Lower maximum speed to .5
+        return speed * 0.5; // Lower maximum speed to .5
     }
 
     // Make this return true when this Command no longer needs to run execute()
