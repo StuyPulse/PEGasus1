@@ -3,6 +3,7 @@ package edu.stuy.subsystems;
 import static edu.stuy.RobotMap.*;
 import edu.stuy.commands.DrivetrainTankDriveCommand;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -33,10 +34,10 @@ public class Drivetrain extends Subsystem {
                 frontRightMotor,
                 rearRightMotor);
 
-        leftEncoder = new Encoder(DRIVETRAIN_ENCODER_LEFT_CHANNEL_A, DRIVETRAIN_ENCODER_LEFT_CHANNEL_B, true);
+        leftEncoder = new Encoder(DRIVETRAIN_ENCODER_LEFT_CHANNEL_A, DRIVETRAIN_ENCODER_LEFT_CHANNEL_B, true, EncodingType.k2X);
         leftEncoder.setDistancePerPulse(DRIVETRAIN_ENCODER_DISTANCE_PER_PULSE);
         // Reverse right encoder
-        rightEncoder = new Encoder(DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A, DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B, false);
+        rightEncoder = new Encoder(DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A, DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B, false, EncodingType.k2X);
         rightEncoder.setDistancePerPulse(DRIVETRAIN_ENCODER_DISTANCE_PER_PULSE);
  
         gyro = new Gyro(DRIVETRAIN_GYRO_CHANNEL);
