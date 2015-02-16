@@ -71,7 +71,7 @@ public class Lift extends Subsystem {
     }
 
     public boolean isAtBottom() {
-        return !limitSwitch.get() && !overridden;
+        return limitSwitch.get() && !overridden;
     }
     
     public boolean isAboveRecyclingBinHeight() {
