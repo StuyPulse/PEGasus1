@@ -81,7 +81,7 @@ public class Lift extends Subsystem {
     }
     
     public boolean isAtTop() {
-        return getLiftEncoder() >= LIFT_ENCODER_MAX_HEIGHT;
+        return getLiftEncoder() >= LIFT_ENCODER_MAX_HEIGHT && !override;
     }
 
     public void runEncoderLogic() {
