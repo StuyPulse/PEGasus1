@@ -65,7 +65,7 @@ public interface RobotMap extends PhysicalConstants {
 
     // Encoder Distances
     double LIFT_ENCODER_RECYCLING_BIN_HEIGHT = RECYCLING_BIN_HEIGHT + 21.0;
-    double LIFT_ENCODER_MAX_HEIGHT = 60.0; // FIXME: make me correct
+    double LIFT_ENCODER_MAX_HEIGHT = 50.0;
     double LIFT_SPROCKET_CIRCUMFERENCE = 3 * Math.PI;
     double DRIVETRAIN_WHEEL_CIRCUMFERENCE = 6 * Math.PI;
     double PULSES_PER_REVOLUTION = 250;
