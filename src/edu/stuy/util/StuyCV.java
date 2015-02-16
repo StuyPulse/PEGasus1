@@ -226,6 +226,42 @@ public class StuyCV {
         return false;
     }
 
+    /***
+     * Detects motion
+     * @param stream - Input VideoCapture that will be processed
+     * @param timeout - The length of time in milliseconds to check for motion
+     * @param threshold - The tolerance of motion allowed
+     * @return True if motion is detected, false otherwise
+     */
+    public static boolean motionDetect(VideoCapture stream , double timeout , double threshold) {
+
+        Mat prev = new Mat();
+        Mat src = new Mat();
+        Mat compare = new Mat();
+        double totalArea;
+
+        double startTime = System.currentTimeMillis();
+
+        getFromFeed(stream , src);
+
+        while (System.currentTimeMillis() - startTime < timeout) {
+            prev = src.clone();
+            getFromFeed(stream , src);
+
+            Core.bitwise_and(prev, src, compare);
+            ArrayList<MatOfPoint> contours = new ArrayList<MatOfPoint>();
+            contours = edgeDetect(compare);
+            totalArea = 0.0;
+            for (MatOfPoint mop : contours) {
+                totalArea += contourArea(mop);
+            }
+            if (totalArea >= threshold) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Gets the total number
      * @param src - Source matrix to be processed
