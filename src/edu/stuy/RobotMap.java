@@ -6,16 +6,7 @@ package edu.stuy;
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
  */
-public interface RobotMap {
-    // For example to map the left and right motors, you could define the
-    // following variables to use with your drivetrain subsystem.
-    // public static int leftMotor = 1;
-    // public static int rightMotor = 2;
-
-    // If you are using multiple modules, make sure to define both the port
-    // number and the module. For example you with a rangefinder:
-    // public static int rangefinderPort = 1;
-    // public static int rangefinderModule = 1;
+public interface RobotMap extends PhysicalConstants {
 
     // CAN device IDs
     int DRIVE_FRONT_LEFT_ID = 1;
@@ -60,16 +51,10 @@ public interface RobotMap {
     double AUTON_DRIVETRAIN_TIMEOUT = 20;
     double AUTON_LIFT_TIMEOUT = 5;
 
-    // Tote Dimensions (inches)
-    double TOTE_WIDTH = 16.9;
-    double TOTE_LENGTH = 26.9;
-
-    // Robot Dimensions approx. (inches)
-    double ROBOT_LENGTH = 28.0;
-
     // Auton Mobility DriveForward
-    double AUTON_DRIVE_FORWARD_SCORING_PLATFORM = ROBOT_LENGTH + 36;
+    double AUTON_DRIVE_FORWARD_SCORING_PLATFORM = ROBOT_LENGTH + AUTON_ZONE_WIDTH / 2;
     double AUTON_DRIVE_FORWARD_DRIVER_SIDE = AUTON_ONE_SET_DRIVE_INCHES_SECOND + TOTE_WIDTH + ROBOT_LENGTH;
+
     //Displayed on Smart Dashboard
     String INCHES_LABEL = "If you are using Setting 4, then input number of inches";
     String PID_TUNING_P = "PID: p";
@@ -95,4 +80,5 @@ public interface RobotMap {
     // DrivetrainTankDriveCommand, so to produce 0.5 as the speed multiplier we 
     // take the square root of 0.5
     double DRIVETRAIN_SLOWNESS_FACTOR = Math.sqrt(0.5);
+
 }
