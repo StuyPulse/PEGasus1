@@ -10,8 +10,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class AutonDriveForwardInchesCommand extends Command {
 
-    private double inches;
+    private double distance;
     private double startTime;
+    private double timeout;
     private boolean usingCustomDistance;
     
     /** 
@@ -19,11 +20,12 @@ public class AutonDriveForwardInchesCommand extends Command {
      * @param dist
      */
 
-    public AutonDriveForwardInchesCommand(double dist) {
+    public AutonDriveForwardInchesCommand(double _distance, double _timeout) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        usingCustomDistance = dist < 0;
-        inches = dist;
+        usingCustomDistance = _distance < 0;
+        distance = _distance;
+        timeout = _timeout;
         requires(Robot.drivetrain);
     }
 
@@ -35,7 +37,7 @@ public class AutonDriveForwardInchesCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if (usingCustomDistance) {
-            inches = SmartDashboard.getNumber(INCHES_LABEL);
+            distance = SmartDashboard.getNumber(INCHES_LABEL);
         }
         double speed = getRampSpeed();
         Robot.drivetrain.tankDrive(speed, speed);
@@ -65,7 +67,7 @@ public class AutonDriveForwardInchesCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.drivetrain.getDistanceAbsolute() >= inches || Timer.getFPGATimestamp() - startTime >= AUTON_DRIVETRAIN_TIMEOUT;
+        return Robot.drivetrain.getDistanceAbsolute() >= distance || Timer.getFPGATimestamp() - startTime >= timeout;
     }
 
     // Called once after isFinished returns true

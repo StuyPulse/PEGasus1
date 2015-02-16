@@ -45,15 +45,19 @@ public interface RobotMap extends PhysicalConstants {
     // Auton Constants
     double DRIVETRAIN_ROTATE_THRESHOLD_DEGREES = 5.0;
     double AUTON_ONE_SET_DRIVE_INCHES_FIRST = 25.0;
+    double AUTON_ONE_SET_DRIVE_INCHES_FIRST_TIMEOUT = 2.5; // Doesn't matter because if one set doesn't work
     double AUTON_ONE_SET_ROTATE_DEGREES = 90.0;
     double AUTON_ONE_SET_DRIVE_INCHES_SECOND = 112.0;
+    double AUTON_ONE_SET_DRIVE_INCHES_SECOND_TIMEOUT = 6; // Doesn't matter because if one set doesn't work
     double AUTON_ACQUIRE_TIME = 1;
-    double AUTON_DRIVETRAIN_TIMEOUT = 20;
+    double AUTON_DRIVETRAIN_TIMEOUT = 15;
     double AUTON_LIFT_TIMEOUT = 5;
 
     // Auton Mobility DriveForward
     double AUTON_DRIVE_FORWARD_SCORING_PLATFORM = ROBOT_LENGTH + AUTON_ZONE_WIDTH / 2;
+    double AUTON_DRIVE_FORWARD_SCORING_PLATFORM_TIMEOUT = 5.2;
     double AUTON_DRIVE_FORWARD_DRIVER_SIDE = AUTON_ONE_SET_DRIVE_INCHES_SECOND + TOTE_WIDTH + ROBOT_LENGTH;
+    double AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT = 9.5;
 
     //Displayed on Smart Dashboard
     String INCHES_LABEL = "If you are using Setting 4, then input number of inches";
