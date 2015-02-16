@@ -263,6 +263,7 @@ public class StuyCV {
         contour = edgeDetect(src);
 
         Collections.sort(contour , contourAreaCompareDescending);
+	contour.add(contour.remove(0));
 
         for (int i = 0; i < num; i++) {
             MatOfPoint pts = new MatOfPoint(contour.get(i));
