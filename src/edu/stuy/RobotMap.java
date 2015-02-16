@@ -57,7 +57,7 @@ public interface RobotMap extends PhysicalConstants {
     double AUTON_DRIVE_FORWARD_SCORING_PLATFORM = ROBOT_LENGTH + AUTON_ZONE_WIDTH / 2;
     double AUTON_DRIVE_FORWARD_SCORING_PLATFORM_TIMEOUT = 5.2;
     double AUTON_DRIVE_FORWARD_DRIVER_SIDE = AUTON_ONE_SET_DRIVE_INCHES_SECOND + TOTE_WIDTH + ROBOT_LENGTH;
-    double AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT = 9.5;
+    double AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT = 15;
 
     //Displayed on Smart Dashboard
     String INCHES_LABEL = "If you are using Setting 4, then input number of inches";
