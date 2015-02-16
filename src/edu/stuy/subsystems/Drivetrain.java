@@ -92,6 +92,10 @@ public class Drivetrain extends Subsystem {
         return (leftEncoder.getDistance() + rightEncoder.getDistance()) / 2;
     }
     
+    public double getRealDistance() {
+        return getDistance() * REAL_DISTANCE_CONVERSION_FACTOR + REAL_DISTANCE_OFFSET;
+    }
+
     public double getLeftEncoder() {
         return leftEncoder.getDistance();
     }
