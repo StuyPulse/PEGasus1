@@ -88,12 +88,17 @@ public class Drivetrain extends Subsystem {
         robotDrive.tankDrive(0, 0);
     }
 
-    public double getDistance() {
-        return (leftEncoder.getDistance() + rightEncoder.getDistance()) / 2;
+    /**
+     * Get the positive values of left and right encoder
+     *
+     * @return the larger of the absolute values of left and right encoder
+     */
+    public double getDistanceAbsolute() {
+        return Math.max(Math.abs(getLeftEncoder()), Math.abs(getRightEncoder()));
     }
-    
+
     public double getRealDistance() {
-        return getDistance() * REAL_DISTANCE_CONVERSION_FACTOR + REAL_DISTANCE_OFFSET;
+        return getDistanceAbsolute() * REAL_DISTANCE_CONVERSION_FACTOR + REAL_DISTANCE_OFFSET;
     }
 
     public double getLeftEncoder() {
@@ -103,7 +108,7 @@ public class Drivetrain extends Subsystem {
     public double getRightEncoder() {
         return rightEncoder.getDistance();
     }
-    
+
     public double getGyroAngle() {
         return gyro.getAngle();
     }
