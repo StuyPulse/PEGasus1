@@ -1,6 +1,8 @@
 package edu.stuy.util;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -18,6 +20,38 @@ import org.opencv.highgui.VideoCapture;
 import org.opencv.imgproc.Imgproc;
 
 public class StuyCV {
+
+    /*
+        Comparator for sorting MatOfPoints - sorts from highest area to lowest area
+     */
+    public static Comparator<MatOfPoint> contourAreaCompareDescending = new Comparator<MatOfPoint>() {
+        public int compare(MatOfPoint first, MatOfPoint second) {
+
+            double firstArea = contourArea(first);
+            double secondArea = contourArea(second);
+
+            double diff = firstArea - secondArea;
+
+            return (int) diff;
+
+        }
+    };
+
+    /*
+    Comparator for sorting MatOfPoints - sorts from lowest to highest area
+     */
+    public static Comparator<MatOfPoint> contourAreaCompareAscending = new Comparator<MatOfPoint>() {
+        public int compare(MatOfPoint first, MatOfPoint second) {
+
+            double firstArea = contourArea(first);
+            double secondArea = contourArea(second);
+
+            double diff = secondArea - firstArea;
+
+            return (int) diff;
+
+        }
+    };
 
     /***
      * Finds the area of a rectangle
@@ -90,13 +124,11 @@ public class StuyCV {
         return dst;
     }
 
-
     /***
      * Detects the edges in a matrix
      * @param src - Matrix to be processed
      * @return - Processed List of MatOfPoint
      */
-    // Function takes a source matrix as its parameter and detects edges
     public static ArrayList<MatOfPoint> edgeDetect(Mat src){
 
         // Destination matrix for the processed image
@@ -111,7 +143,6 @@ public class StuyCV {
 
         return contour;
     }
-
 
     /***
      *  Function takes an ArrayList<MatOfPoint> and a double to compare the area of the
@@ -133,7 +164,6 @@ public class StuyCV {
 
         return src;
     }
-
 
     /***
      * Detects number of polygons.
@@ -160,7 +190,6 @@ public class StuyCV {
 
         return polygonsFound;
     }
-
 
     /***
      * Detects motion
@@ -196,4 +225,50 @@ public class StuyCV {
         }
         return false;
     }
+
+    /**
+     * Gets the total number
+     * @param src - Source matrix to be processed
+     * @param epsilon - How accurate the edge detection will be
+     * @return Number of edges detected
+     */
+    public static ArrayList<Integer> getTotalEdges(Mat src, int epsilon) {
+
+        ArrayList<Integer> totalEdges = new ArrayList<Integer>();
+        ArrayList<MatOfPoint> contour = new ArrayList<MatOfPoint>();
+        MatOfPoint2f contourMOP2f = new MatOfPoint2f();
+
+        contour = edgeDetect(src);
+
+        for (int i = 0; i < contour.size(); i++) {
+            Imgproc.approxPolyDP(contourMOP2f, contourMOP2f, epsilon, true);
+            List<Point> contourList = contourMOP2f.toList();
+            totalEdges.add(contourList.size());
+        }
+
+        return totalEdges;
+    }
+
+    /**
+     * Acquires the points of the largest rectangle in the source matrix
+     * @param src - Source matrix to be processed
+     * @param num - The 'num' largest rectangles to return
+     * @return The top left point and lower right point of the largest rectangle
+     */
+    public static ArrayList<Rect> largestRectangles(Mat src , int num) {
+
+        ArrayList<Rect> rects = new ArrayList<Rect>();
+        ArrayList<MatOfPoint> contour = new ArrayList<MatOfPoint>();
+
+        contour = edgeDetect(src);
+
+        Collections.sort(contour , contourAreaCompareDescending);
+
+        for (int i = 0; i < num; i++) {
+            MatOfPoint pts = new MatOfPoint(contour.get(i));
+            rects.add(Imgproc.boundingRect(pts));
+        }
+        return rects;
+    }
+
 }
