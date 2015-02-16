@@ -92,6 +92,8 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        SmartDashboard.putNumber("Left Encoder:", Robot.drivetrain.getLeftEncoder());
+        SmartDashboard.putNumber("Right Encoder:", Robot.drivetrain.getRightEncoder());
     }
 
     public void teleopInit() {
