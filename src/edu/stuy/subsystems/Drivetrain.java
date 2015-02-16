@@ -88,8 +88,13 @@ public class Drivetrain extends Subsystem {
         robotDrive.tankDrive(0, 0);
     }
 
-    public double getDistance() {
-        return (leftEncoder.getDistance() + rightEncoder.getDistance()) / 2;
+    /**
+     * Get the positive values of left and right encoder
+     *
+     * @return the larger of the absolute values of left and right encoder
+     */
+    public double getDistanceAbsolute() {
+        return Math.max(Math.abs(getLeftEncoder()), Math.abs(getRightEncoder()));
     }
     
     public double getLeftEncoder() {
