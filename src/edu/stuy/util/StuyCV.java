@@ -301,7 +301,7 @@ public class StuyCV {
         Collections.sort(contour , contourAreaCompareDescending);
         contour.add(contour.remove(0));
 
-        for (int i = 0; i < num; i++) {
+        for (int i = 0; i < num && i < contour.size(); i++) {
             MatOfPoint pts = new MatOfPoint(contour.get(i));
             rects.add(Imgproc.boundingRect(pts));
         }
