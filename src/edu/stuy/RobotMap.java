@@ -41,7 +41,7 @@ public interface RobotMap extends PhysicalConstants {
 
     // Analog Channels
     int DRIVETRAIN_GYRO_CHANNEL = 0;
-    
+
     // Auton Constants
     double DRIVETRAIN_ROTATE_THRESHOLD_DEGREES = 5.0;
     double AUTON_DRIVETRAIN_TIMEOUT = 15.0;
@@ -70,8 +70,8 @@ public interface RobotMap extends PhysicalConstants {
     double DRIVE_ROTATE_I = 0;
     double DRIVE_ROTATE_D = 0;
 
-    // Tank drive squares the inputs given to Robot.drivetrain.tankDrive in 
-    // DrivetrainTankDriveCommand, so to produce 0.5 as the speed multiplier we 
+    // Tank drive squares the inputs given to Robot.drivetrain.tankDrive in
+    // DrivetrainTankDriveCommand, so to produce 0.5 as the speed multiplier we
     // take the square root of 0.5
     double DRIVETRAIN_SLOWNESS_FACTOR = Math.sqrt(0.5);
     double ACQUIRER_ROLLER_SPEED = 0.75;

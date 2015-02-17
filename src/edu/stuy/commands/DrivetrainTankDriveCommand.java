@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class DrivetrainTankDriveCommand extends Command {
-    
+
     public DrivetrainTankDriveCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

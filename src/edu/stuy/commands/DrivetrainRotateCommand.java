@@ -14,7 +14,7 @@ public class DrivetrainRotateCommand extends PIDCommand {
     public DrivetrainRotateCommand(double degrees) {
         this(degrees, DRIVE_ROTATE_P, DRIVE_ROTATE_I, DRIVE_ROTATE_D);
     }
-    
+
     public DrivetrainRotateCommand(double _degrees, double p, double i, double d) {
         super(p, i, d);
         // Use requires() here to declare subsystem dependencies
@@ -52,7 +52,7 @@ public class DrivetrainRotateCommand extends PIDCommand {
     @Override
     protected double returnPIDInput() {
         double temp = Robot.drivetrain.getGyroAngle() % 360;
- 
+
         // Ensure that our gyro value is in the range [0, 360).
         if (temp < 0) {
             temp += 360;
