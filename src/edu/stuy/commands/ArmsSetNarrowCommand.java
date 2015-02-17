@@ -6,9 +6,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ArmsWideCommand extends Command {
+public class ArmsSetNarrowCommand extends Command {
 
-    public ArmsWideCommand() {
+    public ArmsSetNarrowCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(Robot.arms);
@@ -16,7 +16,7 @@ public class ArmsWideCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.arms.setWide();
+        Robot.arms.setNarrow();
     }
 
     // Called repeatedly when this Command is scheduled to run

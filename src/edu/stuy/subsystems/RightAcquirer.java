@@ -1,6 +1,6 @@
 package edu.stuy.subsystems;
 
-import static edu.stuy.RobotMap.ACQUIRER_RIGHT_ROLLER_ID;
+import static edu.stuy.RobotMap.*;
 import edu.stuy.commands.AcquirerRightStopCommand;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -22,7 +22,7 @@ public class RightAcquirer extends Subsystem {
     }
 
     public void acquire() {
-        rightRoller.set(1.0);
+        rightRoller.set(ACQUIRER_ROLLER_SPEED);
     }
 
     public void stop() {
@@ -30,7 +30,7 @@ public class RightAcquirer extends Subsystem {
     }
 
     public void release() {
-        rightRoller.set(-1.0);
+        rightRoller.set(-ACQUIRER_ROLLER_SPEED);
     }
 
 }

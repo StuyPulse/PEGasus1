@@ -9,6 +9,7 @@ import edu.stuy.commands.AcquirerRightAcquireCommand;
 import edu.stuy.commands.AcquirerRightReleaseCommand;
 import edu.stuy.commands.ArmsGetNarrowerCommand;
 import edu.stuy.commands.ArmsGetWiderCommand;
+import edu.stuy.commands.LiftOverrideCommand;
 import edu.stuy.util.Gamepad;
 import edu.wpi.first.wpilibj.Joystick;
 
@@ -52,7 +53,9 @@ public class OI {
         driverLeftStick = new Joystick(DRIVER_LEFT_STICK_PORT);
         driverRightStick = new Joystick(DRIVER_RIGHT_STICK_PORT);
         operatorPad = new Gamepad(OPERATOR_PAD_PORT);
-        // Lift is controlled by LiftControlCommand
+
+        // Lift is controlled by LiftControlCommand, which is the Lift's default command
+        // Drivetrain is controlled by DrivetrainTankDriveCommand
 
         operatorPad.getLeftBumper().whileHeld(new AcquirerLeftReleaseCommand());
         operatorPad.getRightBumper().whileHeld(new AcquirerRightReleaseCommand());
@@ -67,5 +70,7 @@ public class OI {
         operatorPad.getDPadLeft().whenPressed(new ArmsGetWiderCommand());
         operatorPad.getDPadDown().whenPressed(new ArmsGetWiderCommand());
         operatorPad.getDPadRight().whenPressed(new ArmsGetWiderCommand());
+
+        operatorPad.getStartButton().whenPressed(new LiftOverrideCommand());
     }
 }

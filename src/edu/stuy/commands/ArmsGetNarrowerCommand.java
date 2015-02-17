@@ -17,7 +17,8 @@ public class ArmsGetNarrowerCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        ArmsPosition.nextPosition(Robot.arms.getCurrentPosition()).goToPosition();
+        ArmsPosition nextPosition = ArmsPosition.narrowerPosition(Robot.arms.getCurrentPosition());
+        nextPosition.goToPosition();
     }
 
     // Called repeatedly when this Command is scheduled to run

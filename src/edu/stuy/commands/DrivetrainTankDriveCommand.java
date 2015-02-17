@@ -24,12 +24,17 @@ public class DrivetrainTankDriveCommand extends Command {
         /*
         double left = Robot.oi.driverPad.getLeftY();
         double right = Robot.oi.driverPad.getRightY();
-        if (Robot.oi.driverPad.getRawLeftTrigger() || Robot.oi.driverPad.getRawRightTrigger()) {
-            // Slow mode (when a trigger is pressed)
-            Robot.drivetrain.tankDrive(-left * DRIVETRAIN_SLOWNESS_FACTOR, -right * DRIVETRAIN_SLOWNESS_FACTOR);
-        } else {
-            // Fast mode (default)
+        if (Robot.oi.driverPad.getRawLeftTrigger() || Robot.oi.driverPad.getRawLeftBumper()) {
+            Robot.drivetrain.setSpeedUp(false);
+        }
+        if (Robot.oi.driverPad.getRawRightTrigger() || Robot.oi.driverPad.getRawRightBumper()) {
+            Robot.drivetrain.setSpeedUp(true);
+        }
+
+        if (Robot.drivetrain.isSpeedUp()) {
             Robot.drivetrain.tankDrive(-left, -right);
+        } else {
+            Robot.drivetrain.tankDrive(-left * DRIVETRAIN_SLOWNESS_FACTOR, -right * DRIVETRAIN_SLOWNESS_FACTOR);
         }
         */
         Robot.drivetrain.tankDrive(Robot.oi.driverLeftStick, Robot.oi.driverRightStick);
@@ -37,6 +42,7 @@ public class DrivetrainTankDriveCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+        // This is Drivetrain's default command.
         return false;
     }
 

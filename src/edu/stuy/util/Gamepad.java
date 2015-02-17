@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * for this class to work. This class probably also works with the Logitech
  * Wireless Gamepad F710 (untested, but it has the exact same layout as the
  * F310).
- * @author kevin
+ * @author wangmeister
  */
 public class Gamepad extends Joystick {
 
@@ -161,7 +161,7 @@ public class Gamepad extends Joystick {
     }
 
     /**
-     * The left button of the button group. On some gamepads this is A.
+     * The bottom button of the button group. On some gamepads this is A.
      * @return if the bottom button is pressed
      */
     public boolean getRawBottomButton() {
@@ -173,7 +173,7 @@ public class Gamepad extends Joystick {
     }
 
     /**
-     * The left button of the button group. On some gamepads this is B.
+     * The right button of the button group. On some gamepads this is B.
      * @return if the right button is pressed
      */
     public boolean getRawRightButton() {
@@ -200,11 +200,11 @@ public class Gamepad extends Joystick {
      * The central left button. On some gamepads this is the select button.
      * @return if the back button is pressed
      */
-    public boolean getRawBackButton() {
+    public boolean getRawSelectButton() {
         return getRawButton(9);
     }
 
-    public JoystickButton getBackButton() {
+    public JoystickButton getSelectButton() {
         return new JoystickButton(this, 9);
     }
 

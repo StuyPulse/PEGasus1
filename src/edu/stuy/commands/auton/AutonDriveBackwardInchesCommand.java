@@ -8,19 +8,19 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class AutonDriveForwardInchesCommand extends Command {
+public class AutonDriveBackwardInchesCommand extends Command {
 
     private double distance;
     private double startTime;
     private double timeout;
     private boolean usingCustomDistance;
-    
-    /** 
+
+    /**
      * If distance < 0, get it from SmartDashboard.
      * @param _distance If negative, read desired inches from SmartDashboard.
      * @param _timeout Does not exceed this time.
      */
-    public AutonDriveForwardInchesCommand(double _distance, double _timeout) {
+    public AutonDriveBackwardInchesCommand(double _distance, double _timeout) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         usingCustomDistance = _distance < 0;
@@ -40,9 +40,9 @@ public class AutonDriveForwardInchesCommand extends Command {
             distance = SmartDashboard.getNumber(INCHES_LABEL);
         }
         double speed = getRampSpeed();
-        Robot.drivetrain.tankDrive(speed, speed);
+        Robot.drivetrain.tankDrive(-speed, -speed);
     }
-    
+
     /**
      * Ramping algorithm for linear acceleration and smooth velocity
      * Takes one second to ramp up to max speed
@@ -51,7 +51,7 @@ public class AutonDriveForwardInchesCommand extends Command {
      * if t >= 1, then speed = 1;
      * @return the speed the robot should go at the current time
      */
-    
+
     private double getRampSpeed() {
         double t = Timer.getFPGATimestamp() - startTime;
         double speed;
@@ -62,7 +62,7 @@ public class AutonDriveForwardInchesCommand extends Command {
         } else {
             speed = 1;
         }
-        return speed * 0.6; // Lower maximum speed to .6
+        return speed * 0.6; // Lower maximum speed to .5
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -79,5 +79,5 @@ public class AutonDriveForwardInchesCommand extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-    
+
 }

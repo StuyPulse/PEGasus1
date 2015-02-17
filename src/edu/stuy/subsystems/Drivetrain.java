@@ -3,6 +3,7 @@ package edu.stuy.subsystems;
 import static edu.stuy.RobotMap.*;
 import edu.stuy.commands.DrivetrainTankDriveCommand;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.Joystick;
@@ -21,6 +22,7 @@ public class Drivetrain extends Subsystem {
     private Encoder leftEncoder;
     private Encoder rightEncoder;
     private Gyro gyro;
+    private boolean speedUp;
 
     public Drivetrain() {
         frontLeftMotor = new CANTalon(DRIVE_FRONT_LEFT_ID);
@@ -33,13 +35,13 @@ public class Drivetrain extends Subsystem {
                 frontRightMotor,
                 rearRightMotor);
 
-        leftEncoder = new Encoder(DRIVETRAIN_ENCODER_LEFT_CHANNEL_A, DRIVETRAIN_ENCODER_LEFT_CHANNEL_B, false);
-        leftEncoder.setDistancePerPulse(DRIVETRAIN_ENCODER_DISTANCE_PER_PULSE);
-        // Reverse right encoder
-        rightEncoder = new Encoder(DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A, DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B, true);
-        rightEncoder.setDistancePerPulse(DRIVETRAIN_ENCODER_DISTANCE_PER_PULSE);
+        leftEncoder = new Encoder(DRIVETRAIN_ENCODER_LEFT_CHANNEL_A, DRIVETRAIN_ENCODER_LEFT_CHANNEL_B, true, EncodingType.k2X);
+        leftEncoder.setDistancePerPulse(DRIVETRAIN_ENCODER_INCHES_PER_PULSE);
+        rightEncoder = new Encoder(DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A, DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B, false, EncodingType.k2X);
+        rightEncoder.setDistancePerPulse(DRIVETRAIN_ENCODER_INCHES_PER_PULSE);
  
         gyro = new Gyro(DRIVETRAIN_GYRO_CHANNEL);
+        speedUp = true;
     }
 
     public void initDefaultCommand() {
@@ -61,17 +63,11 @@ public class Drivetrain extends Subsystem {
         robotDrive.arcadeDrive(moveValue, rotateValue, squaredInput);
     }
 
-    public void enableBrakeMode(boolean on) {
+    public void setBrakeMode(boolean on) {
         frontLeftMotor.enableBrakeMode(on);
         rearLeftMotor.enableBrakeMode(on);
         frontRightMotor.enableBrakeMode(on);
         rearRightMotor.enableBrakeMode(on);
-    }
-
-    public void reset() {
-        resetEncoders();
-        resetGyro();
-        stop();
     }
 
     public void resetEncoders() {
@@ -83,12 +79,21 @@ public class Drivetrain extends Subsystem {
         gyro.reset();
     }
 
+    public void setSpeedUp(boolean b) {
+        speedUp = b;
+    }
+
     public void stop() {
         robotDrive.tankDrive(0, 0);
     }
 
-    public double getDistance() {
-        return (leftEncoder.getDistance() + rightEncoder.getDistance()) / 2;
+    /**
+     * Get the positive values of left and right encoder
+     *
+     * @return the larger of the absolute values of left and right encoder
+     */
+    public double getDistanceAbsolute() {
+        return Math.max(Math.abs(getLeftEncoder()), Math.abs(getRightEncoder()));
     }
     
     public double getLeftEncoder() {
@@ -101,6 +106,10 @@ public class Drivetrain extends Subsystem {
     
     public double getGyroAngle() {
         return gyro.getAngle();
+    }
+
+    public boolean isSpeedUp() {
+        return speedUp;
     }
 
 }
