@@ -47,9 +47,11 @@ public interface RobotMap extends PhysicalConstants {
     double AUTON_ONE_SET_ROTATE_DEGREES = 90.0;
     double AUTON_ONE_SET_DRIVE_INCHES_SECOND = 112.0;
     double AUTON_ONE_SET_DRIVE_INCHES_SECOND_TIMEOUT = 10; // Doesn't matter because one set doesn't work
-    double AUTON_ACQUIRE_TIME = 1;
-    double AUTON_DRIVETRAIN_TIMEOUT = 15;
-    double AUTON_LIFT_TIMEOUT = 5;
+    double AUTON_RECYCLING_BIN_DRIVE_INCHES = 135.0;
+    double AUTON_RECYCLING_BIN_TIMEOUT = 15.0;
+    double AUTON_ACQUIRE_TIME = 1.0;
+    double AUTON_DRIVETRAIN_TIMEOUT = 15.0;
+    double AUTON_LIFT_TIMEOUT = 5.0;
 
     // Auton Mobility DriveForward
     double AUTON_DRIVE_BACKWARD_SCORING_PLATFORM_INCHES = ROBOT_LENGTH + AUTON_ZONE_WIDTH / 2 - 32;

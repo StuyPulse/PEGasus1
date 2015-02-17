@@ -4,28 +4,23 @@ import static edu.stuy.RobotMap.*;
 import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-/**
- *
- */
-public class AutonDriveForwardInchesCommand extends Command {
+
+public class AutonRecyclingBinCommand extends Command {
 
     private double distance;
     private double startTime;
     private double timeout;
-    private boolean usingCustomDistance;
-    
-    /** 
+
+    /**
      * If distance < 0, get it from SmartDashboard.
      * @param _distance If negative, read desired inches from SmartDashboard.
      * @param _timeout Does not exceed this time.
      */
-    public AutonDriveForwardInchesCommand(double _distance, double _timeout) {
+    public AutonRecyclingBinCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        usingCustomDistance = _distance < 0;
-        distance = _distance;
-        timeout = _timeout;
+        distance = AUTON_RECYCLING_BIN_DRIVE_INCHES;
+        timeout = AUTON_RECYCLING_BIN_TIMEOUT;
         requires(Robot.drivetrain);
     }
 
@@ -36,13 +31,10 @@ public class AutonDriveForwardInchesCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if (usingCustomDistance) {
-            distance = SmartDashboard.getNumber(INCHES_LABEL);
-        }
         double speed = getRampSpeed();
         Robot.drivetrain.tankDrive(speed, speed);
     }
-    
+
     /**
      * Ramping algorithm for linear acceleration and smooth velocity
      * Takes one second to ramp up to max speed
@@ -51,7 +43,7 @@ public class AutonDriveForwardInchesCommand extends Command {
      * if t >= 1, then speed = 1;
      * @return the speed the robot should go at the current time
      */
-    
+
     private double getRampSpeed() {
         double t = Timer.getFPGATimestamp() - startTime;
         double speed;
@@ -79,5 +71,4 @@ public class AutonDriveForwardInchesCommand extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-    
 }
