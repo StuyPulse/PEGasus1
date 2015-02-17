@@ -51,7 +51,7 @@ public class AutonDriveForwardInchesCommand extends Command {
      * if t >= 1, then speed = 1;
      * @return the speed the robot should go at the current time
      */
-    
+    // This code exists in both forward and backward
     private double getRampSpeed() {
         double t = Timer.getFPGATimestamp() - startTime;
         double speed;
