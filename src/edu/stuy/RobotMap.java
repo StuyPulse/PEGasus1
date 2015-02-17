@@ -58,7 +58,7 @@ public interface RobotMap extends PhysicalConstants {
     double AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT = 15;
 
     //Displayed on Smart Dashboard
-    String INCHES_LABEL = "If you are using Setting 4, then input number of inches";
+    String INCHES_LABEL = "If you are using Setting 4 or 6, then input number of inches";
     String PID_TUNING_P = "PID: p";
     String PID_TUNING_I = "PID: i";
     String PID_TUNING_D = "PID: d";
