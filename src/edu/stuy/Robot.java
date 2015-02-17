@@ -58,13 +58,13 @@ public class Robot extends IterativeRobot {
     private void setupAutonChooser() {
         autonChooser = new SendableChooser();
         autonChooser.addObject("1. Do nothing", new CommandGroup());
-        autonChooser.addObject("2. Drive forward from Driver Side", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE_INCHES, AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT));
+        autonChooser.addObject("2. Drive forward from Driver Side with arms narrow to push tote", new AutonOneTotePushForwardCommand());
         // Driving forward/backward from Field Side means we are doing a mobility auton routine without pushing totes
         autonChooser.addDefault("3. Drive backward from Scoring Platform", new AutonDriveBackwardInchesCommand(AUTON_DRIVE_BACKWARD_SCORING_PLATFORM_INCHES, AUTON_DRIVE_BACKWARD_SCORING_PLATFORM_TIMEOUT));
         // -1 means that AutonDriveForwardInches/AutonDriveBackwardInches uses INCHES_LABEL. Defers reading of Smartdashboard value until auton starts
         autonChooser.addObject("4. Drive forward Custom Amount", new AutonDriveForwardInchesCommand(-1, AUTON_DRIVETRAIN_TIMEOUT));
         autonChooser.addObject("5. Drive backward Custom Amount", new AutonDriveBackwardInchesCommand(-1, AUTON_DRIVETRAIN_TIMEOUT));
-        autonChooser.addObject("6. Drive forward with arms released to push both tote and bin", new AutonOneSetPushForwardCommand());
+        autonChooser.addObject("6. Drive forward from Driver Side with arms released to push both tote and bin", new AutonOneSetPushForwardCommand());
         SmartDashboard.putData("Auton setting", autonChooser);
         SmartDashboard.putNumber(INCHES_LABEL, -1);
     }
