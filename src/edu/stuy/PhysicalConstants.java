@@ -9,6 +9,7 @@ public interface PhysicalConstants {
     // Tote Dimensions (inches)
     double TOTE_WIDTH = 16.9;
     double TOTE_LENGTH = 26.9;
+    double TOTE_HEIGHT = 12.1;
 
     // Field Measurements
     double AUTON_ZONE_WIDTH = 78;

@@ -64,7 +64,7 @@ public interface RobotMap extends PhysicalConstants {
     String PID_TUNING_D = "PID: d";
 
     // Encoder Distances
-    double LIFT_ENCODER_RECYCLING_BIN_HEIGHT = RECYCLING_BIN_HEIGHT + 21.0;
+    double LIFT_ENCODER_RECYCLING_BIN_HEIGHT = RECYCLING_BIN_HEIGHT + TOTE_HEIGHT + 4.0;
     double LIFT_ENCODER_MAX_HEIGHT = 50.0;
     double LIFT_SPROCKET_CIRCUMFERENCE = 3 * Math.PI;
     double DRIVETRAIN_WHEEL_CIRCUMFERENCE = 6 * Math.PI;
