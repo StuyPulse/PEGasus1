@@ -14,5 +14,6 @@ public interface PhysicalConstants {
     // Field Measurements
     double AUTON_ZONE_WIDTH = 78;
     double RECYCLING_BIN_HEIGHT = 29;
+    double TOTE_SET_TO_LANDMARK_INCHES = 107;
 
 }

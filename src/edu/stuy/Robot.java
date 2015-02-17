@@ -2,7 +2,7 @@
 package edu.stuy;
 
 import static edu.stuy.RobotMap.*;
-import edu.stuy.commands.ArmsNarrowCommand;
+import edu.stuy.commands.ArmsSetNarrowCommand;
 import edu.stuy.subsystems.*;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -59,19 +59,14 @@ public class Robot extends IterativeRobot {
         autonChooser = new SendableChooser();
         autonChooser.addObject("1. Do nothing", new CommandGroup());
         autonChooser.addObject("2. Drive forward from Driver Side", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE_INCHES, AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT));
-        // Driving forward from Field Side means we are doing a mobility auton routine without pushing totes
+        // Driving forward/backward from Field Side means we are doing a mobility auton routine without pushing totes
         autonChooser.addDefault("3. Drive backward from Scoring Platform", new AutonDriveBackwardInchesCommand(AUTON_DRIVE_BACKWARD_SCORING_PLATFORM_INCHES, AUTON_DRIVE_BACKWARD_SCORING_PLATFORM_TIMEOUT));
-        // -1 means that AutonDriveForwardInches uses INCHES_LABEL. Defers reading of Smartdashboard value until auton starts
+        // -1 means that AutonDriveForwardInches/AutonDriveBackwardInches uses INCHES_LABEL. Defers reading of Smartdashboard value until auton starts
         autonChooser.addObject("4. Drive forward Custom Amount", new AutonDriveForwardInchesCommand(-1, AUTON_DRIVETRAIN_TIMEOUT));
-        autonChooser.addObject("5. Acquires set and drives forward (UNTESTED, currently doing PID tuning)", new AutonOneSetCommand());
-        autonChooser.addObject("6. Drive backward Custom Amount", new AutonDriveBackwardInchesCommand(-1, AUTON_DRIVETRAIN_TIMEOUT));
-        autonChooser.addObject("7: Drive forward pushing the recycling bin", new AutonRecyclingBinCommand());
-        autonChooser.addObject("8. Drive forward with arms released to push both tote and bin", new AutonOneSetPushForwardCommand());
+        autonChooser.addObject("5. Drive backward Custom Amount", new AutonDriveBackwardInchesCommand(-1, AUTON_DRIVETRAIN_TIMEOUT));
+        autonChooser.addObject("6. Drive forward with arms released to push both tote and bin", new AutonOneSetPushForwardCommand());
         SmartDashboard.putData("Auton setting", autonChooser);
         SmartDashboard.putNumber(INCHES_LABEL, -1);
-        SmartDashboard.putNumber(PID_TUNING_P, DRIVE_ROTATE_P);
-        SmartDashboard.putNumber(PID_TUNING_I, DRIVE_ROTATE_I);
-        SmartDashboard.putNumber(PID_TUNING_D, DRIVE_ROTATE_D);
     }
 
     public void disabledPeriodic() {
@@ -82,11 +77,6 @@ public class Robot extends IterativeRobot {
         drivetrain.resetEncoders();
         drivetrain.setBrakeMode(true);
         autonomousCommand = (Command) autonChooser.getSelected();
-        // Temporary for PID tuning
-        if (autonomousCommand instanceof AutonOneSetCommand) {
-            autonomousCommand = new AutonOneSetCommand(SmartDashboard.getNumber(PID_TUNING_P), SmartDashboard.getNumber(PID_TUNING_I), 
-                    SmartDashboard.getNumber(PID_TUNING_D));
-        }
         autonomousCommand.start();
     }
 
@@ -107,7 +97,7 @@ public class Robot extends IterativeRobot {
         if (autonomousCommand != null) autonomousCommand.cancel();
 
         // Initialize subsystem states:
-        new ArmsNarrowCommand().start();
+        new ArmsSetNarrowCommand().start();
         drivetrain.setBrakeMode(false);
         drivetrain.setSpeedUp(true);
         lift.setOverridden(false);

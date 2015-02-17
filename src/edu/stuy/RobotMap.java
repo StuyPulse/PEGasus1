@@ -42,28 +42,16 @@ public interface RobotMap extends PhysicalConstants {
     
     // Auton Constants
     double DRIVETRAIN_ROTATE_THRESHOLD_DEGREES = 5.0;
-    double AUTON_ONE_SET_DRIVE_INCHES_FIRST = 25.0;
-    double AUTON_ONE_SET_DRIVE_INCHES_FIRST_TIMEOUT = 2.5; // Doesn't matter because one set doesn't work
-    double AUTON_ONE_SET_ROTATE_DEGREES = 90.0;
-    double AUTON_ONE_SET_DRIVE_INCHES_SECOND = 112.0;
-    double AUTON_ONE_SET_DRIVE_INCHES_SECOND_TIMEOUT = 10; // Doesn't matter because one set doesn't work
-    double AUTON_RECYCLING_BIN_DRIVE_INCHES = 135.0;
-    double AUTON_RECYCLING_BIN_TIMEOUT = 15.0;
-    double AUTON_ACQUIRE_TIME = 1.0;
     double AUTON_DRIVETRAIN_TIMEOUT = 15.0;
-    double AUTON_LIFT_TIMEOUT = 5.0;
 
     // Auton Mobility DriveForward
-    double AUTON_DRIVE_BACKWARD_SCORING_PLATFORM_INCHES = ROBOT_LENGTH + AUTON_ZONE_WIDTH / 2 - 40;
+    double AUTON_DRIVE_BACKWARD_SCORING_PLATFORM_INCHES = AUTON_ZONE_WIDTH / 2;
     double AUTON_DRIVE_BACKWARD_SCORING_PLATFORM_TIMEOUT = 5.2;
-    double AUTON_DRIVE_FORWARD_DRIVER_SIDE_INCHES = AUTON_ONE_SET_DRIVE_INCHES_SECOND + TOTE_WIDTH + ROBOT_LENGTH - 40;
+    double AUTON_DRIVE_FORWARD_DRIVER_SIDE_INCHES = TOTE_SET_TO_LANDMARK_INCHES + TOTE_WIDTH;
     double AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT = 15;
 
-    //Displayed on Smart Dashboard
-    String INCHES_LABEL = "If you are using Setting 4 or 6, then input number of inches";
-    String PID_TUNING_P = "PID: p";
-    String PID_TUNING_I = "PID: i";
-    String PID_TUNING_D = "PID: d";
+    // Displayed on Smart Dashboard
+    String INCHES_LABEL = "If you are using Setting 4 or 5, then input number of inches";
 
     // Encoder Distances
     double LIFT_ENCODER_RECYCLING_BIN_HEIGHT = RECYCLING_BIN_HEIGHT + TOTE_HEIGHT + 4.0;
@@ -75,7 +63,7 @@ public interface RobotMap extends PhysicalConstants {
     double DRIVETRAIN_ENCODER_INCHES_PER_PULSE = DRIVETRAIN_WHEEL_CIRCUMFERENCE / PULSES_PER_REVOLUTION;
 
     // PID Constants
-    // TODO: NEED TO TUNE
+    // MAYBE WE'LL BE NICE AND USE THESE??? UNTESTED!!!
     double DRIVE_ROTATE_P = .01;
     double DRIVE_ROTATE_I = 0;
     double DRIVE_ROTATE_D = 0;

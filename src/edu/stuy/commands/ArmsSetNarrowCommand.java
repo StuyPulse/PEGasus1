@@ -6,9 +6,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ArmsNarrowCommand extends Command {
+public class ArmsSetNarrowCommand extends Command {
 
-    public ArmsNarrowCommand() {
+    public ArmsSetNarrowCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(Robot.arms);
