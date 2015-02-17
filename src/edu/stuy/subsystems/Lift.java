@@ -57,7 +57,7 @@ public class Lift extends Subsystem {
     public void manualControl(double speed) {
         if (Math.abs(speed) < 0.1) {
             stop();
-        } else if ((speed < 0 && isAtBottom()) || (speed > 0 && isAtTop())) {
+        } else if (speed < 0 && isAtBottom()) {
             stop();
         } else {
             setBrake(false);
