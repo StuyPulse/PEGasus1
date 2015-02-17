@@ -60,10 +60,11 @@ public class Robot extends IterativeRobot {
         autonChooser.addObject("1. Do nothing", new CommandGroup());
         autonChooser.addObject("2. Drive forward from Driver Side", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE_INCHES, AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT));
         // Driving forward from Field Side means we are doing a mobility auton routine without pushing totes
-        autonChooser.addDefault("3. Drive forward from Scoring Platform", new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_SCORING_PLATFORM_INCHES, AUTON_DRIVE_FORWARD_SCORING_PLATFORM_TIMEOUT));
+        autonChooser.addDefault("3. Drive backward from Scoring Platform", new AutonDriveBackwardInchesCommand(AUTON_DRIVE_BACKWARD_SCORING_PLATFORM_INCHES, AUTON_DRIVE_BACKWARD_SCORING_PLATFORM_TIMEOUT));
         // -1 means that AutonDriveForwardInches uses INCHES_LABEL. Defers reading of Smartdashboard value until auton starts
         autonChooser.addObject("4. Drive forward Custom Amount", new AutonDriveForwardInchesCommand(-1, AUTON_DRIVETRAIN_TIMEOUT));
         autonChooser.addObject("5. Acquires set and drives forward (UNTESTED, currently doing PID tuning)", new AutonOneSetCommand());
+        autonChooser.addObject("6. Drive backward Custom Amount", new AutonDriveBackwardInchesCommand(-1, AUTON_DRIVETRAIN_TIMEOUT));
         SmartDashboard.putData("Auton setting", autonChooser);
         SmartDashboard.putNumber(INCHES_LABEL, -1);
         SmartDashboard.putNumber(PID_TUNING_P, DRIVE_ROTATE_P);

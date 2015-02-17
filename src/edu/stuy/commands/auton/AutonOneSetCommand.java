@@ -25,7 +25,7 @@ public class AutonOneSetCommand extends CommandGroup {
         addSequential(new AutonDriveForwardInchesCommand(AUTON_ONE_SET_DRIVE_INCHES_FIRST, AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT));
         addSequential(new AutonAcquireCommand());
         addSequential(new DrivetrainRotateCommand(AUTON_ONE_SET_ROTATE_DEGREES, p, i, d));
-        addSequential(new AutonDriveForwardInchesCommand(AUTON_ONE_SET_DRIVE_INCHES_SECOND, AUTON_DRIVE_FORWARD_SCORING_PLATFORM_TIMEOUT));
+        addSequential(new AutonDriveForwardInchesCommand(AUTON_ONE_SET_DRIVE_INCHES_SECOND, AUTON_DRIVE_BACKWARD_SCORING_PLATFORM_TIMEOUT));
 
         // To run multiple commands at the same time,
         // use addParallel()
