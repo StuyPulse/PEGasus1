@@ -60,7 +60,7 @@ public class Arms extends Subsystem {
         setLongPistonOut(true);
         armsPosition = ArmsPosition.RELEASE;
     }
-    
+
     public ArmsPosition getCurrentPosition() {
         return armsPosition;
     }

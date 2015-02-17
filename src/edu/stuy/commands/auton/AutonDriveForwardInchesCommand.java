@@ -14,8 +14,8 @@ public class AutonDriveForwardInchesCommand extends Command {
     private double startTime;
     private double timeout;
     private boolean usingCustomDistance;
-    
-    /** 
+
+    /**
      * If distance < 0, get it from SmartDashboard.
      * @param _distance If negative, read desired inches from SmartDashboard.
      * @param _timeout Does not exceed this time.
@@ -42,7 +42,7 @@ public class AutonDriveForwardInchesCommand extends Command {
         double speed = getRampSpeed();
         Robot.drivetrain.tankDrive(speed, speed);
     }
-    
+
     /**
      * Ramping algorithm for linear acceleration and smooth velocity
      * Takes one second to ramp up to max speed
@@ -79,5 +79,5 @@ public class AutonDriveForwardInchesCommand extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-    
+
 }

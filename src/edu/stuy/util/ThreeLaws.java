@@ -1,7 +1,7 @@
 package edu.stuy.util;
 
 /**
- * 
+ *
  * @author Isaac Asimov
  *
  */

@@ -26,9 +26,9 @@ public enum ArmsPosition {
             Robot.arms.setNarrow();
         }
     };
-    
+
     public abstract void goToPosition();
-    
+
     public static ArmsPosition narrowerPosition(ArmsPosition a) {
         switch (a) {
         case RELEASE:
@@ -38,10 +38,10 @@ public enum ArmsPosition {
         case NARROW:
             return NARROW;
         default:
-            throw new IllegalStateException("Invalid Position of Arms");                
+            throw new IllegalStateException("Invalid Position of Arms");
         }
     }
-    
+
     public static ArmsPosition widerPosition(ArmsPosition a) {
         switch (a) {
         case RELEASE:
@@ -51,7 +51,7 @@ public enum ArmsPosition {
         case NARROW:
             return WIDE;
         default:
-            throw new IllegalStateException("Invalid Position of Arms");                
+            throw new IllegalStateException("Invalid Position of Arms");
         }
     }
 }

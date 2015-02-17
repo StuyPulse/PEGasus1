@@ -73,11 +73,11 @@ public class Lift extends Subsystem {
     public boolean isAtBottom() {
         return limitSwitch.get() && !overridden;
     }
-    
+
     public boolean isAboveRecyclingBinHeight() {
         return getLiftEncoder() >= LIFT_ENCODER_RECYCLING_BIN_HEIGHT;
     }
-    
+
     public boolean isAtTop() {
         return getLiftEncoder() >= LIFT_ENCODER_MAX_HEIGHT && !overridden;
     }
@@ -88,7 +88,7 @@ public class Lift extends Subsystem {
             liftEncoder.reset();
         }
     }
-    
+
     public double getLiftEncoder() {
         return liftEncoder.getDistance();
     }

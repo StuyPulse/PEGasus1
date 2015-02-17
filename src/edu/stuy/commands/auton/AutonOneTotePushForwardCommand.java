@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class AutonOneTotePushForwardCommand extends CommandGroup {
-    
+
     public  AutonOneTotePushForwardCommand() {
         addSequential(new ArmsSetNarrowCommand());
         addSequential(new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE_INCHES, AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT));

@@ -38,7 +38,7 @@ public class Drivetrain extends Subsystem {
         leftEncoder.setDistancePerPulse(DRIVETRAIN_ENCODER_INCHES_PER_PULSE);
         rightEncoder = new Encoder(DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A, DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B, false, EncodingType.k2X);
         rightEncoder.setDistancePerPulse(DRIVETRAIN_ENCODER_INCHES_PER_PULSE);
- 
+
         gyro = new Gyro(DRIVETRAIN_GYRO_CHANNEL);
         speedUp = true;
     }
@@ -90,7 +90,7 @@ public class Drivetrain extends Subsystem {
     public double getDistanceAbsolute() {
         return Math.max(Math.abs(getLeftEncoder()), Math.abs(getRightEncoder()));
     }
-    
+
     public double getLeftEncoder() {
         return leftEncoder.getDistance();
     }
@@ -98,7 +98,7 @@ public class Drivetrain extends Subsystem {
     public double getRightEncoder() {
         return rightEncoder.getDistance();
     }
-    
+
     public double getGyroAngle() {
         return gyro.getAngle();
     }

@@ -8,19 +8,19 @@ import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Gyro;
 
 public class StuyGyro extends Gyro {
-    
+
     private LinkedList<Double> gyroMeasurements;
     private Timer updateMeasurements;
-    
+
     private final static int GYRO_MEASUREMENTS_SAMPLE_SIZE = 5;
     private final static int GYRO_UPDATE_PERIOD_MILLISECONDS = 10;
-    
+
     public StuyGyro(AnalogInput channel) {
         super(channel);
         gyroMeasurements = new LinkedList<Double>();
         startGyroUpdateThread();
     }
-    
+
     public StuyGyro(int channel) {
         super(channel);
         gyroMeasurements = new LinkedList<Double>();
@@ -41,25 +41,25 @@ public class StuyGyro extends Gyro {
             }
         }, 0, GYRO_UPDATE_PERIOD_MILLISECONDS);
     }
-    
+
     public void stopGyroUpdateThread() {
         if (updateMeasurements != null) {
             updateMeasurements.cancel();
         }
     }
-    
+
     public void resetGyroMeasurements() {
         gyroMeasurements.clear();
     }
-    
+
     public double getInstantaneousGyroAngleInDegrees() {
         return getAngle();
     }
-    
+
     public double getInstantaneousGyroAngleInRadians() {
         return Math.toRadians(getAngle());
     }
-    
+
     public double getAveragedGyroAngle() {
         if (gyroMeasurements.isEmpty()) {
             return getInstantaneousGyroAngleInDegrees();
