@@ -66,6 +66,7 @@ public class Robot extends IterativeRobot {
         autonChooser.addObject("5. Acquires set and drives forward (UNTESTED, currently doing PID tuning)", new AutonOneSetCommand());
         autonChooser.addObject("6. Drive backward Custom Amount", new AutonDriveBackwardInchesCommand(-1, AUTON_DRIVETRAIN_TIMEOUT));
         autonChooser.addObject("7: Drive forward pushing the recycling bin", new AutonRecyclingBinCommand());
+        autonChooser.addObject("8. Drive forward with arms released to push both tote and bin", new AutonOneSetPushForwardCommand());
         SmartDashboard.putData("Auton setting", autonChooser);
         SmartDashboard.putNumber(INCHES_LABEL, -1);
         SmartDashboard.putNumber(PID_TUNING_P, DRIVE_ROTATE_P);
