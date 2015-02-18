@@ -2,7 +2,7 @@
 
 ### DESmond's Limit Switch
 
-Model Number: AAP2T51Z11  
+Model Number: AAP2T51Z11
 Product Page: http://www.automationdirect.com/adc/Shopping/Catalog/Sensors_-z-_Encoders/Limit_Switches/Double-Insulated_(PBT)_Limit_Switches_(AAP,_ABP_Series)/Side_Rotary_Adjustable_Lever_with_Polyamide_Roller_Actuator/AAP2T51Z11
 
 Pros:
@@ -18,7 +18,7 @@ Cons:
 
 ### DESiree's Limit Switch
 
-Model Number: V7-2B17D8-048  
+Model Number: V7-2B17D8-048
 Product Page: http://sensing.honeywell.com/product-page?pr_id=29368
 
 Pros:
@@ -32,8 +32,8 @@ Cons:
 
 ### JoeBot's Photogate
 
-Model Number: QS18VN6D  
-Product Number: 61651  
+Model Number: QS18VN6D
+Product Number: 61651
 Product Page: http://www.bannerengineering.com/en-US/support/partref/61651
 
 Specs (Look on product page for more details):
@@ -42,16 +42,16 @@ Specs (Look on product page for more details):
 - Sensing Mode (Specific)	Diffuse
 - Sensing Beam	Infrared LED
 - Max Sensing Range [mm]	450
-- Supply Voltage	10-30 V dc 
-- ...  
+- Supply Voltage	10-30 V dc
+- ...
 
 
 
 
 ### Gyro/Accelerometers:
 
-Model Number: ADXL 345  
-Product Page: http://www.usfirst.org/sites/default/files/uploadedFiles/Robotics_Programs/FRC/Game_and_Season__Info/2012_Assets/Accelerometer-Gyro.pdf  
+Model Number: ADXL 345
+Product Page: http://www.usfirst.org/sites/default/files/uploadedFiles/Robotics_Programs/FRC/Game_and_Season__Info/2012_Assets/Accelerometer-Gyro.pdf
 Order Page: http://www.andymark.com/product-p/am-2067.htm
 
 Specs:
