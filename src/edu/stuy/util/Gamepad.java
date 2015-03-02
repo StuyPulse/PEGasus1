@@ -55,9 +55,7 @@ public class Gamepad extends Joystick {
      * @return if upper d-pad button is pressed
      */
     public boolean getRawDPadUp() {
-        throw new IllegalStateException("Do not use RawDPadUp because when the joystick is not plugged in, "
-                + "because this will always return true.");
-//        return getPOV() == 0;
+        return getPOV() == 0;
     }
 
     public DPadButton getDPadUp() {
