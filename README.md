@@ -1,3 +1,3 @@
-# wallflower
+# PEGasus 1
 ## Team 694, StuyPulse
-### Code for the 2015 (Recycle Rush) robot, codename wallflower
+### Code for the 2015 (Recycle Rush) robot, PEGasus 1
