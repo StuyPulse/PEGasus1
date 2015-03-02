@@ -62,6 +62,7 @@ public class OI {
         operatorPad.getRightButton().whenPressed(new ArmsGetNarrowerCommand());
         operatorPad.getTopButton().whenPressed(new ArmsGetNarrowerCommand());
 
+        operatorPad.getDPadUp().whenPressed(new ArmsGetWiderCommand());
         operatorPad.getDPadLeft().whenPressed(new ArmsGetWiderCommand());
         operatorPad.getDPadDown().whenPressed(new ArmsGetWiderCommand());
         operatorPad.getDPadRight().whenPressed(new ArmsGetWiderCommand());
