@@ -1,7 +1,7 @@
 package edu.stuy.subsystems;
 
 import edu.stuy.commands.AcquirerLeftStopCommand;
-import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import static edu.stuy.RobotMap.*;
 
@@ -9,10 +9,10 @@ public class LeftAcquirer extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    private CANTalon leftRoller;
+    private VictorSP leftRoller;
 
     public LeftAcquirer() {
-        leftRoller = new CANTalon(ACQUIRER_LEFT_ROLLER_ID);
+        leftRoller = new VictorSP(ACQUIRER_LEFT_ROLLER_ID);
     }
 
     public void initDefaultCommand() {

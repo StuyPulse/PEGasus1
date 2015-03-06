@@ -2,17 +2,17 @@ package edu.stuy.subsystems;
 
 import static edu.stuy.RobotMap.*;
 import edu.stuy.commands.AcquirerRightStopCommand;
-import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class RightAcquirer extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    private CANTalon rightRoller;
+    private VictorSP rightRoller;
 
     public RightAcquirer() {
-        rightRoller = new CANTalon(ACQUIRER_RIGHT_ROLLER_ID);
+        rightRoller = new VictorSP(ACQUIRER_RIGHT_ROLLER_ID);
     }
 
     public void initDefaultCommand() {

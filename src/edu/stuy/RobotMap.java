@@ -13,9 +13,11 @@ public interface RobotMap extends PhysicalConstants {
     int DRIVE_REAR_LEFT_ID = 2;
     int DRIVE_FRONT_RIGHT_ID = 3;
     int DRIVE_REAR_RIGHT_ID = 4;
-    int ACQUIRER_LEFT_ROLLER_ID = 5;
-    int ACQUIRER_RIGHT_ROLLER_ID = 6;
     int LIFT_MOTOR_ID = 7;
+
+    // PWM Channels
+    int ACQUIRER_LEFT_ROLLER_ID = 0;
+    int ACQUIRER_RIGHT_ROLLER_ID = 1;
 
     // Solenoid Ports
     int SOLENOID_ARMS_LONG_OUT = 0;
