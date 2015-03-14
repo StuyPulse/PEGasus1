@@ -3,6 +3,7 @@ package edu.stuy;
 
 import static edu.stuy.RobotMap.*;
 import edu.stuy.commands.ArmsSetNarrowCommand;
+import edu.stuy.commands.LiftUpTenInchesCommand;
 import edu.stuy.subsystems.*;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -65,6 +66,8 @@ public class Robot extends IterativeRobot {
         autonChooser.addObject("4. Drive forward Custom Amount", new AutonDriveForwardInchesCommand(-1, AUTON_DRIVETRAIN_TIMEOUT));
         autonChooser.addObject("5. Drive backward Custom Amount", new AutonDriveBackwardInchesCommand(-1, AUTON_DRIVETRAIN_TIMEOUT));
         autonChooser.addObject("6. Do nothing", new CommandGroup());
+        autonChooser.addObject("7. Lift ten inches then do auton 3" , new AutonLiftAndDrive());
+        autonChooser.addObject("8. Lift ten inches, then do nothing" , new LiftUpTenInchesCommand());
         SmartDashboard.putData("Auton setting", autonChooser);
         SmartDashboard.putNumber(INCHES_LABEL, -1);
     }
@@ -76,6 +79,7 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         drivetrain.resetEncoders();
         drivetrain.setBrakeMode(true);
+        lift.resetEncoders();
         autonomousCommand = (Command) autonChooser.getSelected();
         autonomousCommand.start();
     }
