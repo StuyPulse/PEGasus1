@@ -68,6 +68,7 @@ public class Robot extends IterativeRobot {
         autonChooser.addObject("6. Do nothing", new CommandGroup());
         autonChooser.addObject("7. Lift ten inches then do auton 3" , new AutonLiftAndDrive());
         autonChooser.addObject("8. Lift ten inches, then do nothing" , new LiftUpTenInchesCommand());
+        autonChooser.addObject("9. Lift ten inches, then drive backwards" , new AutonLiftAndDriveBackwards());
         SmartDashboard.putData("Auton setting", autonChooser);
         SmartDashboard.putNumber(INCHES_LABEL, -1);
     }
