@@ -32,7 +32,7 @@ public class LiftUpTenInchesCommand extends Command {
     }
 
     protected boolean checkTimeout() {
-        return Timer.getFPGATimestamp() - startTime > AUTON_LIFT_TIMEOUT;
+        return Timer.getFPGATimestamp() - startTime < AUTON_LIFT_TIMEOUT;
     }
 
     // Called repeatedly when this Command is scheduled to run
