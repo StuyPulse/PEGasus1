@@ -12,7 +12,7 @@ import static edu.stuy.RobotMap.*;
 public class LiftUpTenInchesCommand extends Command {
 
     private double startHeight;
-    private double timeout_failsafe;
+    private double timeoutStart;
 
     public LiftUpTenInchesCommand() {
         // Use requires() here to declare subsystem dependencies
@@ -23,7 +23,7 @@ public class LiftUpTenInchesCommand extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         startHeight = Robot.lift.getLiftEncoder();
-        timeout_failsafe = Timer.getFPGATimestamp();
+        timeoutStart = Timer.getFPGATimestamp();
         Robot.lift.goUp();
     }
 
@@ -32,7 +32,7 @@ public class LiftUpTenInchesCommand extends Command {
     }
 
     protected boolean checkTimeout() {
-        return Timer.getFPGATimestamp() - timeout_failsafe > AUTON_LIFT_TIMEOUT;
+        return Timer.getFPGATimestamp() - timeoutStart > AUTON_LIFT_TIMEOUT;
     }
 
     // Called repeatedly when this Command is scheduled to run
