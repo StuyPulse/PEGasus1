@@ -1,7 +1,10 @@
 package edu.stuy.commands;
 
 import edu.stuy.Robot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+
+import static edu.stuy.RobotMap.*;
 
 /**
  *
@@ -9,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class LiftUpTenInchesCommand extends Command {
 
     private double startHeight;
+    private double timeout_failsafe;
 
     public LiftUpTenInchesCommand() {
         // Use requires() here to declare subsystem dependencies
@@ -19,7 +23,16 @@ public class LiftUpTenInchesCommand extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         startHeight = Robot.lift.getLiftEncoder();
+        timeout_failsafe = Timer.getFPGATimestamp();
         Robot.lift.goUp();
+    }
+
+    protected boolean checkDistance() {
+        return 10 - (Robot.lift.getLiftEncoder() - startHeight) <= 0;
+    }
+
+    protected boolean checkTimeout() {
+        return Timer.getFPGATimestamp() - timeout_failsafe > AUTON_LIFT_TIMEOUT;
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -28,7 +41,7 @@ public class LiftUpTenInchesCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return 10 - (Robot.lift.getLiftEncoder() - startHeight) <= 0;
+        return checkDistance() && checkTimeout();
     }
 
     // Called once after isFinished returns true

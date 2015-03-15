@@ -80,7 +80,7 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         drivetrain.resetEncoders();
         drivetrain.setBrakeMode(true);
-        lift.resetEncoders();
+        lift.setOverridden(false);
         autonomousCommand = (Command) autonChooser.getSelected();
         autonomousCommand.start();
     }
