@@ -32,6 +32,10 @@ public class Lift extends Subsystem {
         setDefaultCommand(new LiftControlCommand());
     }
 
+    public void resetEncoders() {
+        liftEncoder.reset();
+    }
+
     private void setBrake(boolean on) {
         brake.set(on);
     }
