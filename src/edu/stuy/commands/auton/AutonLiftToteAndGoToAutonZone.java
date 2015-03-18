@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class AutonLiftToteAndGoToAutonZone extends CommandGroup {
-    
+
     public  AutonLiftToteAndGoToAutonZone() {
         // We start with the tote in the acquirer via narrow side
         addSequential(new LiftUpInchesCommand());
