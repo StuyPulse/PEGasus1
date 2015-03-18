@@ -23,6 +23,8 @@ public interface RobotMap extends PhysicalConstants {
     int SOLENOID_ARMS_SHORT_OUT = 3;
     int SOLENOID_ARMS_SHORT_IN = 2;
     int LIFT_SOLENOID_BRAKE = 5;
+    int CROSSBOW_SOLENOID_OUT = 4;
+    int CROSSBOW_SOLENOID_IN = 6;
 
     // Joystick Ports
     int DRIVER_PAD_PORT = 0;
@@ -44,6 +46,8 @@ public interface RobotMap extends PhysicalConstants {
     double DRIVETRAIN_ROTATE_THRESHOLD_DEGREES = 5.0;
     double AUTON_DRIVETRAIN_TIMEOUT = 15.0;
     double AUTON_LIFT_TIMEOUT = 3.5;
+    double AUTON_CROSSBOW_TIMEOUT = 1.0;
+    double AUTON_DRIVETRAIN_TIMEOUT_FROM_LANDFILL_TO_AUTON_ZONE = 3.0;
 
     // Auton Mobility DriveForward
     double AUTON_DRIVE_BACKWARD_SCORING_PLATFORM_INCHES = AUTON_ZONE_WIDTH / 2 + 12;
