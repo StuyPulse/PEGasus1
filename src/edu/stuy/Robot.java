@@ -3,7 +3,7 @@ package edu.stuy;
 
 import static edu.stuy.RobotMap.*;
 import edu.stuy.commands.ArmsSetNarrowCommand;
-import edu.stuy.commands.LiftUpTenInchesCommand;
+import edu.stuy.commands.LiftUpInchesCommand;
 import edu.stuy.subsystems.*;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -67,8 +67,11 @@ public class Robot extends IterativeRobot {
         autonChooser.addObject("5. Drive backward Custom Amount", new AutonDriveBackwardInchesCommand(-1, AUTON_DRIVETRAIN_TIMEOUT));
         autonChooser.addObject("6. Do nothing", new CommandGroup());
         autonChooser.addObject("7. Lift ten inches then do auton 3" , new AutonLiftAndDrive());
-        autonChooser.addObject("8. Lift ten inches, then do nothing" , new LiftUpTenInchesCommand());
+        autonChooser.addObject("8. Lift ten inches, then do nothing" , new LiftUpInchesCommand());
         autonChooser.addObject("9. Lift ten inches, then drive backwards" , new AutonLiftAndDriveBackwards());
+        autonChooser.addObject("10. Lift tote to auton zone" , new AutonLiftToteAndGoToAutonZone());
+        autonChooser.addObject("11. Lift container to auton zone" , new AutonLiftContainerGoToAutonZone());
+        autonChooser.addObject("12. Lift container and herd tote to auton zone" , new AutonLiftContainerHerdTote());
         SmartDashboard.putData("Auton setting", autonChooser);
         SmartDashboard.putNumber(INCHES_LABEL, -1);
     }

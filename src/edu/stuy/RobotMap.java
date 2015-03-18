@@ -43,6 +43,7 @@ public interface RobotMap extends PhysicalConstants {
     // Auton Constants
     double DRIVETRAIN_ROTATE_THRESHOLD_DEGREES = 5.0;
     double AUTON_DRIVETRAIN_TIMEOUT = 15.0;
+    double AUTON_DRIVETRAIN_TOTE_WIDTH_TIMEOUT = 3.0;
     double AUTON_LIFT_TIMEOUT = 3.5;
 
     // Auton Mobility DriveForward

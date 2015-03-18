@@ -9,15 +9,23 @@ import static edu.stuy.RobotMap.*;
 /**
  *
  */
-public class LiftUpTenInchesCommand extends Command {
+public class LiftUpInchesCommand extends Command {
 
     private double startHeight;
     private double startTime;
 
-    public LiftUpTenInchesCommand() {
+    private double height;
+
+    public LiftUpInchesCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(Robot.lift);
+        height = 10.0;
+    }
+
+    public LiftUpInchesCommand(double distance) {
+        requires(Robot.lift);
+        height = distance;
     }
 
     // Called just before this Command runs the first time
@@ -28,7 +36,7 @@ public class LiftUpTenInchesCommand extends Command {
     }
 
     protected boolean checkDistance() {
-        return 10 - (Robot.lift.getLiftEncoder() - startHeight) <= 0;
+        return height - (Robot.lift.getLiftEncoder() - startHeight) <= 0;
     }
 
     protected boolean checkTimeout() {
