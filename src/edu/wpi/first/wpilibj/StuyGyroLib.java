@@ -6,7 +6,6 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj;
 
-
 /**
  * Use a rate gyro to return the robots heading relative to a starting position.
  * The Gyro class tracks the robots heading based on the starting position. As
@@ -20,7 +19,6 @@ public class StuyGyroLib extends Gyro {
 
     public StuyGyroLib(AnalogInput channel) {
         super(channel);
-        // TODO Auto-generated constructor stub
     }
 
     public StuyGyroLib(int channel) {
