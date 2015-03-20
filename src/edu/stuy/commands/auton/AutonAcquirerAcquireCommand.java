@@ -7,9 +7,9 @@ import edu.stuy.Robot;
 /**
  *
  */
-public class AutonAcquirerOnCommand extends Command {
+public class AutonAcquirerAcquireCommand extends Command {
 
-    public AutonAcquirerOnCommand() {
+    public AutonAcquirerAcquireCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(Robot.leftAcquirer);

@@ -15,7 +15,7 @@ public class AutonLiftContainerHerdTote extends CommandGroup {
 
     public  AutonLiftContainerHerdTote() {
         addSequential(new LiftUpInchesCommand(15.0));
-        addParallel(new AutonAcquirerOnCommand());
+        addParallel(new AutonAcquirerAcquireCommand());
         addSequential(new AutonDriveForwardInchesCommand(TOTE_WIDTH , AUTON_DRIVETRAIN_TOTE_WIDTH_TIMEOUT));
         addSequential(new AutonAcquirerOffCommand());
         // Tote is on the right from the driver's point of view, so we turn 90 degrees
