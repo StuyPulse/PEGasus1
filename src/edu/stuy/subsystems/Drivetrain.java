@@ -2,6 +2,7 @@ package edu.stuy.subsystems;
 
 import static edu.stuy.RobotMap.*;
 import edu.stuy.commands.DrivetrainTankDriveCommand;
+import edu.stuy.util.StuyGyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
@@ -20,7 +21,7 @@ public class Drivetrain extends Subsystem {
     private RobotDrive robotDrive;
     private Encoder leftEncoder;
     private Encoder rightEncoder;
-    private Gyro gyro;
+    private StuyGyro gyro;
     private boolean speedUp;
 
     public Drivetrain() {
@@ -39,7 +40,8 @@ public class Drivetrain extends Subsystem {
         rightEncoder = new Encoder(DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A, DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B, false, EncodingType.k2X);
         rightEncoder.setDistancePerPulse(DRIVETRAIN_ENCODER_INCHES_PER_PULSE);
 
-        gyro = new Gyro(DRIVETRAIN_GYRO_CHANNEL);
+        gyro = new StuyGyro(DRIVETRAIN_GYRO_CHANNEL);
+        gyro.setDeadband(0.005);
         speedUp = true;
     }
 
