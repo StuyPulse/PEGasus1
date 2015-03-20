@@ -67,7 +67,7 @@ public class Robot extends IterativeRobot {
         autonChooser.addObject("5. Drive backward Custom Amount", new AutonDriveBackwardInchesCommand(-1, AUTON_DRIVETRAIN_TIMEOUT));
         autonChooser.addObject("6. Do nothing", new CommandGroup());
         autonChooser.addObject("7. Lift ten inches then do auton 3" , new AutonLiftAndDrive());
-        autonChooser.addObject("8. Lift ten inches, then do nothing" , new LiftUpInchesCommand());
+        autonChooser.addObject("8. Lift ten inches, then do nothing" , new LiftUpInchesCommand(AUTON_LIFT_DISTANCE));
         autonChooser.addObject("9. Lift ten inches, then drive backwards" , new AutonLiftAndDriveBackwards());
         autonChooser.addObject("10. Lift tote to auton zone" , new AutonLiftToteAndGoToAutonZone());
         autonChooser.addObject("11. Lift container to auton zone" , new AutonLiftContainerGoToAutonZone());
