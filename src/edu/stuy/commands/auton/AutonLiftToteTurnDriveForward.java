@@ -8,11 +8,14 @@ import edu.stuy.commands.LiftUpInchesCommand;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * The robot starts collinear with the tote set, with the hook in the tote.
+ * 1) Lift up the tote.
+ * 2) Turn 90° to the right.
+ * 3) Drive forward to the auton zone.
  */
-public class AutonLiftToteAndGoToAutonZone extends CommandGroup {
+public class AutonLiftToteTurnDriveForward extends CommandGroup {
 
-    public  AutonLiftToteAndGoToAutonZone() {
+    public  AutonLiftToteTurnDriveForward() {
         // We start with the tote in the acquirer via narrow side
         addSequential(new LiftUpInchesCommand(AUTON_LIFT_DISTANCE));
         // Tote is on the right from the driver's point of view, so we turn 90 degrees
