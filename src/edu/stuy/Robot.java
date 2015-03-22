@@ -66,12 +66,12 @@ public class Robot extends IterativeRobot {
         autonChooser.addObject("4. Drive forward Custom Amount", new AutonDriveForwardInchesCommand(-1, AUTON_DRIVETRAIN_TIMEOUT));
         autonChooser.addObject("5. Drive backward Custom Amount", new AutonDriveBackwardInchesCommand(-1, AUTON_DRIVETRAIN_TIMEOUT));
         autonChooser.addObject("6. Do nothing", new CommandGroup());
-        autonChooser.addObject("7. Lift ten inches then do auton 3" , new AutonLiftAndDrive());
-        autonChooser.addObject("8. Lift ten inches, then do nothing" , new LiftUpInchesCommand(AUTON_LIFT_DISTANCE));
-        autonChooser.addObject("9. Lift ten inches, then drive backwards" , new AutonLiftAndDriveBackwards());
-        autonChooser.addObject("10. Lift tote to auton zone" , new AutonLiftToteTurnDriveForward());
-        autonChooser.addObject("11. Lift container to auton zone" , new AutonLiftContainerTurnDriveForward());
-        autonChooser.addObject("12. Lift container and herd tote to auton zone" , new AutonLiftContainerHerdTote());
+        autonChooser.addObject("7. Lift ten inches then do auton 3", new AutonLiftAndDrive());
+        autonChooser.addObject("8. Lift ten inches, then do nothing", new LiftUpInchesCommand(AUTON_LIFT_DISTANCE));
+        autonChooser.addObject("9. Lift ten inches, then drive backwards", new AutonLiftAndDriveBackwards());
+        autonChooser.addObject("10. Lift tote to auton zone", new AutonLiftToteTurnDriveForward());
+        autonChooser.addObject("11. Lift container to auton zone", new AutonLiftContainerTurnDriveForward());
+        autonChooser.addObject("12. Lift container and herd tote to auton zone", new AutonLiftContainerHerdTote());
         autonChooser.addObject("13. Herd tote into auton zone", new AutonTurnAndHerdTote());
         SmartDashboard.putData("Auton setting", autonChooser);
         SmartDashboard.putNumber(INCHES_LABEL, -1);
