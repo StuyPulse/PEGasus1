@@ -72,6 +72,7 @@ public class Robot extends IterativeRobot {
         autonChooser.addObject("10. Lift tote to auton zone" , new AutonLiftToteTurnDriveForward());
         autonChooser.addObject("11. Lift container to auton zone" , new AutonLiftContainerTurnDriveForward());
         autonChooser.addObject("12. Lift container and herd tote to auton zone" , new AutonLiftContainerHerdTote());
+        autonChooser.addObject("13. Herd tote into auton zone", new AutonTurnAndHerdTote());
         SmartDashboard.putData("Auton setting", autonChooser);
         SmartDashboard.putNumber(INCHES_LABEL, -1);
     }
