@@ -6,6 +6,7 @@ import static edu.stuy.RobotMap.AUTON_DRIVETRAIN_TOTE_WIDTH_TIMEOUT;
 import static edu.stuy.RobotMap.AUTON_DRIVE_FORWARD_DRIVER_SIDE_INCHES;
 import static edu.stuy.RobotMap.AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT;
 import edu.stuy.commands.DrivetrainRotateCommand;
+import edu.stuy.commands.LiftDownInchesCommand;
 import edu.stuy.commands.LiftUpInchesCommand;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -29,8 +30,7 @@ public class AutonLiftContainerHerdTote extends CommandGroup {
         addSequential(new DrivetrainRotateCommand(-90) , 2.0);
         // Go to auton zone
         addSequential(new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE_INCHES, AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT));
-        // FIXME: lower the can
         // TODO: factor out TOTE_HEIGHT + 3
-        // addSequential(new LiftDownInchesCommand(TOTE_HEIGHT + 3));
+        addSequential(new LiftDownInchesCommand(TOTE_HEIGHT + 3));
     }
 }
