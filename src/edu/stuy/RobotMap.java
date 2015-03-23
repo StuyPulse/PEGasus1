@@ -46,6 +46,7 @@ public interface RobotMap extends PhysicalConstants {
     double AUTON_DRIVETRAIN_TOTE_WIDTH_TIMEOUT = 3.0;
     double AUTON_LIFT_TIMEOUT = 3.5;
     double AUTON_LIFT_DISTANCE = 10.0;
+    double AUTON_TOTE_COLLISION_AVOIDANCE_OFFSET = 3.0;
 
     // Auton Mobility DriveForward
     double AUTON_DRIVE_BACKWARD_SCORING_PLATFORM_INCHES = AUTON_ZONE_WIDTH / 2 + 12;
