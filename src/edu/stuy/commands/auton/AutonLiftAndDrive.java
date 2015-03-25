@@ -2,7 +2,8 @@ package edu.stuy.commands.auton;
 
 import static edu.stuy.RobotMap.AUTON_DRIVE_FORWARD_DRIVER_SIDE_INCHES;
 import static edu.stuy.RobotMap.AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT;
-import edu.stuy.commands.LiftUpTenInchesCommand;
+import static edu.stuy.RobotMap.AUTON_LIFT_DISTANCE;
+import edu.stuy.commands.LiftUpInchesCommand;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -11,23 +12,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonLiftAndDrive extends CommandGroup {
 
     public  AutonLiftAndDrive() {
-        addSequential(new LiftUpTenInchesCommand());
+        addSequential(new LiftUpInchesCommand(AUTON_LIFT_DISTANCE));
         addSequential(new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE_INCHES, AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT));
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
-
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
-
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
     }
 }

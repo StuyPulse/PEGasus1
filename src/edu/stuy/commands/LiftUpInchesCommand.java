@@ -9,15 +9,15 @@ import static edu.stuy.RobotMap.*;
 /**
  *
  */
-public class LiftUpTenInchesCommand extends Command {
+public class LiftUpInchesCommand extends Command {
 
     private double startHeight;
     private double startTime;
+    private double distance;
 
-    public LiftUpTenInchesCommand() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    public LiftUpInchesCommand(double _distance) {
         requires(Robot.lift);
+        distance = _distance;
     }
 
     // Called just before this Command runs the first time
@@ -27,12 +27,20 @@ public class LiftUpTenInchesCommand extends Command {
         Robot.lift.goUp();
     }
 
+    protected double getDistanceTraveled() {
+        return Robot.lift.getLiftEncoder() - startHeight;
+    }
+
     protected boolean checkDistance() {
-        return 10 - (Robot.lift.getLiftEncoder() - startHeight) <= 0;
+        return distance - getDistanceTraveled() <= 0;
+    }
+
+    protected double getTimeElapsed() {
+        return Timer.getFPGATimestamp() - startTime;
     }
 
     protected boolean checkTimeout() {
-        return Timer.getFPGATimestamp() - startTime < AUTON_LIFT_TIMEOUT;
+        return getTimeElapsed() >= AUTON_LIFT_TIMEOUT;
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -41,7 +49,7 @@ public class LiftUpTenInchesCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return checkDistance() && checkTimeout();
+        return checkDistance() || checkTimeout();
     }
 
     // Called once after isFinished returns true
