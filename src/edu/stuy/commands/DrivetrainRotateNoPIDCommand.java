@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
  * Rotates the Robot without PID values
  */
 
-public class DrivetrainRotateNoPID extends Command {
+public class DrivetrainRotateNoPIDCommand extends Command {
 
     private double degrees;
     private double startAngle;
 
-    public DrivetrainRotateNoPID(double _degrees) {
+    public DrivetrainRotateNoPIDCommand(double _degrees) {
         requires(Robot.drivetrain);
         degrees = _degrees;
         startAngle = Robot.drivetrain.getGyroAngle();
