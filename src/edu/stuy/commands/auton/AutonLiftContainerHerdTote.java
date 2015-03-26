@@ -30,6 +30,5 @@ public class AutonLiftContainerHerdTote extends CommandGroup {
         addSequential(new DrivetrainRotateNoPIDCommand(-90) , 2.0);
         // Go to auton zone
         addSequential(new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE_INCHES, AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT));
-        addSequential(new LiftDownInchesCommand(TOTE_HEIGHT + AUTON_TOTE_COLLISION_AVOIDANCE_OFFSET));
     }
 }
