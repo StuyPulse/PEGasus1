@@ -14,10 +14,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonTurnAndHerdTote extends CommandGroup {
 
     public  AutonTurnAndHerdTote() {
-        addSequential(new AutonAcquirerAcquireCommand());
-        addSequential(new AutonAcquirerOffCommand());
+        // addParallel(new AutonAcquirerAcquireCommand());
         // Tote is on the right from the driver's point of view, so we turn 90 degrees
-        addSequential(new DrivetrainRotateNoPIDCommand(90) , 2.0);
+        addSequential(new DrivetrainRotateNoPIDCommand(90));
         // Go to auton zone
         addSequential(new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE_INCHES, AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT));
     }
