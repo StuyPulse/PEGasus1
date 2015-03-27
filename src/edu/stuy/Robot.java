@@ -107,7 +107,6 @@ public class Robot extends IterativeRobot {
         if (autonomousCommand != null) autonomousCommand.cancel();
 
         // Initialize subsystem states:
-        new ArmsSetNarrowCommand().start();
         drivetrain.setBrakeMode(false);
         drivetrain.setSpeedUp(true);
         lift.setOverridden(false);
