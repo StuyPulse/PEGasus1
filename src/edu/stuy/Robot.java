@@ -89,6 +89,7 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Left Encoder:", Robot.drivetrain.getLeftEncoder());
         SmartDashboard.putNumber("Right Encoder:", Robot.drivetrain.getRightEncoder());
+        SmartDashboard.putNumber("Gyro: ", Robot.drivetrain.getGyroAngle());
     }
 
     public void teleopInit() {
