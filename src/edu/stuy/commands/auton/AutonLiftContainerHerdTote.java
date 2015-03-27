@@ -6,6 +6,7 @@ import static edu.stuy.RobotMap.AUTON_DRIVETRAIN_TOTE_WIDTH_TIMEOUT;
 import static edu.stuy.RobotMap.AUTON_DRIVE_FORWARD_DRIVER_SIDE_INCHES;
 import static edu.stuy.RobotMap.AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT;
 import static edu.stuy.RobotMap.AUTON_TOTE_COLLISION_AVOIDANCE_OFFSET;
+import edu.stuy.commands.ArmsSetNarrowCommand;
 import edu.stuy.commands.DrivetrainRotateNoPIDCommand;
 import edu.stuy.commands.LiftDownInchesCommand;
 import edu.stuy.commands.LiftUpInchesCommand;
@@ -23,11 +24,12 @@ public class AutonLiftContainerHerdTote extends CommandGroup {
 
     public  AutonLiftContainerHerdTote() {
         addSequential(new LiftUpInchesCommand(TOTE_HEIGHT + AUTON_TOTE_COLLISION_AVOIDANCE_OFFSET));
-        addParallel(new AutonAcquirerAcquireCommand());
+        addParallel(new AutonAcquirerAcquireCommand(), 5.0);
         addSequential(new AutonDriveForwardInchesCommand(TOTE_WIDTH , AUTON_DRIVETRAIN_TOTE_WIDTH_TIMEOUT));
+        addSequential(new ArmsSetNarrowCommand());
         addSequential(new AutonAcquirerOffCommand());
-        // Tote is on the right from the driver's point of view, so we turn 90 degrees
-        addSequential(new DrivetrainRotateNoPIDCommand(-90) , 2.0);
+        // Tote is on the right from the driver's point of view, so we turn 90 degrees to the left
+        addSequential(new DrivetrainRotateNoPIDCommand(-90));
         // Go to auton zone
         addSequential(new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE_INCHES, AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT));
     }
