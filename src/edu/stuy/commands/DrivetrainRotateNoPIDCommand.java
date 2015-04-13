@@ -33,10 +33,13 @@ public class DrivetrainRotateNoPIDCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (degrees == 0) {
-            return true;
+        // return Math.abs(Robot.drivetrain.getGyroAngle() - startAngle) >= Math.abs(degrees);
+        if (degrees > 0) {
+            return Robot.drivetrain.getGyroAngle() - startAngle >= degrees;
+        } else if (degrees < 0) {
+            return startAngle - Robot.drivetrain.getGyroAngle() >= -degrees;
         } else {
-            return Math.abs(Robot.drivetrain.getGyroAngle() - startAngle) >= Math.abs(degrees);
+            return true;
         }
     }
 
