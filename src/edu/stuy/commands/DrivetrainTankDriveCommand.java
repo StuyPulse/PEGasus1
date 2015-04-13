@@ -1,13 +1,16 @@
- package edu.stuy.commands;
+package edu.stuy.commands;
 
 import static edu.stuy.RobotMap.*;
 import edu.stuy.Robot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
 public class DrivetrainTankDriveCommand extends Command {
+
+    private double startTime;
 
     public DrivetrainTankDriveCommand() {
         // Use requires() here to declare subsystem dependencies
@@ -23,6 +26,11 @@ public class DrivetrainTankDriveCommand extends Command {
     protected void execute() {
         double left = Robot.oi.driverPad.getLeftY();
         double right = Robot.oi.driverPad.getRightY();
+        
+        if (Math.abs(left) < .05 && Math.abs(right) < .05) {
+            startTime = Timer.getFPGATimestamp();
+        }
+
         if (Robot.oi.driverPad.getRawLeftTrigger() || Robot.oi.driverPad.getRawLeftBumper()) {
             Robot.drivetrain.setSpeedUp(false);
         }
@@ -31,10 +39,23 @@ public class DrivetrainTankDriveCommand extends Command {
         }
 
         if (Robot.drivetrain.isSpeedUp()) {
-            Robot.drivetrain.tankDrive(-left, -right);
+            Robot.drivetrain.tankDrive(getRampSpeed(-left), -getRampSpeed(-right));
         } else {
-            Robot.drivetrain.tankDrive(-left * DRIVETRAIN_SLOWNESS_FACTOR, -right * DRIVETRAIN_SLOWNESS_FACTOR);
+            Robot.drivetrain.tankDrive(getRampSpeed(-left) * DRIVETRAIN_SLOWNESS_FACTOR, getRampSpeed(-right) * DRIVETRAIN_SLOWNESS_FACTOR);
         }
+    }
+
+    private double getRampSpeed(double m) {
+        double t = Timer.getFPGATimestamp() - startTime;
+        double speed;
+        if (t < 0.5) {
+            speed = 2 * t * t;
+        } else if (t < 1) {
+            speed = -2 * t * t + 4 * t - 1;
+        } else {
+            speed = 1;
+        }
+        return speed * 0.6 * m; // Lower maximum speed to 0.6 * m
     }
 
     // Make this return true when this Command no longer needs to run execute()
