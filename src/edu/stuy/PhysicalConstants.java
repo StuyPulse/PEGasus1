@@ -5,6 +5,7 @@ public interface PhysicalConstants {
     // Robot Dimensions approx. (inches)
     double ROBOT_LENGTH = 42.0;
     double ROBOT_WIDTH = 28.0;
+    double ROBOT_FRONT_WHEEL_TO_WHEEL_DISTANCE = 23.1;
 
     // Tote Dimensions (inches)
     double TOTE_WIDTH = 16.9;
