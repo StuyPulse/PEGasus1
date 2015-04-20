@@ -26,7 +26,7 @@ public class DrivetrainTankDriveCommand extends Command {
     protected void execute() {
         double left = Robot.oi.driverPad.getLeftY();
         double right = Robot.oi.driverPad.getRightY();
-        
+
         if (Math.abs(left) < .05 && Math.abs(right) < .05) {
             startTime = Timer.getFPGATimestamp();
         }
@@ -39,9 +39,17 @@ public class DrivetrainTankDriveCommand extends Command {
         }
 
         if (Robot.drivetrain.isSpeedUp()) {
-            Robot.drivetrain.tankDrive(getRampSpeed(-left), -getRampSpeed(-right));
+            if ((left < 0 && right > 0) || (left > 0 && right < 0)) { // Rotation does not use ramping
+                Robot.drivetrain.tankDrive(-left, -right);
+            } else {
+                Robot.drivetrain.tankDrive(getRampSpeed(-left), getRampSpeed(-right));
+            }
         } else {
-            Robot.drivetrain.tankDrive(getRampSpeed(-left) * DRIVETRAIN_SLOWNESS_FACTOR, getRampSpeed(-right) * DRIVETRAIN_SLOWNESS_FACTOR);
+            if ((left < 0 && right > 0) || (left > 0 && right < 0)) { // Rotation does not use ramping
+                Robot.drivetrain.tankDrive(-left, -right);
+            } else {
+                Robot.drivetrain.tankDrive(getRampSpeed(-left) * DRIVETRAIN_SLOWNESS_FACTOR, getRampSpeed(-right) * DRIVETRAIN_SLOWNESS_FACTOR);
+            }
         }
     }
 
@@ -55,7 +63,7 @@ public class DrivetrainTankDriveCommand extends Command {
         } else {
             speed = 1;
         }
-        return speed * 0.6 * m; // Lower maximum speed to 0.6 * m
+        return speed * m;
     }
 
     // Make this return true when this Command no longer needs to run execute()
