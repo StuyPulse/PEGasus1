@@ -105,6 +105,14 @@ public class Drivetrain extends Subsystem {
         return gyro.getAngle();
     }
 
+    public double getLeftVoltage() {
+        return frontLeftMotor.getOutputVoltage() / 12;
+    }
+
+    public double getRightVoltage() {
+        return frontRightMotor.getOutputVoltage() / 12;
+    }
+
     public boolean isSpeedUp() {
         return speedUp;
     }
