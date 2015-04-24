@@ -63,7 +63,7 @@ public class DrivetrainTankDriveCommand extends Command {
         } else {
             speed = 1;
         }
-        return speed * m;
+        return /* speed * */ m;
     }
 
     // Make this return true when this Command no longer needs to run execute()
