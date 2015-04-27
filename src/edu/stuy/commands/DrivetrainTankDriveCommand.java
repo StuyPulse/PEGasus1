@@ -39,23 +39,10 @@ public class DrivetrainTankDriveCommand extends Command {
         }
 
         if (Robot.drivetrain.isSpeedUp()) {
-            Robot.drivetrain.tankDrive(getRampSpeed(-left), -getRampSpeed(-right));
+            Robot.drivetrain.tankDrive(-left, -right);
         } else {
-            Robot.drivetrain.tankDrive(getRampSpeed(-left) * DRIVETRAIN_SLOWNESS_FACTOR, getRampSpeed(-right) * DRIVETRAIN_SLOWNESS_FACTOR);
+            Robot.drivetrain.tankDrive(-left * DRIVETRAIN_SLOWNESS_FACTOR, -right * DRIVETRAIN_SLOWNESS_FACTOR);
         }
-    }
-
-    private double getRampSpeed(double m) {
-        double t = Timer.getFPGATimestamp() - startTime;
-        double speed;
-        if (t < 0.5) {
-            speed = 2 * t * t;
-        } else if (t < 1) {
-            speed = -2 * t * t + 4 * t - 1;
-        } else {
-            speed = 1;
-        }
-        return speed * 0.6 * m; // Lower maximum speed to 0.6 * m
     }
 
     // Make this return true when this Command no longer needs to run execute()
