@@ -10,6 +10,8 @@ import edu.stuy.commands.ArmsGetNarrowerCommand;
 import edu.stuy.commands.ArmsGetWiderCommand;
 import edu.stuy.commands.CannerToggleCommand;
 import edu.stuy.commands.LiftOverrideCommand;
+import edu.stuy.commands.ToteKnockerExtendCommand;
+import edu.stuy.commands.ToteKnockerRetractCommand;
 import edu.stuy.util.Gamepad;
 
 /**
@@ -68,5 +70,10 @@ public class OI {
         operatorPad.getDPadUp().whenPressed(new ArmsGetNarrowerCommand());
 
         operatorPad.getStartButton().whenPressed(new LiftOverrideCommand());
+
+        driverPad.getLeftBumper().whileHeld(new ToteKnockerExtendCommand());
+        driverPad.getRightBumper().whileHeld(new ToteKnockerExtendCommand());
+        driverPad.getLeftBumper().whenReleased(new ToteKnockerRetractCommand());
+        driverPad.getRightBumper().whenReleased(new ToteKnockerRetractCommand());
     }
 }

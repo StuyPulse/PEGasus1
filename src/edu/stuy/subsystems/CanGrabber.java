@@ -12,8 +12,8 @@ public class CanGrabber extends Subsystem {
     private boolean opened;
 
     public CanGrabber() {
-        cannerSolenoidOpen = new Solenoid(CANNER_SOLENOID_OPEN);
-        cannerSolenoidClose = new Solenoid(CANNER_SOLENOID_CLOSE);
+        cannerSolenoidOpen = new Solenoid(PCM_1 , CANNER_SOLENOID_OPEN);
+        cannerSolenoidClose = new Solenoid(PCM_1 , CANNER_SOLENOID_CLOSE);
         open(false);
     }
 

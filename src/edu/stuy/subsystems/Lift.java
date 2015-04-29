@@ -20,7 +20,7 @@ public class Lift extends Subsystem {
 
     public Lift() {
         liftMotor = new CANTalon(LIFT_MOTOR_ID);
-        brake = new Solenoid(LIFT_SOLENOID_BRAKE);
+        brake = new Solenoid(PCM_1 , LIFT_SOLENOID_BRAKE);
         limitSwitch = new DigitalInput(LIFT_LIMIT_SWITCH_CHANNEL);
         liftEncoder = new Encoder(LIFT_ENCODER_CHANNEL_A, LIFT_ENCODER_CHANNEL_B);
         liftEncoder.setDistancePerPulse(LIFT_ENCODER_INCHES_PER_PULSE);

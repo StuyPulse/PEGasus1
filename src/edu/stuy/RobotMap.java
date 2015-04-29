@@ -8,6 +8,10 @@ package edu.stuy;
  */
 public interface RobotMap extends PhysicalConstants {
 
+    // PCM IDs
+    int PCM_1 = 0;
+    int PCM_2 = 1;
+
     // CAN device IDs
     int DRIVE_FRONT_LEFT_ID = 1;
     int DRIVE_REAR_LEFT_ID = 2;
@@ -25,6 +29,7 @@ public interface RobotMap extends PhysicalConstants {
     int LIFT_SOLENOID_BRAKE = 5;
     int CANNER_SOLENOID_OPEN = 6;
     int CANNER_SOLENOID_CLOSE = 7;
+    int TOTE_KNOCKER_SOLENOID_ID = 0;
 
     // Joystick Ports
     int DRIVER_PAD_PORT = 0;
