@@ -1,6 +1,7 @@
 package edu.stuy.subsystems;
 
 import static edu.stuy.RobotMap.*;
+import edu.stuy.Robot;
 import edu.stuy.commands.DrivetrainTankDriveCommand;
 import edu.stuy.util.StuyGyro;
 import edu.wpi.first.wpilibj.CANTalon;
@@ -110,7 +111,7 @@ public class Drivetrain extends Subsystem {
     }
 
     public double getRightVoltage() {
-        return frontRightMotor.getOutputVoltage() / 12;
+        return -frontRightMotor.getOutputVoltage() / 12;
     }
 
     public boolean isSpeedUp() {

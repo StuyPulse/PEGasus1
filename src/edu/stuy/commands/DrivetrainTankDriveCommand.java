@@ -34,7 +34,7 @@ public class DrivetrainTankDriveCommand extends Command {
         if (Robot.drivetrain.isSpeedUp()) {
             Robot.drivetrain.tankDrive(ramp(-left, Robot.drivetrain.getLeftVoltage()), ramp(-right, Robot.drivetrain.getRightVoltage()));
         } else {
-            Robot.drivetrain.tankDrive(ramp(-left, Robot.drivetrain.getLeftVoltage()) * DRIVETRAIN_SLOWNESS_FACTOR, ramp(-right, Robot.drivetrain.getRightVoltage()) * DRIVETRAIN_SLOWNESS_FACTOR);
+            Robot.drivetrain.tankDrive(ramp(-left, Robot.drivetrain.getLeftVoltage() * DRIVETRAIN_SLOWNESS_FACTOR), ramp(-right, Robot.drivetrain.getRightVoltage() * DRIVETRAIN_SLOWNESS_FACTOR));
         }
     }
 
