@@ -73,7 +73,5 @@ public class OI {
 
         driverPad.getLeftBumper().whileHeld(new ToteKnockerExtendCommand());
         driverPad.getRightBumper().whileHeld(new ToteKnockerExtendCommand());
-        driverPad.getLeftBumper().whenReleased(new ToteKnockerRetractCommand());
-        driverPad.getRightBumper().whenReleased(new ToteKnockerRetractCommand());
     }
 }
