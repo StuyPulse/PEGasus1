@@ -6,9 +6,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class CannerToggleCommand extends Command {
+public class CanGrabberToggleCommand extends Command {
 
-    public CannerToggleCommand() {
+    public CanGrabberToggleCommand() {
         requires(Robot.canner);
     }
 

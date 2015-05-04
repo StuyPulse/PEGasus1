@@ -8,7 +8,7 @@ import edu.stuy.commands.AcquirerRightAcquireCommand;
 import edu.stuy.commands.AcquirerRightReleaseCommand;
 import edu.stuy.commands.ArmsGetNarrowerCommand;
 import edu.stuy.commands.ArmsGetWiderCommand;
-import edu.stuy.commands.CannerToggleCommand;
+import edu.stuy.commands.CanGrabberToggleCommand;
 import edu.stuy.commands.LiftOverrideCommand;
 import edu.stuy.commands.ToteKnockerExtendCommand;
 import edu.stuy.commands.ToteKnockerRetractCommand;
@@ -60,10 +60,10 @@ public class OI {
         operatorPad.getLeftTrigger().whileHeld(new AcquirerLeftAcquireCommand());
         operatorPad.getRightTrigger().whileHeld(new AcquirerRightAcquireCommand());
 
-        operatorPad.getLeftButton().whenPressed(new CannerToggleCommand());
-        operatorPad.getRightButton().whenPressed(new CannerToggleCommand());
-        operatorPad.getTopButton().whenPressed(new CannerToggleCommand());
-        operatorPad.getDPadUp().whenPressed(new CannerToggleCommand());
+        operatorPad.getLeftButton().whenPressed(new CanGrabberToggleCommand());
+        operatorPad.getRightButton().whenPressed(new CanGrabberToggleCommand());
+        operatorPad.getTopButton().whenPressed(new CanGrabberToggleCommand());
+        operatorPad.getDPadUp().whenPressed(new CanGrabberToggleCommand());
 
         operatorPad.getDPadLeft().whenPressed(new ArmsGetWiderCommand());
         operatorPad.getDPadDown().whenPressed(new ArmsGetWiderCommand());
