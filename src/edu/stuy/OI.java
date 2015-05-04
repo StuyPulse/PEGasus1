@@ -63,11 +63,12 @@ public class OI {
         operatorPad.getLeftButton().whenPressed(new CannerToggleCommand());
         operatorPad.getRightButton().whenPressed(new CannerToggleCommand());
         operatorPad.getTopButton().whenPressed(new CannerToggleCommand());
+        operatorPad.getDPadUp().whenPressed(new CannerToggleCommand());
 
         operatorPad.getDPadLeft().whenPressed(new ArmsGetWiderCommand());
         operatorPad.getDPadDown().whenPressed(new ArmsGetWiderCommand());
         operatorPad.getDPadRight().whenPressed(new ArmsGetNarrowerCommand());
-        operatorPad.getDPadUp().whenPressed(new ArmsGetNarrowerCommand());
+        operatorPad.getBottomButton().whenPressed(new ArmsGetNarrowerCommand());
 
         operatorPad.getStartButton().whenPressed(new LiftOverrideCommand());
 
