@@ -78,5 +78,6 @@ public interface RobotMap extends PhysicalConstants {
     // take the square root of 0.5
     double DRIVETRAIN_SLOWNESS_FACTOR = Math.sqrt(0.5);
     double ACQUIRER_ROLLER_SPEED = 0.75;
+    double RAMP_CONSTANT = 0.5;
 
 }

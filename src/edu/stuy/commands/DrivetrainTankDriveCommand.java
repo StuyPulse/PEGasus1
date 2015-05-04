@@ -2,15 +2,12 @@ package edu.stuy.commands;
 
 import static edu.stuy.RobotMap.*;
 import edu.stuy.Robot;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
 public class DrivetrainTankDriveCommand extends Command {
-
-    private double startTime;
 
     public DrivetrainTankDriveCommand() {
         // Use requires() here to declare subsystem dependencies
@@ -26,10 +23,6 @@ public class DrivetrainTankDriveCommand extends Command {
     protected void execute() {
         double left = Robot.oi.driverPad.getLeftY();
         double right = Robot.oi.driverPad.getRightY();
-        
-        if (Math.abs(left) < .05 && Math.abs(right) < .05) {
-            startTime = Timer.getFPGATimestamp();
-        }
 
         if (Robot.oi.driverPad.getRawLeftTrigger() || Robot.oi.driverPad.getRawLeftBumper()) {
             Robot.drivetrain.setSpeedUp(false);
@@ -39,10 +32,14 @@ public class DrivetrainTankDriveCommand extends Command {
         }
 
         if (Robot.drivetrain.isSpeedUp()) {
-            Robot.drivetrain.tankDrive(-left, -right);
+            Robot.drivetrain.tankDrive(ramp(-left, Robot.drivetrain.getLeftVoltage()), ramp(-right, Robot.drivetrain.getRightVoltage()));
         } else {
-            Robot.drivetrain.tankDrive(-left * DRIVETRAIN_SLOWNESS_FACTOR, -right * DRIVETRAIN_SLOWNESS_FACTOR);
+            Robot.drivetrain.tankDrive(ramp(-left, Robot.drivetrain.getLeftVoltage() * DRIVETRAIN_SLOWNESS_FACTOR), ramp(-right, Robot.drivetrain.getRightVoltage() * DRIVETRAIN_SLOWNESS_FACTOR));
         }
+    }
+
+    private double ramp(double input, double currentVoltage) {
+        return currentVoltage + (input - currentVoltage) * RAMP_CONSTANT;
     }
 
     // Make this return true when this Command no longer needs to run execute()
