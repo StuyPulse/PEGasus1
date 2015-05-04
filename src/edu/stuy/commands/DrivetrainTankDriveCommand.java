@@ -24,10 +24,10 @@ public class DrivetrainTankDriveCommand extends Command {
         double left = Robot.oi.driverPad.getLeftY();
         double right = Robot.oi.driverPad.getRightY();
 
-        if (Robot.oi.driverPad.getRawLeftTrigger() || Robot.oi.driverPad.getRawLeftBumper()) {
+        if (Robot.oi.driverPad.getRawLeftTrigger()) {
             Robot.drivetrain.setSpeedUp(false);
         }
-        if (Robot.oi.driverPad.getRawRightTrigger() || Robot.oi.driverPad.getRawRightBumper()) {
+        if (Robot.oi.driverPad.getRawRightTrigger()) {
             Robot.drivetrain.setSpeedUp(true);
         }
 

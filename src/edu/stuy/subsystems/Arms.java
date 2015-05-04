@@ -17,10 +17,10 @@ public class Arms extends Subsystem {
     private ArmsPosition armsPosition;
 
     public Arms() {
-        shortPistonOut = new Solenoid(SOLENOID_ARMS_SHORT_OUT);
-        shortPistonIn = new Solenoid(SOLENOID_ARMS_SHORT_IN);
-        longPistonOut = new Solenoid(SOLENOID_ARMS_LONG_OUT);
-        longPistonIn = new Solenoid(SOLENOID_ARMS_LONG_IN);
+        shortPistonOut = new Solenoid(PCM_1 , SOLENOID_ARMS_SHORT_OUT);
+        shortPistonIn = new Solenoid(PCM_1 , SOLENOID_ARMS_SHORT_IN);
+        longPistonOut = new Solenoid(PCM_1 , SOLENOID_ARMS_LONG_OUT);
+        longPistonIn = new Solenoid(PCM_1 , SOLENOID_ARMS_LONG_IN);
         armsPosition = ArmsPosition.NARROW;
     }
 

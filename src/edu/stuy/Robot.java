@@ -1,4 +1,3 @@
-
 package edu.stuy;
 
 import static edu.stuy.RobotMap.*;
@@ -28,6 +27,8 @@ public class Robot extends IterativeRobot {
     public static RightAcquirer rightAcquirer;
     public static Arms arms;
     public static Lift lift;
+    public static CanGrabber canner;
+    public static ToteKnocker toteknocker;
     public static OI oi;
 
     Command autonomousCommand;
@@ -43,6 +44,8 @@ public class Robot extends IterativeRobot {
         rightAcquirer = new RightAcquirer();
         arms = new Arms();
         lift = new Lift();
+        canner = new CanGrabber();
+        toteknocker = new ToteKnocker();
         oi = new OI();
 
         setupAutonChooser();
@@ -103,6 +106,7 @@ public class Robot extends IterativeRobot {
         drivetrain.setBrakeMode(false);
         drivetrain.setSpeedUp(true);
         lift.setOverridden(false);
+        canner.open(false);
     }
 
     /**

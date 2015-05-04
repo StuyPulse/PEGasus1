@@ -8,7 +8,10 @@ import edu.stuy.commands.AcquirerRightAcquireCommand;
 import edu.stuy.commands.AcquirerRightReleaseCommand;
 import edu.stuy.commands.ArmsGetNarrowerCommand;
 import edu.stuy.commands.ArmsGetWiderCommand;
+import edu.stuy.commands.CannerToggleCommand;
 import edu.stuy.commands.LiftOverrideCommand;
+import edu.stuy.commands.ToteKnockerExtendCommand;
+import edu.stuy.commands.ToteKnockerRetractCommand;
 import edu.stuy.util.Gamepad;
 
 /**
@@ -57,16 +60,19 @@ public class OI {
         operatorPad.getLeftTrigger().whileHeld(new AcquirerLeftAcquireCommand());
         operatorPad.getRightTrigger().whileHeld(new AcquirerRightAcquireCommand());
 
-        operatorPad.getLeftButton().whenPressed(new ArmsGetNarrowerCommand());
-        operatorPad.getBottomButton().whenPressed(new ArmsGetNarrowerCommand());
-        operatorPad.getRightButton().whenPressed(new ArmsGetNarrowerCommand());
-        operatorPad.getTopButton().whenPressed(new ArmsGetNarrowerCommand());
+        operatorPad.getLeftButton().whenPressed(new CannerToggleCommand());
+        operatorPad.getRightButton().whenPressed(new CannerToggleCommand());
+        operatorPad.getTopButton().whenPressed(new CannerToggleCommand());
+        operatorPad.getDPadUp().whenPressed(new CannerToggleCommand());
 
-        operatorPad.getDPadUp().whenPressed(new ArmsGetWiderCommand());
         operatorPad.getDPadLeft().whenPressed(new ArmsGetWiderCommand());
         operatorPad.getDPadDown().whenPressed(new ArmsGetWiderCommand());
-        operatorPad.getDPadRight().whenPressed(new ArmsGetWiderCommand());
+        operatorPad.getDPadRight().whenPressed(new ArmsGetNarrowerCommand());
+        operatorPad.getBottomButton().whenPressed(new ArmsGetNarrowerCommand());
 
         operatorPad.getStartButton().whenPressed(new LiftOverrideCommand());
+
+        driverPad.getLeftBumper().whileHeld(new ToteKnockerExtendCommand());
+        driverPad.getRightBumper().whileHeld(new ToteKnockerExtendCommand());
     }
 }
