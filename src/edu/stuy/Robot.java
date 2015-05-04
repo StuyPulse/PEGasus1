@@ -43,15 +43,7 @@ public class Robot extends IterativeRobot {
         rightAcquirer = new RightAcquirer();
         arms = new Arms();
         lift = new Lift();
-
         oi = new OI();
-
-        SmartDashboard.putData(drivetrain);
-        SmartDashboard.putData(leftAcquirer);
-        SmartDashboard.putData(rightAcquirer);
-        SmartDashboard.putData(arms);
-        SmartDashboard.putData(lift);
-        SmartDashboard.putData(Scheduler.getInstance());
 
         setupAutonChooser();
     }
@@ -59,20 +51,21 @@ public class Robot extends IterativeRobot {
     private void setupAutonChooser() {
         autonChooser = new SendableChooser();
         // Driving backward from Scoring Platform means we are doing a mobility auton routine without pushing totes
-        autonChooser.addDefault("1. Drive backward from Scoring Platform", new AutonDriveBackwardInchesCommand(AUTON_DRIVE_BACKWARD_SCORING_PLATFORM_INCHES, AUTON_DRIVE_BACKWARD_SCORING_PLATFORM_TIMEOUT));
+        autonChooser.addObject("1. Drive backward from Scoring Platform", new AutonDriveBackwardInchesCommand(AUTON_DRIVE_BACKWARD_SCORING_PLATFORM_INCHES, AUTON_DRIVE_BACKWARD_SCORING_PLATFORM_TIMEOUT));
         autonChooser.addObject("2. Drive forward from Driver Side with arms narrow to push tote", new AutonOneTotePushForwardCommand());
         autonChooser.addObject("3. Drive forward from Driver Side with arms released to push both tote and bin", new AutonOneSetPushForwardCommand());
         // -1 means that AutonDriveForwardInches/AutonDriveBackwardInches uses INCHES_LABEL. Defers reading of SmartDashboard value until auton starts
         autonChooser.addObject("4. Drive forward Custom Amount", new AutonDriveForwardInchesCommand(-1, AUTON_DRIVETRAIN_TIMEOUT));
         autonChooser.addObject("5. Drive backward Custom Amount", new AutonDriveBackwardInchesCommand(-1, AUTON_DRIVETRAIN_TIMEOUT));
-        autonChooser.addObject("6. Do nothing", new CommandGroup());
-        autonChooser.addObject("7. Lift ten inches then do auton 3", new AutonLiftAndDrive());
-        autonChooser.addObject("8. Lift ten inches, then do nothing", new LiftUpInchesCommand(AUTON_LIFT_DISTANCE));
-        autonChooser.addObject("9. Lift ten inches, then drive backwards", new AutonLiftAndDriveBackwards());
+        autonChooser.addObject("6. Lift ten inches then do auton 3", new AutonLiftAndDrive());
+        autonChooser.addObject("7. Lift ten inches, then do nothing", new LiftUpInchesCommand(AUTON_LIFT_DISTANCE));
+        autonChooser.addObject("8. Lift ten inches, then drive backwards", new AutonLiftAndDriveBackwards());
+        autonChooser.addObject("9. Lift ten inches, then drive backwards over bump" , new AutonLiftAndDriveBackwardsOverBump());
         autonChooser.addObject("10. Lift tote to auton zone", new AutonLiftToteTurnDriveForward());
         autonChooser.addObject("11. Lift container to auton zone", new AutonLiftContainerTurnDriveForward());
         autonChooser.addObject("12. Lift container and herd tote to auton zone", new AutonLiftContainerHerdTote());
         autonChooser.addObject("13. Herd tote into auton zone", new AutonTurnAndHerdTote());
+        autonChooser.addDefault("14. Do nothing", new CommandGroup());
         SmartDashboard.putData("Auton setting", autonChooser);
         SmartDashboard.putNumber(INCHES_LABEL, -1);
     }
@@ -96,6 +89,7 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Left Encoder:", Robot.drivetrain.getLeftEncoder());
         SmartDashboard.putNumber("Right Encoder:", Robot.drivetrain.getRightEncoder());
+        SmartDashboard.putNumber("Gyro: ", Robot.drivetrain.getGyroAngle());
     }
 
     public void teleopInit() {
@@ -106,7 +100,6 @@ public class Robot extends IterativeRobot {
         if (autonomousCommand != null) autonomousCommand.cancel();
 
         // Initialize subsystem states:
-        new ArmsSetNarrowCommand().start();
         drivetrain.setBrakeMode(false);
         drivetrain.setSpeedUp(true);
         lift.setOverridden(false);

@@ -13,6 +13,6 @@ public class AutonLiftAndDrive extends CommandGroup {
 
     public  AutonLiftAndDrive() {
         addSequential(new LiftUpInchesCommand(AUTON_LIFT_DISTANCE));
-        addSequential(new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE_INCHES, AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT));
+        addSequential(new AutonDriveForwardInchesCommand(AUTON_DRIVE_FORWARD_DRIVER_SIDE_INCHES - 12, AUTON_DRIVE_FORWARD_DRIVER_SIDE_TIMEOUT));
     }
 }

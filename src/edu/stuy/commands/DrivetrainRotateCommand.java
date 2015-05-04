@@ -5,8 +5,9 @@ import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.PIDCommand;
 
 /**
- *
+ * Rotates the Robot using PID values
  */
+
 public class DrivetrainRotateCommand extends PIDCommand {
 
     private double degrees;
