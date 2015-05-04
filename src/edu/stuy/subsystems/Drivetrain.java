@@ -24,6 +24,7 @@ public class Drivetrain extends Subsystem {
     private Encoder rightEncoder;
     private StuyGyro gyro;
     private boolean speedUp;
+    private boolean overridden;
 
     public Drivetrain() {
         frontLeftMotor = new CANTalon(DRIVE_FRONT_LEFT_ID);
@@ -116,6 +117,14 @@ public class Drivetrain extends Subsystem {
 
     public boolean isSpeedUp() {
         return speedUp;
+    }
+
+    public void setOverridden(boolean on) {
+        overridden = on;
+    }
+
+    public boolean isOverridden() {
+        return overridden;
     }
 
 }

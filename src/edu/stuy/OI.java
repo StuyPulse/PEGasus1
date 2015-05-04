@@ -9,6 +9,8 @@ import edu.stuy.commands.AcquirerRightReleaseCommand;
 import edu.stuy.commands.ArmsGetNarrowerCommand;
 import edu.stuy.commands.ArmsGetWiderCommand;
 import edu.stuy.commands.CanGrabberToggleCommand;
+import edu.stuy.commands.DrivetrainTankDriveOverrideOffCommand;
+import edu.stuy.commands.DrivetrainTankDriveOverrideOnCommand;
 import edu.stuy.commands.LiftOverrideCommand;
 import edu.stuy.commands.ToteKnockerExtendCommand;
 import edu.stuy.commands.ToteKnockerRetractCommand;
@@ -74,5 +76,8 @@ public class OI {
 
         driverPad.getLeftBumper().whileHeld(new ToteKnockerExtendCommand());
         driverPad.getRightBumper().whileHeld(new ToteKnockerExtendCommand());
+
+        driverPad.getStartButton().whenPressed(new DrivetrainTankDriveOverrideOnCommand());
+        driverPad.getSelectButton().whenPressed(new DrivetrainTankDriveOverrideOffCommand());
     }
 }
