@@ -9,18 +9,18 @@ import edu.wpi.first.wpilibj.command.Command;
 public class LiftControlCommand extends Command {
 
     public LiftControlCommand() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         requires(Robot.lift);
     }
 
-    // Called just before this Command runs the first time
     protected void initialize() {
     }
 
-    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        double input = squareInput(Robot.oi.operatorPad.getRightY()) * 0.75;
+        double right = Robot.oi.operatorPad.getRightY();
+        if(Math.abs(right) > 0.0){
+            Robot.toteknocker.retract();
+        }
+        double input = squareInput(right) * 0.75;
         Robot.lift.manualControl(-input);
     }
 
