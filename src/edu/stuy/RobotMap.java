@@ -27,8 +27,8 @@ public interface RobotMap extends PhysicalConstants {
     int SOLENOID_ARMS_SHORT_OUT = 3;
     int SOLENOID_ARMS_SHORT_IN = 2;
     int LIFT_SOLENOID_BRAKE = 5;
-    int CANNER_SOLENOID_OPEN = 6;
-    int CANNER_SOLENOID_CLOSE = 7;
+    int CANNER_SOLENOID_OPEN = 1;
+    int CANNER_SOLENOID_CLOSE = 2;
     int TOTE_KNOCKER_SOLENOID_ID = 0;
 
     // Joystick Ports
