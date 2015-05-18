@@ -4,6 +4,7 @@ import static edu.stuy.RobotMap.*;
 import edu.stuy.commands.ArmsSetNarrowCommand;
 import edu.stuy.commands.LiftUpInchesCommand;
 import edu.stuy.subsystems.*;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -106,7 +107,7 @@ public class Robot extends IterativeRobot {
         drivetrain.setBrakeMode(false);
         drivetrain.setSpeedUp(true);
         lift.setOverridden(false);
-        canner.open(false);
+        canner.open(true);
     }
 
     /**
@@ -114,7 +115,6 @@ public class Robot extends IterativeRobot {
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
-        canner.open(true);
     }
 
     /**
