@@ -5,7 +5,7 @@ import edu.stuy.util.ArmsPosition;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Changes the position of the arms to the next narrowest position
  */
 public class ArmsGetNarrowerCommand extends Command {
 

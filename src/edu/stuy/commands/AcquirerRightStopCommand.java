@@ -3,6 +3,9 @@ package edu.stuy.commands;
 import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
+/**
+ * Stops the right acquirer wheel from running
+ */
 public class AcquirerRightStopCommand extends Command {
 
     public AcquirerRightStopCommand() {

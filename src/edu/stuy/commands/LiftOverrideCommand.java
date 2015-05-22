@@ -4,7 +4,7 @@ import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Overrides the limit switch of the lift
  */
 public class LiftOverrideCommand extends Command {
 

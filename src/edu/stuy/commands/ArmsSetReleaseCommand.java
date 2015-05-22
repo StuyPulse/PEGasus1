@@ -4,7 +4,7 @@ import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Sets the arms of the robot to the release position
  */
 public class ArmsSetReleaseCommand extends Command {
 

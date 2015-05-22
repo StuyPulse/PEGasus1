@@ -1,12 +1,14 @@
 package edu.stuy.commands.auton;
 
 import static edu.stuy.RobotMap.*;
+
 import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 /**
- *
+ * Autonomous command that drives back a given distance
  */
 public class AutonDriveBackwardInchesCommand extends Command {
 

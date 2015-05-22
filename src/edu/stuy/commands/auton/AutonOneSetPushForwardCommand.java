@@ -6,7 +6,9 @@ import edu.stuy.commands.ArmsSetReleaseCommand;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * The robot starts behind the auton set.
+ * 1) Set arms to release.
+ * 2) Drive forward to auton zone.
  */
 public class AutonOneSetPushForwardCommand extends CommandGroup {
 

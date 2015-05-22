@@ -6,7 +6,8 @@ import edu.stuy.commands.LiftUpInchesCommand;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * Autonomous that lifts up the specified distance, then drives backwards
+ * to the auton zone over the scoring platform
  */
 public class AutonLiftAndDriveBackwardsOverBump extends CommandGroup {
 

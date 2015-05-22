@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import static edu.stuy.RobotMap.*;
 
 /**
- *
+ * Moves the lift up a specified distance
  */
 public class LiftUpInchesCommand extends Command {
 

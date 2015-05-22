@@ -6,7 +6,8 @@ import edu.stuy.commands.LiftUpInchesCommand;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * Autonomous that lifts up the specified distance, then drives backwards
+ * to the auton zone
  */
 public class AutonLiftAndDriveBackwards extends CommandGroup {
 

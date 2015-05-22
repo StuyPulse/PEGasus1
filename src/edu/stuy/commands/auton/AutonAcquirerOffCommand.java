@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.stuy.Robot;
 
 /**
- *
+ * Autonomous command that stops both acquirer wheels from running 
  */
 public class AutonAcquirerOffCommand extends Command {
 

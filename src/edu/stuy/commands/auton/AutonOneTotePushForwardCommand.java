@@ -6,7 +6,9 @@ import edu.stuy.commands.ArmsSetNarrowCommand;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * The robot starts behind the tote.
+ * 1) Set arms to narrow.
+ * 2) Drive forward to the auton zone.
  */
 public class AutonOneTotePushForwardCommand extends CommandGroup {
 

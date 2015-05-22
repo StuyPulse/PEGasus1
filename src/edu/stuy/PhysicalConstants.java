@@ -1,5 +1,9 @@
 package edu.stuy;
 
+/**
+ * PhysicalConstants maps the constant values of the game pieces to a variable
+ * to increase readability and make changing values easier.
+ */
 public interface PhysicalConstants {
 
     // Robot Dimensions approx. (inches)

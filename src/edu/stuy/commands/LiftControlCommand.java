@@ -4,7 +4,7 @@ import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Controls the lift, using the right joystick of the operator pad
  */
 public class LiftControlCommand extends Command {
 

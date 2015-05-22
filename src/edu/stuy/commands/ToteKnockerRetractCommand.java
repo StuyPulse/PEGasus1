@@ -4,7 +4,7 @@ import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Retracts the tote knocker
  */
 public class ToteKnockerRetractCommand extends Command {
 

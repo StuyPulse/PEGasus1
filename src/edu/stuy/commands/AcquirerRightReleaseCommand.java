@@ -3,6 +3,9 @@ package edu.stuy.commands;
 import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
+/**
+ * Runs the right acquirer wheel outward to release
+ */
 public class AcquirerRightReleaseCommand extends Command {
 
     public AcquirerRightReleaseCommand() {

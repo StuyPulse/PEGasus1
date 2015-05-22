@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  * The robot starts collinear with the auton set, with the hook in the can.
  * 1) Lift up the can.
- * 2) Turn 90Â° to the left.
+ * 2) Turn 90° to the left.
  * 3) Drive forward to the auton zone.
  */
 public class AutonLiftContainerTurnDriveForward extends CommandGroup {

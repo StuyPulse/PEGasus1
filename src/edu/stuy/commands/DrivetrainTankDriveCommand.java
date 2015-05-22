@@ -5,7 +5,7 @@ import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Runs the drivetrain, and changes the speed mode of the drivetrain
  */
 public class DrivetrainTankDriveCommand extends Command {
 

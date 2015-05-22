@@ -7,9 +7,6 @@ import edu.stuy.commands.LiftDownInchesCommand;
 import edu.stuy.commands.LiftUpInchesCommand;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-/**
- *
- */
 public class AutonThreeTote extends CommandGroup {
     
     public  AutonThreeTote() {

@@ -51,6 +51,10 @@ public class Robot extends IterativeRobot {
         setupAutonChooser();
     }
 
+    /**
+     * This function sends all the possible autons to SmartDashboard to be selected
+     * before a match.
+     */
     private void setupAutonChooser() {
         autonChooser = new SendableChooser();
         // Driving backward from Scoring Platform means we are doing a mobility auton routine without pushing totes
@@ -73,10 +77,16 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber(INCHES_LABEL, -1);
     }
 
+    /**
+     * This function is run periodically while the robot is disabled.
+     */
     public void disabledPeriodic() {
         Scheduler.getInstance().run();
     }
 
+    /**
+     * This function is run when autonomous period begins.
+     */
     public void autonomousInit() {
         drivetrain.resetEncoders();
         drivetrain.setBrakeMode(true);
@@ -95,6 +105,9 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Gyro: ", Robot.drivetrain.getGyroAngle());
     }
 
+    /**
+     * This function is run whenever teleoperated period begins.
+     */
     public void teleopInit() {
         // This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to

@@ -4,7 +4,7 @@ import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Turns off the override for the ramping of the drivetrain
  */
 public class DrivetrainTankDriveOverrideOffCommand extends Command {
 

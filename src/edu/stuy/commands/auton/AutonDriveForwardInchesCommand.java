@@ -5,8 +5,9 @@ import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 /**
- *
+ * Autonomous that drives forward a given distance
  */
 public class AutonDriveForwardInchesCommand extends Command {
 

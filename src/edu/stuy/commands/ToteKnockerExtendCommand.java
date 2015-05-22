@@ -4,7 +4,7 @@ import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Extends the tote knocker out
  */
 public class ToteKnockerExtendCommand extends Command {
 

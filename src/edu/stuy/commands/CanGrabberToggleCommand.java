@@ -4,7 +4,8 @@ import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Changes the position of the can grabber to the position opposite of
+ * the current position
  */
 public class CanGrabberToggleCommand extends Command {
 

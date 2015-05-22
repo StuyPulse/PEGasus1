@@ -4,7 +4,7 @@ import edu.stuy.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Opens the can grabber
  */
 public class CanGrabberOpenCommand extends Command {
 
