@@ -8,10 +8,13 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
+/**
+ * Lift controls the lift system on the robot
+ * Lift picks up totes and RCs to allow for stacking
+ */
+
 public class Lift extends Subsystem {
 
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
     private CANTalon liftMotor;
     private Solenoid brake;
     private DigitalInput limitSwitch;
@@ -40,6 +43,10 @@ public class Lift extends Subsystem {
         brake.set(on);
     }
 
+    /**
+     * Moves the lift upward unless the lift is already at the top
+     */
+
     public void goUp() {
         if (isAtTop()) {
             stop();
@@ -49,6 +56,10 @@ public class Lift extends Subsystem {
         }
     }
 
+    /**
+     * Moves the lift downward unless the lift is already at the bottom
+     */
+    
     public void goDown() {
         if (isAtBottom()) {
             stop();
@@ -57,6 +68,11 @@ public class Lift extends Subsystem {
             liftMotor.set(-1.0);
         }
     }
+
+    /**
+     * Manually controls the lift using a specified speed
+     * @param speed The speed that the lift is moved at
+     */
 
     public void manualControl(double speed) {
         if (Math.abs(speed) < 0.1) {
@@ -69,33 +85,57 @@ public class Lift extends Subsystem {
         }
     }
 
+    /**
+     * Stops the lift
+     */
+
     public void stop() {
         liftMotor.set(0.0);
         setBrake(true);
     }
 
+    /**
+     * Gets whether the lift is at the bottom
+     * 
+     * @return whether the lift is at the bottom
+     */
+
     public boolean isAtBottom() {
         return limitSwitch.get() && !overridden;
     }
-
+    
     public boolean isAboveRecyclingBinHeight() {
-        return getLiftEncoder() >= LIFT_ENCODER_RECYCLING_BIN_HEIGHT;
+        return getLiftEncoderDistance() >= LIFT_ENCODER_RECYCLING_BIN_HEIGHT;
     }
+
+    /**
+     * Gets whether the lift is at the top
+     * 
+     * @return whether the lift is at the top
+     */
 
     public boolean isAtTop() {
-        return getLiftEncoder() >= LIFT_ENCODER_MAX_HEIGHT && !overridden;
+        return getLiftEncoderDistance() >= LIFT_ENCODER_MAX_HEIGHT && !overridden;
     }
 
-    // TODO: give me a better name
-    public void runEncoderLogic() {
+    /**
+     * Resets the encoder if the lift is at the bottom
+     */
+
+    public void checkForReset() {
         if (isAtBottom()) {
             liftEncoder.reset();
         }
     }
 
-    public double getLiftEncoder() {
+    public double getLiftEncoderDistance() {
         return liftEncoder.getDistance();
     }
+
+    /**
+     * Sets the override for the limit switch for the 
+     * @param on Whether or not the limit switch should be overridden.
+     */
 
     public void setOverridden(boolean on) {
         overridden = on;

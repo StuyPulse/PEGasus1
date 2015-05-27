@@ -5,6 +5,12 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import static edu.stuy.RobotMap.*;
 
+
+/**
+ * CanGrabber represents the can-grabbing mechanism of PEGasus1
+ * Can open and close using a double solenoid
+ */
+
 public class CanGrabber extends Subsystem {
 
     private Solenoid cannerSolenoidOpen;
@@ -19,6 +25,10 @@ public class CanGrabber extends Subsystem {
     public void initDefaultCommand() {
     }
 
+    /**
+     * Toggles the state of the can grabber from open to close
+     */
+    
     public void toggle() {
         if (opened) {
             open(false);
@@ -27,6 +37,11 @@ public class CanGrabber extends Subsystem {
         }
     }
 
+    /**
+     * Changes the state of the can grabber
+     * @param open Whether or not the can grabber should be opened.
+     */
+    
     public void open(boolean open) {
         cannerSolenoidOpen.set(open);
         cannerSolenoidClose.set(!open);

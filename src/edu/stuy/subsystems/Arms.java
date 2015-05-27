@@ -5,10 +5,12 @@ import edu.stuy.util.ArmsPosition;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class Arms extends Subsystem {
+/**
+ * Arms controls the acquirer arms on the robot
+ * Has three positions, narrow, wide, and release
+ */
 
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+public class Arms extends Subsystem {
 
     private Solenoid shortPistonOut;
     private Solenoid shortPistonIn;

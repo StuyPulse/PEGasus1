@@ -23,13 +23,13 @@ public class LiftDownInchesCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        startHeight = Robot.lift.getLiftEncoder();
+        startHeight = Robot.lift.getLiftEncoderDistance();
         startTime = Timer.getFPGATimestamp();
         Robot.lift.goDown();
     }
 
     protected double getDistanceTraveled() {
-        return startHeight - Robot.lift.getLiftEncoder();
+        return startHeight - Robot.lift.getLiftEncoderDistance();
     }
 
     protected boolean checkDistance() {

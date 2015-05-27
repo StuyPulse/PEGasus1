@@ -8,8 +8,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- * Autonomous command that drives back a given distance
+ * Autonomous command that drives backward a specified number of inches
  */
+
 public class AutonDriveBackwardInchesCommand extends Command {
 
     private double distance;
@@ -23,20 +24,16 @@ public class AutonDriveBackwardInchesCommand extends Command {
      * @param _timeout Does not exceed this time.
      */
     public AutonDriveBackwardInchesCommand(double _distance, double _timeout) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         usingCustomDistance = _distance < 0;
         distance = _distance;
         timeout = _timeout;
         requires(Robot.drivetrain);
     }
 
-    // Called just before this Command runs the first time
     protected void initialize() {
         startTime = Timer.getFPGATimestamp();
     }
 
-    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if (usingCustomDistance) {
             distance = SmartDashboard.getNumber(INCHES_LABEL);
@@ -67,18 +64,14 @@ public class AutonDriveBackwardInchesCommand extends Command {
         return speed * 0.6; // Lower maximum speed to .5
     }
 
-    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return Robot.drivetrain.getDistanceAbsolute() >= distance || Timer.getFPGATimestamp() - startTime >= timeout;
     }
 
-    // Called once after isFinished returns true
     protected void end() {
         Robot.drivetrain.stop();
     }
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
     protected void interrupted() {
     }
 

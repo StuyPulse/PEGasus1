@@ -11,6 +11,12 @@ import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
+/**
+ * Drivetrain controls the drivetrain on the robot
+ * Uses ramping
+ * Has two speed modes, regular and slow mode
+ */
+
 public class Drivetrain extends Subsystem {
 
     // Put methods for controlling this subsystem
@@ -119,6 +125,11 @@ public class Drivetrain extends Subsystem {
         return speedUp;
     }
 
+    /**
+     * Sets the override for ramping
+     * @param on Whether or not ramping should be overridden.
+     */
+    
     public void setOverridden(boolean on) {
         overridden = on;
     }

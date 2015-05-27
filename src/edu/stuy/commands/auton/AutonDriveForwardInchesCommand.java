@@ -7,8 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- * Autonomous that drives forward a given distance
+ * Autonomous command that drives forward a specified number of inches
  */
+
 public class AutonDriveForwardInchesCommand extends Command {
 
     private double distance;
@@ -22,21 +23,17 @@ public class AutonDriveForwardInchesCommand extends Command {
      * @param _timeout Does not exceed this time.
      */
     public AutonDriveForwardInchesCommand(double _distance, double _timeout) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         usingCustomDistance = _distance < 0;
         distance = _distance;
         timeout = _timeout;
         requires(Robot.drivetrain);
     }
 
-    // Called just before this Command runs the first time
     protected void initialize() {
         Robot.drivetrain.resetEncoders();
         startTime = Timer.getFPGATimestamp();
     }
 
-    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if (usingCustomDistance) {
             distance = SmartDashboard.getNumber(INCHES_LABEL);
@@ -49,7 +46,7 @@ public class AutonDriveForwardInchesCommand extends Command {
      * Ramping algorithm for linear acceleration and smooth velocity
      * Takes one second to ramp up to max speed
      * if t < 0.5, then speed = 2t^2;
-     * if t < 1, then speed = -2t^2 + 4t - 1;
+     * if 0.5 <= t < 1, then speed = -2t^2 + 4t - 1;
      * if t >= 1, then speed = 1;
      * @return the speed the robot should go at the current time
      */
@@ -64,21 +61,17 @@ public class AutonDriveForwardInchesCommand extends Command {
         } else {
             speed = 1;
         }
-        return speed * 0.6; // Lower maximum speed to .6
+        return speed * 0.6;
     }
 
-    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return Robot.drivetrain.getDistanceAbsolute() >= distance || Timer.getFPGATimestamp() - startTime >= timeout;
     }
 
-    // Called once after isFinished returns true
     protected void end() {
         Robot.drivetrain.stop();
     }
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
     protected void interrupted() {
     }
 

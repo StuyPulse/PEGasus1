@@ -135,11 +135,11 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        lift.runEncoderLogic();
+        lift.checkForReset();
         SmartDashboard.putNumber("Left Encoder:", Robot.drivetrain.getLeftEncoder());
         SmartDashboard.putNumber("Right Encoder:", Robot.drivetrain.getRightEncoder());
         SmartDashboard.putNumber("Gyro Angle:", Robot.drivetrain.getGyroAngle());
-        SmartDashboard.putNumber("Lift Encoder:", Robot.lift.getLiftEncoder());
+        SmartDashboard.putNumber("Lift Encoder:", Robot.lift.getLiftEncoderDistance());
         SmartDashboard.putBoolean("Lift Limit Switch", Robot.lift.isAtBottom());
         SmartDashboard.putBoolean("Lift Overridden?" , Robot.lift.getOverridden());
     }

@@ -6,6 +6,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 import static edu.stuy.RobotMap.*;
 
+/**
+ * ToteKnocker controls the tote knocking mechanism
+ * Knocks over vertical totes
+ * Can be used to dislodge RCs
+ */
+
 public class ToteKnocker extends Subsystem {
 
     Solenoid toteKnockerPiston;

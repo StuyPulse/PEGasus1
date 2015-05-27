@@ -5,6 +5,11 @@ import edu.stuy.commands.AcquirerRightStopCommand;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
+/**
+ * RightAcquirer controls the right acquirer wheel
+ * The acquirer wheels are on the arms to acquire totes and RCs
+ */
+
 public class RightAcquirer extends Subsystem {
 
     // Put methods for controlling this subsystem

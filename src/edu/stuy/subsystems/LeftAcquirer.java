@@ -5,10 +5,13 @@ import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import static edu.stuy.RobotMap.*;
 
+/**
+ * LeftAcquirer controls the left acquirer wheel
+ * The acquirer wheels are on the arms to acquire totes and RCs
+ */
+
 public class LeftAcquirer extends Subsystem {
 
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
     private CANTalon leftRoller;
 
     public LeftAcquirer() {
@@ -16,8 +19,6 @@ public class LeftAcquirer extends Subsystem {
     }
 
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
         setDefaultCommand(new AcquirerLeftStopCommand());
     }
 

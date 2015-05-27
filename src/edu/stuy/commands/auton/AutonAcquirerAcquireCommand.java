@@ -4,9 +4,6 @@ import edu.wpi.first.wpilibj.command.Command;
 
 import edu.stuy.Robot;
 
-/**
- * Autonomous command that runs both acquirer wheels to acquire
- */
 public class AutonAcquirerAcquireCommand extends Command {
 
     public AutonAcquirerAcquireCommand() {
