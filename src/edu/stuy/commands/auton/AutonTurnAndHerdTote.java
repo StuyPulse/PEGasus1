@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  * Robot starts collinear with the auton set, with the acquirer grasping the tote.
  * 1) Acquire the tote.
- * 2) Turn 90° to the right.
+ * 2) Turn 90 to the right.
  * 3) Drive forward to the auton zone.
  */
 public class AutonTurnAndHerdTote extends CommandGroup {
