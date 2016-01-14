@@ -8,14 +8,14 @@ package edu.wpi.first.wpilibj;
 
 /**
  * Use a rate gyro to return the robots heading relative to a starting position.
- * The Gyro class tracks the robots heading based on the starting position. As
+ * The AnalogGyro class tracks the robots heading based on the starting position. As
  * the robot rotates the new heading is computed by integrating the rate of
  * rotation returned by the sensor. When the class is instantiated, it does a
  * short calibration routine where it samples the gyro while at rest to
  * determine the default offset. This is subtracted from each sample to
  * determine the heading.
  */
-public class StuyGyroLib extends Gyro {
+public class StuyGyroLib extends AnalogGyro {
 
     public StuyGyroLib(AnalogInput channel) {
         super(channel);
