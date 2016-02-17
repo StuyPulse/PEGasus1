@@ -1,13 +1,23 @@
 package edu.stuy.subsystems;
 
-import static edu.stuy.RobotMap.*;
+import static edu.stuy.RobotMap.DRIVETRAIN_ENCODER_INCHES_PER_PULSE;
+import static edu.stuy.RobotMap.DRIVETRAIN_ENCODER_LEFT_CHANNEL_A;
+import static edu.stuy.RobotMap.DRIVETRAIN_ENCODER_LEFT_CHANNEL_B;
+import static edu.stuy.RobotMap.DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A;
+import static edu.stuy.RobotMap.DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B;
+import static edu.stuy.RobotMap.DRIVETRAIN_GYRO_CHANNEL;
+import static edu.stuy.RobotMap.DRIVE_FRONT_LEFT_ID;
+import static edu.stuy.RobotMap.DRIVE_FRONT_RIGHT_ID;
+import static edu.stuy.RobotMap.DRIVE_REAR_LEFT_ID;
+import static edu.stuy.RobotMap.DRIVE_REAR_RIGHT_ID;
 import edu.stuy.commands.DrivetrainTankDriveCommand;
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 
 public class Drivetrain extends Subsystem {
 
@@ -39,7 +49,7 @@ public class Drivetrain extends Subsystem {
         rightEncoder = new Encoder(DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A, DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B, false, EncodingType.k2X);
         rightEncoder.setDistancePerPulse(DRIVETRAIN_ENCODER_INCHES_PER_PULSE);
 
-        gyro = new Gyro(DRIVETRAIN_GYRO_CHANNEL);
+        gyro = new AnalogGyro(DRIVETRAIN_GYRO_CHANNEL);
         speedUp = true;
     }
 

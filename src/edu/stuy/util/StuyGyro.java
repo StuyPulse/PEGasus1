@@ -4,10 +4,10 @@ import java.util.LinkedList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.Gyro;
 
-public class StuyGyro extends Gyro {
+public class StuyGyro extends AnalogGyro {
 
     private LinkedList<Double> gyroMeasurements;
     private Timer updateMeasurements;
