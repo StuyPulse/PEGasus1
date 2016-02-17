@@ -97,17 +97,6 @@ public class Drivetrain extends Subsystem {
      *
      * @return the larger of the absolute values of left and right encoder
      */
-    public double getDistanceAbsolute() {
-        return Math.max(Math.abs(getLeftEncoder()), Math.abs(getRightEncoder()));
-    }
-
-    public double getLeftEncoder() {
-        return leftEncoder.getDistance();
-    }
-
-    public double getRightEncoder() {
-        return rightEncoder.getDistance();
-    }
 
     public double getGyroAngle() {
         return gyro.getAngle();
