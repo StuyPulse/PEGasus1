@@ -1,9 +1,12 @@
 package edu.stuy.subsystems;
 
+import static edu.stuy.RobotMap.ACQUIRER_LEFT_ROLLER_ID;
+import static edu.stuy.RobotMap.ACQUIRER_ROLLER_SPEED;
+
+import com.ctre.CANTalon;
+
 import edu.stuy.commands.AcquirerLeftStopCommand;
-import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import static edu.stuy.RobotMap.*;
 
 /**
  * LeftAcquirer controls the left acquirer wheel

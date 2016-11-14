@@ -1,8 +1,18 @@
 package edu.stuy.subsystems;
 
-import static edu.stuy.RobotMap.*;
+import static edu.stuy.RobotMap.LIFT_ENCODER_CHANNEL_A;
+import static edu.stuy.RobotMap.LIFT_ENCODER_CHANNEL_B;
+import static edu.stuy.RobotMap.LIFT_ENCODER_INCHES_PER_PULSE;
+import static edu.stuy.RobotMap.LIFT_ENCODER_MAX_HEIGHT;
+import static edu.stuy.RobotMap.LIFT_ENCODER_RECYCLING_BIN_HEIGHT;
+import static edu.stuy.RobotMap.LIFT_LIMIT_SWITCH_CHANNEL;
+import static edu.stuy.RobotMap.LIFT_MOTOR_ID;
+import static edu.stuy.RobotMap.LIFT_SOLENOID_BRAKE;
+import static edu.stuy.RobotMap.PCM_1;
+
+import com.ctre.CANTalon;
+
 import edu.stuy.commands.LiftControlCommand;
-import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Solenoid;

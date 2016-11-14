@@ -1,13 +1,22 @@
 package edu.stuy.subsystems;
 
-import static edu.stuy.RobotMap.*;
-import edu.stuy.Robot;
+import static edu.stuy.RobotMap.DRIVETRAIN_ENCODER_INCHES_PER_PULSE;
+import static edu.stuy.RobotMap.DRIVETRAIN_ENCODER_LEFT_CHANNEL_A;
+import static edu.stuy.RobotMap.DRIVETRAIN_ENCODER_LEFT_CHANNEL_B;
+import static edu.stuy.RobotMap.DRIVETRAIN_ENCODER_RIGHT_CHANNEL_A;
+import static edu.stuy.RobotMap.DRIVETRAIN_ENCODER_RIGHT_CHANNEL_B;
+import static edu.stuy.RobotMap.DRIVETRAIN_GYRO_CHANNEL;
+import static edu.stuy.RobotMap.DRIVE_FRONT_LEFT_ID;
+import static edu.stuy.RobotMap.DRIVE_FRONT_RIGHT_ID;
+import static edu.stuy.RobotMap.DRIVE_REAR_LEFT_ID;
+import static edu.stuy.RobotMap.DRIVE_REAR_RIGHT_ID;
+
+import com.ctre.CANTalon;
+
 import edu.stuy.commands.DrivetrainTankDriveCommand;
 import edu.stuy.util.StuyGyro;
-import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 

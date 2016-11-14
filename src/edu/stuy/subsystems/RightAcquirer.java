@@ -1,8 +1,11 @@
 package edu.stuy.subsystems;
 
-import static edu.stuy.RobotMap.*;
+import static edu.stuy.RobotMap.ACQUIRER_RIGHT_ROLLER_ID;
+import static edu.stuy.RobotMap.ACQUIRER_ROLLER_SPEED;
+
+import com.ctre.CANTalon;
+
 import edu.stuy.commands.AcquirerRightStopCommand;
-import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
